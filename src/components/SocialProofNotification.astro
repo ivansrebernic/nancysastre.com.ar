@@ -1,0 +1,181 @@
+---
+// Sample data for notifications
+const notifications = [
+  {
+    type: 'purchase',
+    name: 'María G.',
+    location: 'Buenos Aires',
+    product: 'Pack Completo',
+    time: 'hace 2 minutos'
+  },
+  {
+    type: 'team',
+    name: 'Carlos R.',
+    location: 'Córdoba',
+    rank: 'Distribuidor',
+    time: 'hace 5 minutos'
+  },
+  {
+    type: 'purchase',
+    name: 'Ana L.',
+    location: 'Rosario',
+    product: 'Energía Verde x3',
+    time: 'hace 8 minutos'
+  },
+  {
+    type: 'team',
+    name: 'Roberto M.',
+    location: 'Mendoza',
+    rank: 'Líder Bronce',
+    time: 'hace 12 minutos'
+  },
+  {
+    type: 'purchase',
+    name: 'Lucía P.',
+    location: 'La Plata',
+    product: 'Detox Premium',
+    time: 'hace 15 minutos'
+  }
+];
+---
+
+<div id="social-proof-container" class="fixed bottom-24 left-6 z-50 pointer-events-none">
+  <!-- Notification will be inserted here by JavaScript -->
+</div>
+
+<style>
+  .social-proof-notification {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(66, 217, 118, 0.3);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateX(-400px);
+    animation: slideIn 0.5s ease forwards, slideOut 0.5s ease 4.5s forwards;
+    max-width: 320px;
+  }
+
+  .notification-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .notification-icon.purchase {
+    background: rgba(66, 217, 118, 0.2);
+    color: #42d976;
+  }
+
+  .notification-icon.team {
+    background: rgba(124, 58, 237, 0.2);
+    color: #7c3aed;
+  }
+
+  .notification-content {
+    flex: 1;
+  }
+
+  .notification-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .notification-subtitle {
+    font-size: 12px;
+    color: #9ca3af;
+  }
+
+  .notification-time {
+    font-size: 11px;
+    color: #6b7280;
+    white-space: nowrap;
+  }
+
+  @keyframes slideIn {
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideOut {
+    to {
+      transform: translateX(-400px);
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #social-proof-container {
+      left: 1rem;
+      right: 1rem;
+      bottom: 80px;
+    }
+
+    .social-proof-notification {
+      max-width: 100%;
+    }
+  }
+</style>
+
+<script define:vars={{ notifications }}>
+  let notificationIndex = 0;
+  const container = document.getElementById('social-proof-container');
+
+  function createNotification(data) {
+    const notification = document.createElement('div');
+    notification.className = 'social-proof-notification';
+    
+    const iconClass = data.type === 'purchase' ? 'shopping_cart' : 'person_add';
+    const iconColorClass = data.type === 'purchase' ? 'purchase' : 'team';
+    
+    notification.innerHTML = `
+      <div class="notification-icon ${iconColorClass}">
+        <span class="material-icons">${iconClass}</span>
+      </div>
+      <div class="notification-content">
+        <div class="notification-title">
+          ${data.type === 'purchase' 
+            ? `${data.name} compró ${data.product}` 
+            : `${data.name} se unió como ${data.rank}`}
+        </div>
+        <div class="notification-subtitle">${data.location}</div>
+      </div>
+      <div class="notification-time">${data.time}</div>
+    `;
+    
+    return notification;
+  }
+
+  function showNotification() {
+    // Remove any existing notification
+    container.innerHTML = '';
+    
+    // Create and show new notification
+    const notification = createNotification(notifications[notificationIndex]);
+    container.appendChild(notification);
+    
+    // Update index for next notification
+    notificationIndex = (notificationIndex + 1) % notifications.length;
+    
+    // Remove notification after animation completes
+    setTimeout(() => {
+      notification.remove();
+    }, 5000);
+  }
+
+  // Start showing notifications after 3 seconds
+  setTimeout(() => {
+    showNotification();
+    // Show a new notification every 8 seconds
+    setInterval(showNotification, 8000);
+  }, 3000);
+</script>

@@ -1,0 +1,22 @@
+---
+export interface Props {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const { icon, title, description } = Astro.props;
+---
+
+<div class="feature-card">
+  <div class="text-center p-6 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow duration-300">
+    <span class="material-icons text-3xl text-primary mb-4 inline-block">
+      {icon}
+    </span>
+    
+    <h3 class="text-base font-scandia-medium mb-2 uppercase tracking-wider">{title}</h3>
+    
+    <p class="text-sm text-gray-600 leading-relaxed">{description}</p>
+  </div>
+</div>
+

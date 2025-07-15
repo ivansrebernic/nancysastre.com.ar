@@ -1,0 +1,106 @@
+---
+import { Image, Picture } from 'astro:assets';
+import heroImage from '../images/hero/hero.webp';
+import logoImage from '../images/LOGO.png';
+
+export interface Props {
+  backgroundImage?: ImageMetadata;
+  subtitle?: string;
+  title?: string;
+  titleHighlight?: string;
+}
+
+const { 
+  backgroundImage = heroImage,
+  subtitle = 'ÚNETE AL MOVIMIENTO',
+  title = 'TRANSFORMA TU SALUD',
+  titleHighlight = 'Y TUS INGRESOS'
+} = Astro.props;
+---
+
+<section id="hero-section" class="relative overflow-hidden">
+  <div class="container-fluid p-0">
+    <div class="relative">
+      
+      <!-- Hero content -->
+      <div id="wrap-hero" class="relative h-[70vh] min-h-[500px] overflow-hidden">
+        <!-- Parallax background -->
+        <div 
+          class="parallax absolute inset-0 w-full h-[150%]"
+          data-speed="0.5"
+        >
+          <Picture
+            src={backgroundImage}
+            alt="Hero background"
+            widths={[640, 768, 1024, 1280, 1920]}
+            sizes="100vw"
+            formats={['webp', 'jpeg']}
+            loading="eager"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        
+        <!-- Dark overlay for better text contrast -->
+        <div class="absolute inset-0 bg-black/30"></div>
+        
+        <!-- Content wrapper -->
+        <div class="wrap-title relative h-full flex items-center justify-center z-10">
+          <div class="title-hero-content text-center max-w-2xl mx-auto px-6">
+              <!-- Logo -->
+              <div class="mb-8">
+                <Image 
+                  src={logoImage}
+                  alt="Empresario Independiente Fuxion" 
+                  width={280}
+                  height={100}
+                  loading="eager"
+                  class="h-20 md:h-24 lg:h-28 w-auto mx-auto opacity-95 brightness-0 invert"
+                />
+              </div>
+              
+              <!-- Subtitle -->
+              <div class="mb-6">
+                <p class="text-white text-sm md:text-base font-scandia tracking-widest uppercase opacity-90">
+                  {subtitle}
+                </p>
+              </div>
+              
+              <!-- Main title -->
+              <div class="mb-8">
+                <h1 class="text-white text-xl md:text-2xl lg:text-5xl font-scandia-medium leading-tight">
+                  {title}
+                  <span class="block text-white/90 mt-2">{titleHighlight}</span>
+                </h1>
+              </div>
+              
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-3 justify-center items-center relative z-20">
+                <a href="/productos" class="btn-primary">
+                  COMPRAR PRODUCTOS
+                </a>
+                <button type="button" onclick="openJoinModal()" class="btn-primary cursor-pointer">
+                  ÚNETE AL EQUIPO
+                </button>
+              </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 768px) {
+    #wrap-hero {
+      min-height: 400px;
+    }
+  }
+  
+  /* Ensure smooth parallax on all devices */
+  .parallax {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+</style>

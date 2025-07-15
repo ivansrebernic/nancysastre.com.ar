@@ -1,0 +1,59 @@
+---
+export interface Props {
+  image: string;
+  category: string;
+  title: string;
+  excerpt: string;
+  link?: string;
+}
+
+const { image, category, title, excerpt, link = '#' } = Astro.props;
+---
+
+<div class="blog-card flex flex-col lg:flex-row gap-8 items-center mb-8">
+  <!-- Image -->
+  <div class="blogpicwrap lg:w-5/12">
+    <img 
+      src={image} 
+      alt={title} 
+      class="w-full h-64 lg:h-80 object-cover rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+    />
+  </div>
+
+  <!-- Content -->
+  <div class="lg:w-7/12 lg:pl-8">
+    <a href={link} class="bloglink group">
+      <div class="wrap-blogdetail">
+        <p class="p1 text-primary text-sm uppercase tracking-wider mb-3">
+          Featured : {category}
+        </p>
+        <h3 class="text-2xl lg:text-3xl font-scandia-medium mb-4 group-hover:text-primary transition-colors duration-300 leading-tight">
+          {title}
+        </h3>
+        <p class="p2 text-gray-600 leading-relaxed">
+          {excerpt}
+        </p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<style>
+  .blog-card {
+    position: relative;
+  }
+
+  .blog-card::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(66, 217, 118, 0.3), transparent);
+  }
+
+  .blog-card:last-child::after {
+    display: none;
+  }
+</style>

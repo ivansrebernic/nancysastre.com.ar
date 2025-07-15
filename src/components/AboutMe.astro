@@ -1,0 +1,242 @@
+---
+import { Image } from "astro:assets";
+import ivanImage from "../images/ivan-4.png";
+
+const stats = [
+    { number: "100%", label: "Natural y sostenible" },
+    { number: "24/7", label: "Apoyo disponible" },
+];
+---
+
+<section id="about-me" class="py-16 md:py-20 relative overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 z-0">
+        <div
+            class="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+        >
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 rounded-full blur-2xl"
+        >
+        </div>
+    </div>
+
+    <div class="container-narrow relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Content -->
+            <div class="order-2 lg:order-1">
+                <p class="section-title animate-slide-down">ACERCA DE MI</p>
+                <h2 class="section-heading animate-slide-up mb-6">
+                    Hola, soy Nancy
+                </h2>
+
+                <div class="space-y-4 text-gray-600 mb-8">
+                    <p class="animate-fade-in">
+                        Hola, soy Nancy Sastre, emprendedora desde los 16 años, mamá de 4 hijos, apasionada por el bienestar y convencida de que la vida que soñás se construye con visión y acción. Desde muy joven entendí la importancia de ser independiente. Estudié Turismo, viví en otros países, recorrí culturas y, junto a mi esposo, construimos un emprendimiento agroturístico que nos permitió criar a nuestra familia. Pero la vida nos enfrenta a desafíos inesperados…Tras enviudar, tuve que reconstruirme emocionalmente mientras sostenía mi hogar. Fue ahí donde el propósito que ya venía gestando con Fuxion se volvió aún más valioso.
+                    </p>
+                    <p class="animate-fade-in" style="animation-delay: 0.1s">
+                         Conocí Fuxion en el 2015 en Panamá,lo incorporé a mi establecimiento gastronómico turístico cuando ingresó al país en el 2018,  además de encontrar un producto noble, delicioso, sin azúcar ni químicos, capaz de mejorar la salud diaria de todas las personas, encontré un vehículo para generar ingresos constantes con múltiples herramientas  acorde con las nuevas tecnologías y con un sistema comprobado de éxito, es decir una propuesta concreta que transformo mi calidad de vida
+                    </p>
+                    <p class="animate-fade-in" style="animation-delay: 0.2s">
+                        Este negocio no solo me dio estabilidad económica en tiempos difíciles, sino también una red de contención, desarrollo personal y un propósito de impactar positivamente en la vida de las personas; en las áreas física, financiera y emocional. Hoy acompaño a personas como vos a crear una vida más disfrutable, plena y libre, emprendemos junt@s?
+                    </p>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-4 mb-8">
+                    {
+                        stats.map((stat, index) => (
+                            <div
+                                class="text-center animate-scale-in"
+                                style={`animation-delay: ${index * 0.1}s`}
+                            >
+                                <div class="text-2xl font-scandia-medium text-primary">
+                                    {stat.number}
+                                </div>
+                                <div class="text-sm text-gray-600">
+                                    {stat.label}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <!-- CTA -->
+                <div
+                    class="flex flex-col sm:flex-row gap-4 animate-fade-in"
+                    style="animation-delay: 0.3s"
+                >
+                    <a href="#contact-wrap" class="btn-primary text-center">
+                        <span class="flex items-center justify-center gap-2">
+                            <span class="material-icons text-sm">chat</span>
+                            HABLEMOS
+                        </span>
+                    </a>
+                    <a
+                        href="https://wa.me/549299651620"
+                        class="btn-secondary text-center"
+                    >
+                        <span class="flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp"></i>
+                            WHATSAPP
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image -->
+            <div class="order-1 lg:order-2 relative">
+                <div class="relative mx-auto max-w-lg">
+                    <!-- Decorative elements -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full blur-2xl transform scale-110"
+                    >
+                    </div>
+                    <div
+                        class="absolute -top-4 -right-4 w-24 h-24 bg-primary rounded-full opacity-10 animate-pulse"
+                    >
+                    </div>
+                    <div
+                        class="absolute -bottom-4 -left-4 w-32 h-32 bg-primary rounded-full opacity-10 animate-pulse"
+                        style="animation-delay: 0.5s"
+                    >
+                    </div>
+
+                    <!-- Circular frame with pattern -->
+                    <div
+                        class="relative bg-gradient-to-br from-primary/10 to-primary/5 rounded-full p-8 overflow-hidden"
+                    >
+                        <div
+                            class="absolute inset-0 rounded-full border-2 border-primary/20 border-dashed animate-spin-slow"
+                        >
+                        </div>
+
+                        <!-- Image with gradient mask -->
+                        <div class="relative z-10">
+                            <Image
+                                src={ivanImage}
+                                alt="Nancy - Tu mentor de salud y negocios"
+                                width={400}
+                                height={533}
+                                loading="lazy"
+                                class="w-full h-auto drop-shadow-2xl scale-[110%] translate-y-[-10%]"
+                                style="mask-image: linear-gradient(to bottom, black 70%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);"
+                            />
+                        </div>
+
+                        <!-- Wave overlay at bottom -->
+                        <div class="absolute bottom-0 left-0 right-0 z-20">
+                            <svg
+                                viewBox="0 0 400 80"
+                                class="w-full h-20"
+                                preserveAspectRatio="none"
+                            >
+                                <path
+                                    d="M0,40 C100,20 200,60 400,40 L400,80 L0,80 Z"
+                                    fill="rgba(1, 134, 214, 0.1)"
+                                    class="animate-wave"></path>
+                                <path
+                                    d="M0,50 C150,30 250,70 400,50 L400,80 L0,80 Z"
+                                    fill="rgba(1, 134, 214, 0.08)"
+                                    class="animate-wave"
+                                    style="animation-delay: 0.5s"></path>
+                            </svg>
+                        </div>
+
+                        <!-- Water droplets -->
+                        <div
+                            class="absolute bottom-8 left-1/4 w-3 h-3 bg-primary/20 rounded-full animate-float-slow"
+                        >
+                        </div>
+                        <div
+                            class="absolute bottom-12 right-1/3 w-2 h-2 bg-primary/15 rounded-full animate-float-slow"
+                            style="animation-delay: 0.3s"
+                        >
+                        </div>
+                        <div
+                            class="absolute bottom-6 right-1/4 w-4 h-4 bg-primary/10 rounded-full animate-float-slow"
+                            style="animation-delay: 0.6s"
+                        >
+                        </div>
+                    </div>
+
+                    <!-- Floating badges -->
+                    <div
+                        class="absolute top-4 right-4 bg-white rounded-full px-4 py-2 shadow-lg animate-float"
+                    >
+                        <span class="text-sm font-scandia-medium text-primary"
+                            >#1 Líder</span
+                        >
+                    </div>
+                    <div
+                        class="absolute bottom-8 left-4 bg-primary text-white rounded-full px-4 py-2 shadow-lg animate-float"
+                        style="animation-delay: 0.3s"
+                    >
+                        <span class="text-sm font-scandia-medium"
+                            >Mentor Certificado</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes float-slow {
+        0%,
+        100% {
+            transform: translateY(0) scale(1);
+            opacity: 0.5;
+        }
+        50% {
+            transform: translateY(-15px) scale(1.1);
+            opacity: 0.8;
+        }
+    }
+
+    @keyframes wave {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes spin-slow {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .animate-float {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .animate-float-slow {
+        animation: float-slow 4s ease-in-out infinite;
+    }
+
+    .animate-wave {
+        animation: wave 6s ease-in-out infinite;
+    }
+
+    .animate-spin-slow {
+        animation: spin-slow 20s linear infinite;
+    }
+</style>

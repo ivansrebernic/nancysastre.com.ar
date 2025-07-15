@@ -1,0 +1,134 @@
+---
+import TestimonialCard from './TestimonialCard.astro';
+import user1 from '../images/user/1.jpg';
+import user2 from '../images/user/2.jpg';
+
+const testimonials = [
+  {
+    image: user1,
+    name: 'Mariana',
+    testimonial: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has'
+  },
+  {
+    image: user2,
+    name: 'Mariana',
+    testimonial: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has'
+  },
+  {
+    image: user1,
+    name: 'John Doe',
+    testimonial: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has'
+  }
+];
+---
+
+<section id="testimonial-section" class="py-12 md:py-10 md:py-12 relative overflow-hidden">
+  <div class="container-narrow">
+    <!-- Section Header -->
+    <div class="flex justify-center mb-8 md:mb-8">
+      <div class="text-center max-w-3xl">
+        <div class="relative">
+          <p class="text-white/90 text-sm uppercase tracking-widest mb-2">LO QUE DICEN</p>
+          <h3 class="text-lg md:text-xl font-scandia-medium mb-8 text-white">TESTIMONIOS</h3>
+          <h4 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-6xl md:text-8xl lg:text-9xl font-scandia-medium text-white opacity-5 pointer-events-none">ÉXITOS</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Container -->
+    <div class="relative">
+      <!-- Background decoration -->
+      <div class="bg-testimoni absolute inset-0 bg-gray-50 opacity-30 rounded-lg"></div>
+      
+      <!-- Navigation -->
+      <div class="navigationslide absolute top-1/2 transform -translate-y-1/2 w-full flex justify-between px-4 z-10">
+        <button class="prevslide bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all duration-300 rounded-full p-3 shadow-lg border border-white/20">
+          <span class="material-icons-outlined text-white">
+            arrow_back_ios
+          </span>
+        </button>
+        <button class="nextslide bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-all duration-300 rounded-full p-3 shadow-lg border border-white/20">
+          <span class="material-icons-outlined text-white">
+            arrow_forward_ios
+          </span>
+        </button>
+      </div>
+
+      <!-- Testimonials Slider -->
+      <div id="testimonials-slider" class="overflow-hidden">
+        <div class="testimonials-track flex transition-transform duration-500 ease-in-out">
+          {testimonials.map((testimonial) => (
+            <div class="testimonial-slide w-full flex-shrink-0">
+              <TestimonialCard {...testimonial} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #testimonial-section {
+    position: relative;
+  }
+  
+  #testimonial-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .navigationslide button {
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+
+  .navigationslide button:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    .navigationslide {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.querySelector('.testimonials-track') as HTMLElement;
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const prevBtn = document.querySelector('.prevslide');
+    const nextBtn = document.querySelector('.nextslide');
+    
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    function updateSlider() {
+      const offset = -currentSlide * 100;
+      if (slider) {
+        slider.style.transform = `translateX(${offset}%)`;
+      }
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+
+    nextBtn?.addEventListener('click', nextSlide);
+    prevBtn?.addEventListener('click', prevSlide);
+
+    // Auto-play slider
+    setInterval(nextSlide, 5000);
+  });
+</script>

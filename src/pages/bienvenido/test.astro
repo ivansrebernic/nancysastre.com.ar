@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Test page - no authentication required
+export const prerender = false; // Must be false to match dynamic routes in this directory
+---
+
+<BaseLayout title="Test - Bienvenido al Equipo">
+  <main class="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <!-- Test Notice -->
+    <div class="bg-yellow-100 border-b border-yellow-200">
+      <div class="container mx-auto px-4 py-3">
+        <p class="text-yellow-800 text-sm text-center">
+          ⚠️ Esta es una página de prueba sin autenticación. La página real requiere un token válido.
+        </p>
+      </div>
+    </div>
+
+    <!-- Welcome Hero -->
+    <section class="relative py-12 lg:py-20">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+          <!-- Success Badge -->
+          <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full mb-6">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="font-medium">Acceso Exclusivo</span>
+          </div>
+          
+          <!-- Welcome Message -->
+          <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            ¡Bienvenido [Nombre]! 🎉
+          </h1>
+          <p class="text-xl text-gray-600 mb-8">
+            Me alegra mucho que hayas decidido conocer más sobre esta oportunidad
+          </p>
+          
+          <!-- Personal Message -->
+          <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+            <div class="flex items-center justify-center mb-6">
+              <img 
+                src="/image/ivan-about.png" 
+                alt="Nancy Sastre" 
+                class="w-24 h-24 rounded-full object-cover border-4 border-blue-100"
+              />
+            </div>
+            <p class="text-lg text-gray-700 leading-relaxed">
+              Hola [Nombre], soy Nancy. Preparé este video especialmente para personas como vos, 
+              que están buscando una forma real de mejorar su salud y generar ingresos extras. 
+              En los próximos minutos, te voy a mostrar exactamente cómo funciona nuestro sistema 
+              y por qué miles de personas ya están transformando sus vidas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Presentation -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+          <!-- Section Title -->
+          <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">
+              Tu Presentación Exclusiva
+            </h2>
+            <p class="text-lg text-gray-600">
+              Tomate 15 minutos para ver este video. Puede cambiar tu vida.
+            </p>
+          </div>
+          
+          <!-- YouTube Video -->
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl mb-12">
+            <div class="aspect-w-16 aspect-h-9">
+              <iframe 
+                src="https://www.youtube.com/embed/uHClBW4gajU?rel=0&modestbranding=1" 
+                title="Presentación del Negocio Fuxion"
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                class="w-full h-full"
+                style="aspect-ratio: 16/9;"
+              ></iframe>
+            </div>
+          </div>
+          
+          <!-- Video Benefits -->
+          <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-blue-50 rounded-xl p-6 text-center">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-1">15 minutos</h3>
+              <p class="text-sm text-gray-600">Presentación completa y directa</p>
+            </div>
+            
+            <div class="bg-green-50 rounded-xl p-6 text-center">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-1">Plan probado</h3>
+              <p class="text-sm text-gray-600">Sistema que ya funciona</p>
+            </div>
+            
+            <div class="bg-purple-50 rounded-xl p-6 text-center">
+              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-1">Acción inmediata</h3>
+              <p class="text-sm text-gray-600">Podés empezar hoy mismo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Test Info -->
+    <section class="py-8 bg-gray-100">
+      <div class="container mx-auto px-4 text-center">
+        <div class="bg-white rounded-lg p-6 max-w-2xl mx-auto">
+          <h3 class="text-lg font-bold mb-2">Información de Prueba</h3>
+          <p class="text-gray-600 mb-4">
+            Esta página de prueba te permite ver el diseño sin necesidad de un token válido.
+          </p>
+          <div class="text-left bg-gray-50 rounded p-4 font-mono text-sm">
+            <p><strong>Scripts disponibles para debugging:</strong></p>
+            <ul class="mt-2 space-y-1">
+              <li>• <code>node scripts/check-contact-tokens.js</code> - Ver contactos y tokens</li>
+              <li>• <code>node scripts/add-token-to-contact.js email@example.com</code> - Agregar token</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

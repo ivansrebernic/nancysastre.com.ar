@@ -1,0 +1,82 @@
+---
+import TeamMember from './TeamMember.astro';
+import team1 from '../images/team/1.jpg';
+import team2 from '../images/team/2.jpg';
+import team3 from '../images/team/3.jpg';
+import team4 from '../images/team/4.jpg';
+
+const teamMembers = [
+  {
+    image: team1,
+    name: 'NENG OLA',
+    role: 'personal coach'
+  },
+  {
+    image: team3,
+    name: 'MANG JO',
+    role: 'personal coach'
+  },
+  {
+    image: team2,
+    name: 'MANG KI',
+    role: 'personal coach'
+  },
+  {
+    image: team4,
+    name: 'NENG KIM',
+    role: 'personal coach'
+  }
+];
+---
+
+<section id="team-wrap" class="py-12 md:py-10 md:py-12 bg-gray-50 bg-opacity-100">
+  <div class="container-narrow">
+    <!-- Section Header -->
+    <div class="flex justify-center mb-8 md:mb-8">
+      <div class="text-center max-w-3xl">
+        <div class="relative">
+          <p class="section-title">OUR EXPERT</p>
+          <h3 class="section-heading mb-8">PERSONAL TRAINERS</h3>
+          <h4 class="big-watermark">TRAINERS</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 animate-on-scroll" id="team-grid">
+      {teamMembers.map((member, index) => (
+        <div class="stagger-item" style={`animation-delay: ${index * 0.15}s`}>
+          <TeamMember {...member} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  #team-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Add subtle background pattern */
+  #team-wrap::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(66, 217, 118, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: rotate(45deg);
+    pointer-events: none;
+  }
+
+  /* For mobile, we might want to add carousel functionality with JavaScript */
+  @media (max-width: 768px) {
+    #team-grid {
+      /* Carousel styles would go here */
+    }
+  }
+</style>

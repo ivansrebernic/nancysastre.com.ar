@@ -1,0 +1,56 @@
+{
+  "member": {
+    "name": "Nancy Sastre",
+    "email": "nancysastre@gmail.com",
+    "phone": "+54 9 299 651620",
+    "whatsapp": "549299651620",
+    "instagram": "nancyemprendedora",
+    "profession": "emprendedora",
+    "location": "Centenario, Neuquen, Argentina"
+  },
+  "story": {
+    "paragraph1": "Hola, soy Nancy Sastre, emprendedora desde los 16 años, mamá de 4 hijos, apasionada por el bienestar y convencida de que la vida que soñás se construye con visión y acción. Desde muy joven entendí la importancia de ser independiente. Estudié Turismo, viví en otros países, recorrí culturas y, junto a mi esposo, construimos un emprendimiento agroturístico que nos permitió criar a nuestra familia. Pero la vida nos enfrenta a desafíos inesperados…Tras enviudar, tuve que reconstruirme emocionalmente mientras sostenía mi hogar. Fue ahí donde el propósito que ya venía gestando con Fuxion se volvió aún más valioso.",
+    "paragraph2": " Conocí Fuxion en el 2015 en Panamá,lo incorporé a mi establecimiento gastronómico turístico cuando ingresó al país en el 2018,  además de encontrar un producto noble, delicioso, sin azúcar ni químicos, capaz de mejorar la salud diaria de todas las personas, encontré un vehículo para generar ingresos constantes con múltiples herramientas  acorde con las nuevas tecnologías y con un sistema comprobado de éxito, es decir una propuesta concreta que transformo mi calidad de vida",
+    "paragraph3": "Este negocio no solo me dio estabilidad económica en tiempos difíciles, sino también una red de contención, desarrollo personal y un propósito de impactar positivamente en la vida de las personas; en las áreas física, financiera y emocional. Hoy acompaño a personas como vos a crear una vida más disfrutable, plena y libre, emprendemos junt@s?"
+  },
+  "fuxion": {
+    "affiliateCode": "879412",
+    "storeUrl": "https://ifuxion.com/NANCYSASTRE",
+    "enrollmentCode": "[Código opcional para registro]"
+  },
+  "images": {
+    "profile": "nancy-sastre-profile.png",
+    "logo": "nancy-sastre-logo.jpeg"
+
+  },
+  "seo": {
+    "title": "Oportunidad de negocios si estas buscando ingresos, salud y libertad",
+    "description": "Buscás independencia económica y calidad de vida? Descubrí esta oportunidad real de negocio, aumenta y diversifica tus  ingresos, mejora tu salud y emprende con una guía clara, productos de bienestar en tendencia "
+  },
+  "hero": {
+    "subtitle": "[SUBTÍTULO EN MAYÚSCULAS]",
+    "title": "[TÍTULO PRINCIPAL]",
+    "titleHighlight": "[DESTACADO DEL TÍTULO]"
+  },
+  "socialLinks": {
+    "facebook": "[URL de Facebook - opcional]",
+    "youtube": "[URL de YouTube - opcional]",
+    "linkedin": "[URL de LinkedIn - opcional]"
+  },
+  "products": {
+    "147014": "https://tiendafuxion.com/storelt/NANCYSASTRE/271996",
+    "147015": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719958",
+    "147016": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719957",
+    "142359": "https://tiendafuxion.com/storelt/NANCYSASTRE/399548",
+    "142329": "https://tiendafuxion.com/storelt/NANCYSASTRE/1045131",
+    "142428": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719969",
+    "142527": "https://tiendafuxion.com/storelt/NANCYSASTRE/344367",
+    "143855": "https://tiendafuxion.com/storelt/NANCYSASTRE/445437",
+    "143877": "https://tiendafuxion.com/storelt/NANCYSASTRE/445437",
+    "145711": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719960",
+    "147257": "https://tiendafuxion.com/storelt/NANCYSASTRE/2305747",
+    "147540": "https://tiendafuxion.com/storelt/NANCYSASTRE/2496316",
+    "147541": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719974",
+    "146285": "https://tiendafuxion.com/storelt/NANCYSASTRE/1079410 "
+  }
+}

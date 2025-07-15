@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+
+export interface Props {
+  image: ImageMetadata;
+  name: string;
+  testimonial: string;
+}
+
+const { image, name, testimonial } = Astro.props;
+---
+
+<div class="testimonial-card">
+  <div class="warp-testimoni text-center px-6 py-12 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+    <!-- User Image -->
+    <Image 
+      class="user w-24 h-24 rounded-full mx-auto mb-8 object-cover shadow-lg"
+      src={image} 
+      alt={name}
+      width={96}
+      height={96}
+      loading="lazy"
+    />
+    
+    <!-- Testimonial Content -->
+    <div class="detailtesti">
+      <h3 class="text-xl md:text-2xl font-scandia-medium text-white mb-6 leading-relaxed italic">
+        "{testimonial}"
+      </h3>
+      <p class="text-white font-scandia-medium text-lg">{name}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .testimonial-card {
+    position: relative;
+  }
+
+  .user {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .warp-testimoni::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 100px;
+    color: rgba(255, 255, 255, 0.1);
+    font-weight: 900;
+    z-index: -1;
+  }
+</style>

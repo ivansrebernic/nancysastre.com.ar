@@ -1,0 +1,2 @@
+export const SITE_TITLE = 'Oportunidad de negocios si estas buscando ingresos, salud y libertad';
+export const SITE_DESCRIPTION = 'Buscás independencia económica y calidad de vida? Descubrí esta oportunidad real de negocio, aumenta y diversifica tus  ingresos, mejora tu salud y emprende con una guía clara, productos de bienestar en tendencia ';

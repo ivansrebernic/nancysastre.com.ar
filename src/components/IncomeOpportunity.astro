@@ -1,0 +1,289 @@
+---
+const incomeRanks = [
+  {
+    title: 'Distribuidor',
+    icon: 'person',
+    monthlyIncome: '10.000 - 25.000',
+    requirements: 'Solo compra tu kit inicial',
+    color: 'from-gray-600 to-gray-700',
+    commission: '25%'
+  },
+  {
+    title: 'Líder Bronce',
+    icon: 'group',
+    monthlyIncome: '25.000 - 50.000',
+    requirements: '3 distribuidores activos',
+    color: 'from-orange-700 to-orange-800',
+    commission: '30%'
+  },
+  {
+    title: 'Líder Plata',
+    icon: 'groups',
+    monthlyIncome: '50.000 - 100.000',
+    requirements: '10 distribuidores activos',
+    color: 'from-gray-400 to-gray-500',
+    commission: '35%'
+  },
+  {
+    title: 'Líder Oro',
+    icon: 'stars',
+    monthlyIncome: '100.000+',
+    requirements: '25 distribuidores activos',
+    color: 'from-yellow-500 to-yellow-600',
+    commission: '40%',
+    special: true
+  }
+];
+---
+
+<section id="opportunity" class="py-12 md:py-10 md:py-12">
+  <div class="container-narrow">
+    <!-- Section Header -->
+    <div class="text-center mb-8 md:mb-8">
+      <p class="section-title animate-slide-down">OPORTUNIDAD DE NEGOCIO</p>
+      <h3 class="section-heading animate-slide-up mb-4">GENERA INGRESOS DESDE CASA</h3>
+      <p class="text-gray-600 max-w-2xl mx-auto animate-fade-in">
+        Únete a nuestra red de distribuidores y construye tu propio negocio con productos de alta demanda
+      </p>
+    </div>
+
+    <!-- Income Calculator -->
+    <div class="max-w-2xl mx-auto mb-8 md:mb-8">
+      <div class="bg-white border border-gray-200 shadow-soft rounded-2xl p-5 animate-on-scroll">
+        <h3 class="text-2xl font-scandia-medium mb-6 text-center">💰 Calculadora de Ingresos Potenciales</h3>
+        
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <div>
+            <label class="block text-sm uppercase tracking-wider mb-2 text-gray-600">
+              Ventas mensuales estimadas
+            </label>
+            <input 
+              type="range" 
+              id="sales-slider" 
+              min="10000" 
+              max="500000" 
+              step="5000" 
+              value="50000"
+              class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+            />
+            <div class="mt-2 text-center">
+              <span class="text-2xl font-scandia-medium text-gradient">$<span id="sales-value">50.000</span></span>
+            </div>
+          </div>
+          
+          <div>
+            <label class="block text-sm uppercase tracking-wider mb-2 text-gray-600">
+              Distribuidores en tu red
+            </label>
+            <input 
+              type="range" 
+              id="team-slider" 
+              min="0" 
+              max="50" 
+              step="1" 
+              value="5"
+              class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+            />
+            <div class="mt-2 text-center">
+              <span class="text-2xl font-scandia-medium text-gradient"><span id="team-value">5</span> personas</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Results -->
+        <div class="bg-primary-light rounded-xl p-5 text-center">
+          <p class="text-gray-700 mb-2">Tu ingreso mensual estimado:</p>
+          <p class="text-5xl font-scandia-medium text-gradient mb-4">$<span id="income-result">27.500</span></p>
+          <p class="text-sm text-gray-600">*Basado en comisiones del 30% + bonos de equipo</p>
+        </div>
+        
+        <button class="w-full btn-primary mt-6 hover:shadow-large transform hover:scale-105 transition-all duration-300">
+          <span class="flex items-center justify-center gap-2">
+            <span class="material-icons">rocket_launch</span>
+            QUIERO EMPEZAR AHORA
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Income Ranks -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-on-scroll">
+      {incomeRanks.map((rank, index) => (
+        <div 
+          class={`stagger-item card-3d ${rank.special ? 'lg:scale-110' : ''}`} 
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <div class={`relative overflow-hidden rounded-xl p-5 transition-all duration-500 hover:scale-105 ${rank.special ? 'bg-white/80 backdrop-blur-sm border border-gray-100' : 'bg-white border border-gray-200 shadow-soft'}`}>
+            {rank.special && (
+              <div class="absolute -top-2 -right-2">
+                <span class="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-3 py-1 rounded-full text-xs font-scandia-medium animate-pulse">
+                  ⭐ TOP
+                </span>
+              </div>
+            )}
+            
+            <div class={`w-16 h-16 rounded-full bg-gradient-to-r ${rank.color} flex items-center justify-center mb-4 mx-auto`}>
+              <span class="material-icons text-gray-900 text-3xl">{rank.icon}</span>
+            </div>
+            
+            <h4 class="text-xl font-scandia-medium mb-2 text-center">{rank.title}</h4>
+            <p class="text-3xl font-scandia-medium text-gradient text-center mb-3">${rank.monthlyIncome}</p>
+            <p class="text-sm text-gray-600 text-center mb-3">{rank.requirements}</p>
+            <div class="text-center">
+              <span class="inline-block bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-scandia-medium">
+                Comisión: {rank.commission}
+              </span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Benefits Grid -->
+    <div class="mt-8 grid md:grid-cols-2 gap-8">
+      <div class="bg-white border border-gray-200 shadow-soft rounded-xl p-5 animate-on-scroll fade-in-right">
+        <h3 class="text-2xl font-scandia-medium mb-6">🚀 Beneficios del Negocio</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="material-icons text-primary">check_circle</span>
+            <div>
+              <h4 class="font-scandia-medium">Trabaja desde casa</h4>
+              <p class="text-sm text-gray-600">Maneja tus horarios y sé tu propio jefe</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-icons text-primary">check_circle</span>
+            <div>
+              <h4 class="font-scandia-medium">Ingresos ilimitados</h4>
+              <p class="text-sm text-gray-600">Tu esfuerzo determina tus ganancias</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-icons text-primary">check_circle</span>
+            <div>
+              <h4 class="font-scandia-medium">Capacitación incluida</h4>
+              <p class="text-sm text-gray-600">Te enseñamos todo lo que necesitas saber</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="material-icons text-primary">check_circle</span>
+            <div>
+              <h4 class="font-scandia-medium">Productos de alta demanda</h4>
+              <p class="text-sm text-gray-600">Fáciles de vender con resultados comprobados</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="bg-white border border-gray-200 shadow-soft rounded-xl p-5 animate-on-scroll fade-in-left">
+        <h3 class="text-2xl font-scandia-medium mb-6">📈 Plan de Compensación</h3>
+        <div class="space-y-4">
+          <div class="flex justify-between items-center">
+            <span>Comisión por venta directa</span>
+            <span class="font-scandia-medium text-primary">25-40%</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span>Bono por nuevo distribuidor</span>
+            <span class="font-scandia-medium text-primary">$5.000</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span>Bono de liderazgo mensual</span>
+            <span class="font-scandia-medium text-primary">Hasta $50.000</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span>Viajes y premios</span>
+            <span class="font-scandia-medium text-primary">Cada trimestre</span>
+          </div>
+        </div>
+        
+        <div class="mt-6 p-4 bg-primary-light rounded-lg text-center">
+          <p class="text-sm mb-2">Inversión inicial única</p>
+          <p class="text-2xl font-scandia-medium text-gradient">$12.999</p>
+          <p class="text-xs text-gray-600">Incluye kit de productos + capacitación</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .slider::-webkit-slider-track {
+    background: #e5e7eb;
+    height: 8px;
+    border-radius: 4px;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #0186d6;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -8px;
+    box-shadow: 0 0 10px rgba(1, 134, 214, 0.5);
+  }
+  
+  .slider::-moz-range-track {
+    background: #e5e7eb;
+    height: 8px;
+    border-radius: 4px;
+  }
+  
+  .slider::-moz-range-thumb {
+    background: #0186d6;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(1, 134, 214, 0.5);
+  }
+</style>
+
+<script>
+  const salesSlider = document.getElementById('sales-slider') as HTMLInputElement;
+  const teamSlider = document.getElementById('team-slider') as HTMLInputElement;
+  const salesValue = document.getElementById('sales-value');
+  const teamValue = document.getElementById('team-value');
+  const incomeResult = document.getElementById('income-result');
+  
+  function formatNumber(num: number): string {
+    return num.toLocaleString('es-AR');
+  }
+  
+  function calculateIncome(): void {
+    const sales = parseInt(salesSlider.value);
+    const team = parseInt(teamSlider.value);
+    
+    // Commission calculation based on rank
+    let commissionRate = 0.25;
+    if (team >= 25) commissionRate = 0.40;
+    else if (team >= 10) commissionRate = 0.35;
+    else if (team >= 3) commissionRate = 0.30;
+    
+    const directCommission = sales * commissionRate;
+    const teamBonus = team * 5000; // Average team member contribution
+    const leadershipBonus = team >= 10 ? 15000 : team >= 3 ? 5000 : 0;
+    
+    const totalIncome = directCommission + teamBonus + leadershipBonus;
+    
+    if (salesValue) salesValue.textContent = formatNumber(sales);
+    if (teamValue) teamValue.textContent = team.toString();
+    if (incomeResult) incomeResult.textContent = formatNumber(Math.round(totalIncome));
+  }
+  
+  salesSlider?.addEventListener('input', calculateIncome);
+  teamSlider?.addEventListener('input', calculateIncome);
+  
+  // Initial calculation
+  calculateIncome();
+</script>

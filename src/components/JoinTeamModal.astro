@@ -1,0 +1,538 @@
+---
+// Join Team Modal Component
+---
+
+<div id="join-team-modal" class="modal-overlay hidden">
+  <div class="modal-content">
+    <!-- Close button -->
+    <button type="button" class="modal-close" aria-label="Cerrar modal">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13 1L1 13M1 1L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <div class="header-accent"></div>
+      <h2 class="modal-title">Únete al equipo</h2>
+      <p class="modal-subtitle">
+        Transforma tu vida con nosotros
+      </p>
+    </div>
+    
+    <!-- Form -->
+    <form 
+      id="join-team-form" 
+      class="modal-form"
+      method="POST"
+      action="https://formsubmit.co/nancysastre@gmail.com"
+    >
+      <!-- FormSubmit Configuration -->
+      <input type="hidden" name="_subject" value="Nuevo miembro del equipo - Hidratación Saludable">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="type" value="join-team">
+      <div class="form-row">
+        <div class="form-group">
+          <input
+            type="text"
+            id="firstName"
+            name="Nombre"
+            required
+            class="form-input"
+            placeholder=" "
+          />
+          <label for="firstName" class="form-label">
+            Nombre
+          </label>
+        </div>
+        
+        <div class="form-group">
+          <input
+            type="text"
+            id="lastName"
+            name="Apellido"
+            required
+            class="form-input"
+            placeholder=" "
+          />
+          <label for="lastName" class="form-label">
+            Apellido
+          </label>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <input
+          type="email"
+          id="email"
+          name="Email"
+          required
+          class="form-input"
+          placeholder=" "
+        />
+        <label for="email" class="form-label">
+          Email
+        </label>
+      </div>
+      
+      <div class="form-group">
+        <input
+          type="tel"
+          id="phone"
+          name="Teléfono"
+          required
+          class="form-input"
+          placeholder=" "
+        />
+        <label for="phone" class="form-label">
+          Teléfono / WhatsApp
+        </label>
+      </div>
+      
+      <!-- Submit Button -->
+      <button type="submit" class="submit-button">
+        <span class="button-text">Comenzar ahora</span>
+        <svg class="button-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 8H13M13 8L8 3M13 8L8 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </form>
+    
+    <!-- Success Message (hidden by default) -->
+    <div id="success-message" class="success-message hidden">
+      <svg class="success-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="24" fill="url(#gradient)"/>
+        <path d="M16 24L21 29L32 18" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs>
+          <linearGradient id="gradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#3B82F6"/>
+            <stop offset="1" stop-color="#2563EB"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <h3 class="success-title">¡Excelente decisión!</h3>
+      <p class="success-text">
+        Te voy a enviar un email personal con toda la información que necesitas para comenzar tu transformación.
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+  }
+  
+  .modal-overlay.hidden {
+    display: none !important;
+  }
+  
+  .modal-overlay:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .modal-content {
+    background: white;
+    border-radius: 16px;
+    max-width: 420px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.2s ease;
+    overflow: hidden;
+  }
+  
+  .modal-overlay:not(.hidden) .modal-content {
+    transform: translateY(0) scale(1);
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: transparent;
+    border: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #6b7280;
+    z-index: 10;
+    border-radius: 8px;
+  }
+  
+  .modal-close:hover {
+    background: #f3f4f6;
+    color: #111827;
+  }
+  
+  .modal-header {
+    text-align: left;
+    padding: 2rem 2rem 1.5rem;
+    position: relative;
+  }
+  
+  .header-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6 0%, #2563eb 50%, #3b82f6 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.25rem;
+    font-family: 'Scandia Medium', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+  
+  .modal-subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 400;
+  }
+  
+  .modal-form {
+    padding: 0 2rem 2rem;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .form-group {
+    position: relative;
+    margin-bottom: 0.75rem;
+  }
+  
+  .form-row .form-group {
+    margin-bottom: 0;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 0.875rem 0.875rem 0.875rem 0.875rem;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    background: #ffffff;
+    color: #111827;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08);
+  }
+  
+  .form-label {
+    position: absolute;
+    left: 0.875rem;
+    top: 0.875rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    background: white;
+    padding: 0 0.25rem;
+    font-weight: 400;
+  }
+  
+  .form-input:focus + .form-label,
+  .form-input:not(:placeholder-shown) + .form-label {
+    top: -0.5rem;
+    left: 0.75rem;
+    font-size: 0.75rem;
+    color: #3b82f6;
+    font-weight: 500;
+  }
+  
+  .submit-button {
+    width: 100%;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .submit-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .submit-button:hover::before {
+    left: 100%;
+  }
+  
+  .submit-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px 0 rgba(59, 130, 246, 0.35);
+  }
+  
+  .submit-button:active {
+    transform: translateY(0);
+  }
+  
+  .button-text {
+    font-family: 'Scandia Medium', system-ui, sans-serif;
+    letter-spacing: 0.02em;
+  }
+  
+  .button-icon {
+    transition: transform 0.2s ease;
+  }
+  
+  .submit-button:hover .button-icon {
+    transform: translateX(2px);
+  }
+  
+  /* Success Message */
+  .success-message {
+    padding: 3rem 2rem;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .success-icon {
+    margin: 0 auto 1rem;
+    display: block;
+  }
+  
+  .success-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+    font-family: 'Scandia Medium', system-ui, sans-serif;
+  }
+  
+  .success-text {
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.5;
+  }
+  
+  /* Loading state */
+  .submit-button.loading {
+    background: #e5e7eb;
+    cursor: not-allowed;
+    color: #6b7280;
+  }
+  
+  .submit-button.loading::before {
+    display: none;
+  }
+  
+  /* Responsive */
+  @media (max-width: 640px) {
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    
+    .modal-content {
+      max-width: calc(100vw - 2rem);
+    }
+    
+    .modal-header {
+      padding: 1.75rem 1.5rem 1.25rem;
+    }
+    
+    .modal-form {
+      padding: 0 1.5rem 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const modal = document.getElementById('join-team-modal');
+  const form = document.getElementById('join-team-form') as HTMLFormElement;
+  const successMessage = document.getElementById('success-message');
+  const closeBtn = document.querySelector('.modal-close');
+  const closeSuccessBtn = document.querySelector('.close-success-btn');
+  
+  // Function to open modal
+  function openJoinModal() {
+    modal?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  // Function to close modal
+  function closeJoinModal() {
+    modal?.classList.add('hidden');
+    document.body.style.overflow = '';
+    // Reset form
+    form?.reset();
+    form?.classList.remove('hidden');
+    successMessage?.classList.add('hidden');
+    
+    // Reset submit button state
+    const submitButton = form?.querySelector('.submit-button') as HTMLButtonElement;
+    const buttonText = submitButton?.querySelector('.button-text');
+    if (submitButton) {
+      submitButton.classList.remove('loading');
+      submitButton.disabled = false;
+      if (buttonText) {
+        buttonText.textContent = 'Comenzar ahora';
+      }
+    }
+  }
+  
+  // Handle form submission
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const submitButton = form.querySelector('.submit-button') as HTMLButtonElement;
+    const buttonText = submitButton.querySelector('.button-text');
+    const formData = new FormData(form);
+    
+    // Show loading state
+    submitButton.classList.add('loading');
+    if (buttonText) buttonText.textContent = 'Enviando...';
+    submitButton.disabled = true;
+    
+    try {
+      // Submit to FormSubmit via AJAX
+      const response = await fetch('https://formsubmit.co/ajax/nancysastre@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData))
+      });
+
+      if (response.ok) {
+        // Try to add to HubSpot CRM
+        try {
+          const hubspotResponse = await fetch('/api/add-to-hubspot', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              firstName: formData.get('Nombre'),
+              lastName: formData.get('Apellido'),
+              email: formData.get('Email'),
+              phone: formData.get('Teléfono')
+            })
+          });
+          
+          // Log HubSpot result but don't block on failure
+          if (!hubspotResponse.ok) {
+            console.error('Failed to add contact to HubSpot');
+          }
+        } catch (hubspotError) {
+          console.error('HubSpot integration error:', hubspotError);
+          // Continue anyway - email was sent successfully
+        }
+        
+        // Hide form and show success message
+        form.classList.add('hidden');
+        successMessage?.classList.remove('hidden');
+        
+        // Close modal after 3 seconds
+        setTimeout(() => {
+          closeJoinModal();
+        }, 3000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      // Show error state
+      alert('Hubo un error al enviar el formulario. Por favor intenta de nuevo.');
+      
+      // Reset button state
+      submitButton.classList.remove('loading');
+      if (buttonText) buttonText.textContent = 'Comenzar ahora';
+      submitButton.disabled = false;
+    }
+  });
+  
+  // Close modal handlers
+  closeBtn?.addEventListener('click', closeJoinModal);
+  closeSuccessBtn?.addEventListener('click', closeJoinModal);
+  
+  // Close on backdrop click
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeJoinModal();
+    }
+  });
+  
+  // Close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
+      closeJoinModal();
+    }
+  });
+  
+  // Expose openJoinModal globally
+  (window as any).openJoinModal = openJoinModal;
+</script>

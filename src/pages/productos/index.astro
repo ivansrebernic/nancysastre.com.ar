@@ -1,0 +1,1245 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import WhatsAppButton from "../../components/WhatsAppButton.astro";
+import TrustIndicators from "../../components/TrustIndicators.astro";
+import productsData from "../../../products-clean-final.json";
+
+// Import local images
+import logoImage from '../../images/LOGO.png';
+import anmatImage from '../../images/anmat.webp';
+import fdaImage from '../../images/fda.png';
+import cleanLabelImage from '../../images/clean-label.png';
+
+// Import carousel images
+import fuxion1 from '../../images/fuxion/1.jpg';
+import fuxion2 from '../../images/fuxion/2.jpg';
+import fuxion3 from '../../images/fuxion/3.jpg';
+import fuxion4 from '../../images/fuxion/4.jpg';
+import fuxion5 from '../../images/fuxion/5.jpg';
+import fuxion6 from '../../images/fuxion/6.jpg';
+import fuxion7 from '../../images/fuxion/7.jpg';
+import fuxion8 from '../../images/fuxion/8.jpg';
+import fuxion9 from '../../images/fuxion/9.jpg';
+
+const carouselImages = [fuxion1, fuxion2, fuxion3, fuxion4, fuxion5, fuxion6, fuxion7, fuxion8, fuxion9];
+
+export const prerender = true;
+
+// Get unique product lines
+const productLines = [
+    ...new Set(
+        productsData.products.map((product) => {
+            const lineImage = product.images.find((img) =>
+                img.url.includes("productDataLine"),
+            );
+            if (lineImage) {
+                const match = lineImage.url.match(/\/([A-Z]+)\.jpg$/);
+                return match ? match[1] : "OTROS";
+            }
+            return "OTROS";
+        }),
+    ),
+].filter(Boolean);
+
+// Helper function to format price
+const formatPrice = (price: string) => {
+    return `$${(parseFloat(price) * 1000).toLocaleString("es-AR")}`;
+};
+
+// Group products by line
+const productsByLine = productLines.reduce(
+    (acc, line) => {
+        acc[line] = productsData.products.filter((product) => {
+            const lineImage = product.images.find((img) =>
+                img.url.includes("productDataLine"),
+            );
+            if (lineImage) {
+                const match = lineImage.url.match(/\/([A-Z]+)\.jpg$/);
+                return match && match[1] === line;
+            }
+            return line === "OTROS";
+        });
+        return acc;
+    },
+    {} as Record<string, typeof productsData.products>,
+);
+
+// Line descriptions
+const lineDescriptions: Record<string, string> = {
+    CONTROL: "Controla tu peso y metabolismo",
+    REVITALIZA: "Energía y vitalidad natural",
+    SPORT: "Alto rendimiento deportivo",
+    NUTRE: "Nutrición completa y balanceada",
+    LIMPIA: "Desintoxica tu organismo",
+    ANTIAGE: "Juventud desde adentro",
+    VIGOR: "Bienestar y equilibrio",
+    INMUNOLOGICA: "Fortalece tus defensas",
+};
+---
+
+<BaseLayout
+    title="Productos - Hidratación Saludable"
+    description="Descubre nuestra línea completa de bebidas saludables 100% naturales. Transforma tu salud con productos certificados y de alta calidad."
+>
+    <Header />
+
+    <!-- Hero Section -->
+    <section class="products-hero pt-20 pb-16 overflow-hidden relative">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0">
+            <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10"
+            >
+            </div>
+            <div
+                class="absolute -top-24 -right-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+            >
+            </div>
+            <div
+                class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"
+            >
+            </div>
+        </div>
+
+        <!-- Water Droplets Animation -->
+        <div class="absolute inset-0 overflow-hidden">
+            <!-- Rising Bubbles -->
+            {
+                [...Array(15)].map((_, i) => (
+                    <div
+                        class="water-bubble absolute"
+                        style={`
+            left: ${Math.random() * 100}%;
+            animation-delay: ${Math.random() * 10}s;
+            animation-duration: ${15 + Math.random() * 10}s;
+          `}
+                    >
+                        <div
+                            class={`
+              ${i % 3 === 0 ? "w-3 h-3" : i % 3 === 1 ? "w-2 h-2" : "w-4 h-4"}
+              bg-gradient-to-br from-blue-400/30 to-primary/20 rounded-full
+              shadow-lg backdrop-blur-sm
+            `}
+                        />
+                    </div>
+                ))
+            }
+
+            <!-- Floating Water Drops -->
+            <svg class="absolute inset-0 w-full h-full" style="opacity: 0.1">
+                <defs>
+                    <pattern
+                        id="water-pattern"
+                        x="0"
+                        y="0"
+                        width="100"
+                        height="100"
+                        patternUnits="userSpaceOnUse"
+                    >
+                        <circle
+                            cx="20"
+                            cy="20"
+                            r="2"
+                            fill="url(#dropGradient)"
+                            class="animate-pulse"></circle>
+                        <circle
+                            cx="70"
+                            cy="50"
+                            r="3"
+                            fill="url(#dropGradient)"
+                            class="animate-pulse"
+                            style="animation-delay: 1s"></circle>
+                        <circle
+                            cx="40"
+                            cy="80"
+                            r="2.5"
+                            fill="url(#dropGradient)"
+                            class="animate-pulse"
+                            style="animation-delay: 2s"></circle>
+                    </pattern>
+                    <linearGradient
+                        id="dropGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                    >
+                        <stop
+                            offset="0%"
+                            style="stop-color:#3B82F6;stop-opacity:0.6"></stop>
+                        <stop
+                            offset="100%"
+                            style="stop-color:#2563EB;stop-opacity:0.3"></stop>
+                    </linearGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#water-pattern)"
+                ></rect>
+            </svg>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div
+                class="absolute top-20 left-10 w-20 h-20 animate-float"
+                style="animation-delay: 0s"
+            >
+                <div class="w-full h-full bg-primary/20 rounded-full blur-xl">
+                </div>
+            </div>
+            <div
+                class="absolute top-40 right-20 w-16 h-16 animate-float"
+                style="animation-delay: 2s"
+            >
+                <div class="w-full h-full bg-blue-400/20 rounded-full blur-xl">
+                </div>
+            </div>
+            <div
+                class="absolute bottom-20 left-1/4 w-24 h-24 animate-float"
+                style="animation-delay: 4s"
+            >
+                <div class="w-full h-full bg-primary/15 rounded-full blur-xl">
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="container-narrow relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="text-center lg:text-left">
+                    <!-- Logo Animation -->
+                    <div class="mb-8 animate-fade-in">
+                        <Image
+                            src={logoImage}
+                            alt="Hidratación Saludable Logo"
+                            width={280}
+                            height={100}
+                            loading="eager"
+                            class="h-20 md:h-24 w-auto mx-auto lg:mx-0 filter drop-shadow-lg"
+                        />
+                    </div>
+
+                    <p class="section-title animate-slide-down mb-4">
+                        CATÁLOGO COMPLETO
+                    </p>
+                    <h1
+                        class="text-3xl md:text-5xl font-scandia-medium mb-6 animate-slide-up"
+                    >
+                        <span class="text-gradient">BEBIDAS QUE</span><br />
+                        <span class="text-gradient">TRANSFORMAN VIDAS</span>
+                    </h1>
+                    <p
+                        class="text-xl text-gray-700 mb-8 animate-fade-in max-w-lg mx-auto lg:mx-0"
+                    >
+                        Descubre más de {productsData.metadata.totalProducts} productos
+                        diseñados científicamente para mejorar tu salud, energía
+                        y bienestar integral
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div
+                        class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in"
+                        style="animation-delay: 0.5s"
+                    >
+                        <a
+                            href="#all-products"
+                            class="btn-primary inline-flex items-center justify-center gap-2 group"
+                        >
+                            <span
+                                class="material-icons group-hover:translate-x-1 transition-transform"
+                                >explore</span
+                            >
+                            Explorar Catálogo
+                        </a>
+                        <a
+                            href="https://wa.me/549299651620"
+                            target="_blank"
+                            class="btn-secondary inline-flex items-center justify-center gap-2 group"
+                        >
+                            <i
+                                class="fab fa-whatsapp group-hover:scale-110 transition-transform"
+                            ></i>
+                            Asesoría Gratuita
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual -->
+                <div class="relative">
+                    <!-- 3D Card Stack -->
+                    <div
+                        class="relative h-96 animate-fade-in"
+                        style="animation-delay: 0.3s"
+                    >
+                        <!-- Back Card -->
+                        <div
+                            class="absolute inset-4 bg-gradient-to-br from-primary/20 to-blue-400/20 rounded-2xl transform rotate-6 scale-95"
+                        >
+                        </div>
+                        <!-- Middle Card -->
+                        <div
+                            class="absolute inset-2 bg-gradient-to-br from-primary/30 to-blue-400/30 rounded-2xl transform -rotate-3 scale-95"
+                        >
+                        </div>
+                        <!-- Front Card -->
+                        <div
+                            class="absolute inset-0 bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-8 flex flex-col justify-center"
+                        >
+                            <!-- Quick Stats Grid -->
+                            <div class="grid grid-cols-2 gap-6 mb-6">
+                                <div
+                                    class="text-center p-4 bg-gradient-to-br from-primary/10 to-transparent rounded-xl animate-scale-in"
+                                    style="animation-delay: 0.6s"
+                                >
+                                    <div
+                                        class="text-3xl font-scandia-medium text-primary mb-1"
+                                    >
+                                        {productsData.metadata.totalProducts}+
+                                    </div>
+                                    <div class="text-sm text-gray-600">
+                                        Productos
+                                    </div>
+                                </div>
+                                <div
+                                    class="text-center p-4 bg-gradient-to-br from-blue-400/10 to-transparent rounded-xl animate-scale-in"
+                                    style="animation-delay: 0.7s"
+                                >
+                                    <div
+                                        class="text-3xl font-scandia-medium text-primary mb-1"
+                                    >
+                                        100%
+                                    </div>
+                                    <div class="text-sm text-gray-600">
+                                        Naturales
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Certifications -->
+                            <div class="border-t pt-6">
+                                <p
+                                    class="text-xs text-gray-600 text-center mb-4"
+                                >
+                                    Certificaciones
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                    <div
+                                        class="flex items-center justify-center animate-fade-in"
+                                        style="animation-delay: 0.8s"
+                                    >
+                                        <Image
+                                            src={anmatImage}
+                                            alt="ANMAT"
+                                            width={120}
+                                            height={60}
+                                            loading="lazy"
+                                            class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
+                                        />
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-center animate-fade-in"
+                                        style="animation-delay: 0.9s"
+                                    >
+                                        <Image
+                                            src={fdaImage}
+                                            alt="FDA"
+                                            width={120}
+                                            height={80}
+                                            loading="lazy"
+                                            class="h-16 w-auto opacity-70 hover:opacity-100 transition-opacity"
+                                        />
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-center animate-fade-in"
+                                        style="animation-delay: 1s"
+                                    >
+                                        <Image
+                                            src={cleanLabelImage}
+                                            alt="Clean Label"
+                                            width={120}
+                                            height={60}
+                                            loading="lazy"
+                                            class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Decorative Element -->
+                            <div class="mt-8 flex justify-center">
+                                <div class="flex gap-2">
+                                    <span
+                                        class="w-2 h-2 bg-primary rounded-full animate-pulse"
+                                    ></span>
+                                    <span
+                                        class="w-2 h-2 bg-primary/60 rounded-full animate-pulse"
+                                        style="animation-delay: 0.2s"></span>
+                                    <span
+                                        class="w-2 h-2 bg-primary/30 rounded-full animate-pulse"
+                                        style="animation-delay: 0.4s"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="mt-16 animate-fade-in" style="animation-delay: 1s">
+                <TrustIndicators />
+            </div>
+        </div>
+
+        <!-- Wave Divider -->
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg
+                viewBox="0 0 1440 60"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+                class="w-full h-16"
+            >
+                <path
+                    d="M0 30C240 10 480 50 720 30C960 10 1200 50 1440 30V60H0V30Z"
+                    fill="rgb(249 250 251 / 0.5)"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Image Carousel Section -->
+    <section class="image-carousel-section py-8 bg-gray-50/50">
+        <div class="container-narrow">
+            <div class="carousel-wrapper relative overflow-hidden rounded-2xl">
+                <!-- Carousel Track -->
+                <div
+                    class="carousel-track flex transition-transform duration-[20000ms] ease-linear"
+                >
+                    <!-- First set of images -->
+                    {
+                        carouselImages.map((image, index) => (
+                            <div class="carousel-item flex-shrink-0 w-64 h-48 mx-2 cursor-pointer group">
+                                <Image
+                                    src={image}
+                                    alt={`Producto ${index + 1}`}
+                                    width={256}
+                                    height={192}
+                                    loading="lazy"
+                                    class="w-full h-full object-cover rounded-lg shadow-soft group-hover:scale-105 transition-transform duration-300"
+                                    data-modal-src={image.src}
+                                />
+                            </div>
+                        ))
+                    }
+                    <!-- Duplicate set for infinite scroll -->
+                    {
+                        carouselImages.map((image, index) => (
+                            <div class="carousel-item flex-shrink-0 w-64 h-48 mx-2 cursor-pointer group">
+                                <Image
+                                    src={image}
+                                    alt={`Producto ${index + 1}`}
+                                    width={256}
+                                    height={192}
+                                    loading="lazy"
+                                    class="w-full h-full object-cover rounded-lg shadow-soft group-hover:scale-105 transition-transform duration-300"
+                                    data-modal-src={image.src}
+                                />
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <!-- Gradient Overlays -->
+                <div
+                    class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-50/100 to-transparent pointer-events-none z-10"
+                >
+                </div>
+                <div
+                    class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-50/100 to-transparent pointer-events-none z-10"
+                >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banner -->
+    <section class="promotional-banner py-8">
+        <div class="container-narrow">
+            <div class="bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-2xl p-8 md:p-12 relative overflow-hidden">
+                <!-- Multiple background patterns -->
+                <div class="absolute inset-0">
+                    <!-- Dot grid pattern -->
+                    <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 2px 2px, #0186d6 1.5px, transparent 1.5px); background-size: 50px 50px;"></div>
+                    
+                    <!-- Diagonal lines pattern -->
+                    <div class="absolute inset-0 opacity-[0.02]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, #0186d6 35px, #0186d6 36px);"></div>
+                </div>
+                
+                <!-- Scattered decorative elements -->
+                <!-- Top left corner -->
+                <div class="absolute top-8 left-8 w-24 h-24">
+                    <div class="absolute top-0 left-0 w-3 h-3 bg-primary/10 rounded-full"></div>
+                    <div class="absolute top-8 left-6 w-2 h-2 bg-blue-400/10 rounded-full"></div>
+                    <div class="absolute top-3 left-14 w-1.5 h-1.5 bg-primary/15 rounded-full"></div>
+                </div>
+                
+                <!-- Top right pattern -->
+                <div class="absolute top-12 right-16">
+                    <svg width="60" height="60" viewBox="0 0 60 60" class="text-primary/5">
+                        <circle cx="30" cy="30" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="30" cy="30" r="10" fill="currentColor"/>
+                    </svg>
+                </div>
+                
+                <!-- Bottom left waves -->
+                <div class="absolute bottom-8 left-20">
+                    <svg width="80" height="40" viewBox="0 0 80 40" class="text-primary/5">
+                        <path d="M0 20 Q 20 10, 40 20 T 80 20" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M0 30 Q 20 20, 40 30 T 80 30" fill="none" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                
+                <!-- Right side scattered dots -->
+                <div class="absolute top-1/3 right-8">
+                    <div class="relative w-16 h-16">
+                        <div class="absolute top-0 right-0 w-2 h-2 bg-primary/10 rounded-full"></div>
+                        <div class="absolute top-4 right-6 w-1.5 h-1.5 bg-blue-400/15 rounded-full"></div>
+                        <div class="absolute bottom-0 left-0 w-2.5 h-2.5 bg-primary/8 rounded-full"></div>
+                    </div>
+                </div>
+                
+                <!-- Bottom right geometric -->
+                <div class="absolute bottom-16 right-24">
+                    <div class="w-12 h-12 border-2 border-primary/10 rounded-lg transform rotate-45"></div>
+                </div>
+                
+                <!-- Floating gradient orbs -->
+                <div class="absolute top-1/4 left-1/3 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-2xl"></div>
+                <div class="absolute bottom-1/4 right-1/3 w-40 h-40 bg-gradient-to-tr from-blue-400/5 to-transparent rounded-full blur-2xl"></div>
+                
+                <!-- Content -->
+                <div class="relative">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <!-- Left side - Main offer -->
+                            <div>
+                                <div class="inline-block mb-4">
+                                    <div class="bg-primary text-white text-xs font-scandia-medium px-4 py-2 rounded-full">
+                                        BENEFICIO EXCLUSIVO
+                                    </div>
+                                </div>
+                                <h3 class="text-3xl md:text-4xl font-scandia-medium text-gray-900 mb-4 leading-tight">
+                                    Hazte Cliente Preferente Fuxion y acumula puntos
+                                </h3>
+                                <div class="flex items-baseline gap-3 mb-6">
+                                    <span class="text-5xl font-scandia-medium text-primary">80</span>
+                                    <span class="text-xl text-gray-600">puntos =</span>
+                                    <span class="text-2xl font-scandia-medium text-gray-900">1 producto gratis</span>
+                                </div>
+                                <p class="text-gray-600 mb-6">
+                                    Acumula puntos con cualquier combinación de productos y recibe uno completamente gratis. 
+                                    Además, disfruta de precios especiales y envíos sin costo.
+                                </p>
+                                <a 
+                                    href="https://ifuxion.com/NANCYSASTRE"
+                                    target="_blank"
+                                    class="inline-flex items-center gap-3 bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-xl font-scandia-medium transition-all group"
+                                >
+                                    <span class="material-icons">storefront</span>
+                                    <span>Tienda oficial</span>
+                                    <span class="material-icons text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                </a>
+                                <p class="text-xs text-gray-500 mt-3">
+                                    *Beneficio válido únicamente registrándose a través de la tienda oficial
+                                </p>
+                            </div>
+                            
+                            <!-- Right side - Visual representation -->
+                            <div class="relative">
+                                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+                                    <h4 class="text-sm font-scandia-medium text-gray-600 mb-4 text-center">CÓMO FUNCIONA</h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <span class="text-sm font-scandia-medium text-primary">1</span>
+                                            </div>
+                                            <span class="text-sm text-gray-700">Elige productos hasta sumar 80 puntos</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <span class="text-sm font-scandia-medium text-primary">2</span>
+                                            </div>
+                                            <span class="text-sm text-gray-700">Regístrate como Cliente Preferente</span>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <span class="text-sm font-scandia-medium text-primary">3</span>
+                                            </div>
+                                            <span class="text-sm text-gray-700">Recibe tu producto gratis</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-6 pt-4 border-t border-gray-200">
+                                        <div class="text-center text-xs text-gray-500">
+                                            <span>Válido siempre</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Decorative element -->
+                                <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal fixed inset-0 z-50 hidden">
+        <div
+            class="modal-backdrop absolute inset-0 bg-black/90 backdrop-blur-sm"
+        >
+        </div>
+        <div
+            class="modal-content relative z-10 h-full flex items-center justify-center p-4"
+        >
+            <button
+                class="modal-close absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            >
+                <span class="material-icons text-3xl">close</span>
+            </button>
+            <img
+                id="modalImage"
+                src=""
+                alt=""
+                class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            />
+        </div>
+    </div>
+
+    <!-- Filter Section -->
+    <section
+        class="filter-section py-6 sticky top-14 z-30 bg-white/95 backdrop-blur-lg border-b border-gray-200"
+    >
+        <div class="container-narrow">
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                <button class="filter-btn active" data-filter="all">
+                    <span class="material-icons mr-2">apps</span>
+                    Todos ({productsData.products.length})
+                </button>
+                {
+                    Object.entries(productsByLine).map(([line, products]) => (
+                        <button class="filter-btn" data-filter={line}>
+                            <span class="material-icons mr-2">
+                                {line === "CONTROL"
+                                    ? "speed"
+                                    : line === "REVITALIZA"
+                                      ? "battery_charging_full"
+                                      : line === "SPORT"
+                                        ? "fitness_center"
+                                        : line === "NUTRE"
+                                          ? "restaurant"
+                                          : line === "LIMPIA"
+                                            ? "spa"
+                                            : line === "ANTIAGE"
+                                              ? "face_retouching_natural"
+                                              : line === "VIGOR"
+                                                ? "self_improvement"
+                                                : line === "INMUNOLOGICA"
+                                                  ? "shield"
+                                                  : "category"}
+                            </span>
+                            {line} ({products.length})
+                        </button>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-grid py-12 bg-gray-50/30">
+        <div class="container-narrow">
+            <!-- All Products -->
+            <div id="all-products" class="products-container active">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                >
+                    {
+                        productsData.products.map((product, index) => {
+                            const productLine = (() => {
+                                const lineImage = product.images.find((img) =>
+                                    img.url.includes("productDataLine"),
+                                );
+                                if (lineImage) {
+                                    const match =
+                                        lineImage.url.match(/\/([A-Z]+)\.jpg$/);
+                                    return match ? match[1] : "";
+                                }
+                                return "";
+                            })();
+
+                            return (
+                                <div
+                                    class="product-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 animate-on-scroll fade-in-up flex flex-col h-full border border-gray-100"
+                                    style={`animation-delay: ${(index % 8) * 0.1}s`}
+                                    data-line={productLine}
+                                >
+                                    <a
+                                        href={`/productos/${product.id}`}
+                                        class="flex flex-col h-full"
+                                    >
+                                        <!-- Image Section -->
+                                        <div class="relative aspect-square overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                                            {productLine && (
+                                                <div class="absolute top-4 left-4 z-10">
+                                                    <span class="px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-full text-xs font-scandia-medium text-primary shadow-sm">
+                                                        {productLine}
+                                                    </span>
+                                                </div>
+                                            )}
+                                            <img
+                                                src={product.images[0]?.url}
+                                                alt={product.name}
+                                                class="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-300"
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                        
+                                        <!-- Content Section -->
+                                        <div class="p-6 flex flex-col flex-grow">
+                                            <!-- Product Name -->
+                                            <h3 class="font-scandia-medium text-lg text-gray-900 mb-2 group-hover:text-primary transition-colors leading-tight">
+                                                {product.name}
+                                            </h3>
+                                            
+                                            <!-- Slogan -->
+                                            {product.slogan && (
+                                                <p class="text-[10px] text-gray-600 mb-4 line-clamp-2 leading-relaxed">
+                                                    {product.slogan}
+                                                </p>
+                                            )}
+                                            
+                                            <!-- Price and Presentation -->
+                                            <div class="mb-6 mt-auto">
+                                                <div class="flex items-baseline gap-2 mb-1">
+                                                    <span class="text-2xl font-scandia-medium text-gray-900">
+                                                        {formatPrice(product.price)}
+                                                    </span>
+                                                </div>
+                                                <p class="text-sm text-gray-500">
+                                                    {product.presentation}
+                                                </p>
+                                            </div>
+                                            
+                                            <!-- Actions -->
+                                            <div class="flex gap-2">
+                                                {product.powerlink ? (
+                                                    <a
+                                                        href={product.powerlink}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        class="flex-1 py-3 px-4 bg-primary text-white rounded-xl font-scandia-medium text-sm hover:bg-primary-dark transition-all duration-200 text-center flex items-center justify-center gap-2 group/btn"
+                                                        onclick="event.stopPropagation();"
+                                                    >
+                                                        <span class="material-icons text-sm group-hover/btn:scale-110 transition-transform">shopping_cart</span>
+                                                        Comprar
+                                                    </a>
+                                                ) : (
+                                                    <a
+                                                        href={`/productos/${product.id}`}
+                                                        class="flex-1 py-3 px-4 bg-primary text-white rounded-xl font-scandia-medium text-sm hover:bg-primary-dark transition-all duration-200 text-center"
+                                                    >
+                                                        Ver más
+                                                    </a>
+                                                )}
+                                                <a
+                                                    href={`/productos/${product.id}`}
+                                                    class="py-3 px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl transition-all duration-200 flex items-center justify-center"
+                                                    onclick="event.stopPropagation();"
+                                                >
+                                                    <span class="material-icons text-sm">info</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+
+            <!-- Products by Line -->
+            {
+                Object.entries(productsByLine).map(([line, products]) => (
+                    <div
+                        id={`${line}-products`}
+                        class="products-container hidden"
+                    >
+                        <div class="line-header text-center mb-8">
+                            <h2 class="text-3xl font-scandia-medium mb-2">
+                                Línea {line}
+                            </h2>
+                            <p class="text-gray-600">
+                                {lineDescriptions[line] ||
+                                    "Productos especializados"}
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                            {products.map((product, index) => (
+                                <div
+                                    class="product-card group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 animate-on-scroll fade-in-up flex flex-col h-full border border-gray-100"
+                                    style={`animation-delay: ${index * 0.1}s`}
+                                >
+                                    <a
+                                        href={`/productos/${product.id}`}
+                                        class="flex flex-col h-full"
+                                    >
+                                        <!-- Image Section -->
+                                        <div class="relative aspect-square overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                                            <img
+                                                src={product.images[0]?.url}
+                                                alt={product.name}
+                                                class="w-full h-full object-contain p-6 group-hover:scale-105 transition-transform duration-300"
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                        
+                                        <!-- Content Section -->
+                                        <div class="p-6 flex flex-col flex-grow">
+                                            <!-- Product Name -->
+                                            <h3 class="font-scandia-medium text-lg text-gray-900 mb-2 group-hover:text-primary transition-colors leading-tight">
+                                                {product.name}
+                                            </h3>
+                                            
+                                            <!-- Slogan -->
+                                            {product.slogan && (
+                                                <p class="text-[10px] text-gray-600 mb-4 line-clamp-2 leading-relaxed">
+                                                    {product.slogan}
+                                                </p>
+                                            )}
+                                            
+                                            <!-- Price and Presentation -->
+                                            <div class="mb-6 mt-auto">
+                                                <div class="flex items-baseline gap-2 mb-1">
+                                                    <span class="text-2xl font-scandia-medium text-gray-900">
+                                                        {formatPrice(product.price)}
+                                                    </span>
+                                                </div>
+                                                <p class="text-sm text-gray-500">
+                                                    {product.presentation}
+                                                </p>
+                                            </div>
+                                            
+                                            <!-- Actions -->
+                                            <div class="flex gap-2">
+                                                {product.powerlink ? (
+                                                    <a
+                                                        href={product.powerlink}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        class="flex-1 py-3 px-4 bg-primary text-white rounded-xl font-scandia-medium text-sm hover:bg-primary-dark transition-all duration-200 text-center flex items-center justify-center gap-2 group/btn"
+                                                        onclick="event.stopPropagation();"
+                                                    >
+                                                        <span class="material-icons text-sm group-hover/btn:scale-110 transition-transform">shopping_cart</span>
+                                                        Comprar
+                                                    </a>
+                                                ) : (
+                                                    <a
+                                                        href={`/productos/${product.id}`}
+                                                        class="flex-1 py-3 px-4 bg-primary text-white rounded-xl font-scandia-medium text-sm hover:bg-primary-dark transition-all duration-200 text-center"
+                                                    >
+                                                        Ver más
+                                                    </a>
+                                                )}
+                                                <a
+                                                    href={`/productos/${product.id}`}
+                                                    class="py-3 px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl transition-all duration-200 flex items-center justify-center"
+                                                    onclick="event.stopPropagation();"
+                                                >
+                                                    <span class="material-icons text-sm">info</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- About Fuxion Section -->
+    <section class="about-fuxion-section relative py-12 overflow-hidden bg-gray-900">
+        <!-- Background Image -->
+        <div 
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style="background-image: url('/image/about-fuxion.jpg');"
+        >
+            <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/50"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="container-narrow relative z-10">
+            <!-- Header -->
+            <div class="text-center mb-10 animate-fade-in">
+                <p class="text-white/80 text-sm font-scandia tracking-widest uppercase mb-3">CONOCE MÁS</p>
+                <div class="mb-4">
+                    <img 
+                        src="/image/LOGO.png" 
+                        alt="Fuxion" 
+                        class="h-20 md:h-24 w-auto mx-auto brightness-0 invert"
+                    />
+                </div>
+                <p class="text-lg text-white/90 max-w-2xl mx-auto">
+                    Descubre la ciencia detrás de nuestras bebidas nutracéuticas
+                </p>
+            </div>
+
+            <!-- Content Cards -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Salud Plena Card -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300 animate-on-scroll fade-in-up">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-blue-500 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                            <span class="material-icons text-white text-xl">health_and_safety</span>
+                        </div>
+                        <h3 class="text-lg font-scandia-medium text-white">SALUD PLENA</h3>
+                    </div>
+                    <p class="text-white/80 text-sm leading-relaxed">
+                        Sentirse bien no es lo mismo que estar sano. Para alcanzar una Salud Plena, necesitas que cada célula de tu organismo funcione al 100% de su capacidad, lo que se traduce en un cuerpo sano, libre de enfermedades, con el peso correcto; manteniéndose joven y vital por más tiempo.
+                    </p>
+                </div>
+
+                <!-- Fusión Nutracéutica Card -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300 animate-on-scroll fade-in-up" style="animation-delay: 0.1s">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-blue-500 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                            <span class="material-icons text-white text-xl">science</span>
+                        </div>
+                        <h3 class="text-lg font-scandia-medium text-white">FUSIÓN NUTRACÉUTICA®</h3>
+                    </div>
+                    <p class="text-white/80 text-sm leading-relaxed">
+                        Los productos de FuXion® son alimentos nutracéuticos únicos que producen resultados asombrosos. Son resultado de la fusión de conocimientos milenarios (andinos, amazónicos y asiáticos) con los últimos avances científicos en biología celular y nutrición humana.
+                    </p>
+                </div>
+
+                <!-- Alimentos Nutracéuticos Card -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300 animate-on-scroll fade-in-up" style="animation-delay: 0.2s">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-primary to-blue-500 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                            <span class="material-icons text-white text-xl">local_drink</span>
+                        </div>
+                        <h3 class="text-lg font-scandia-medium text-white">ALIMENTOS NUTRACÉUTICOS</h3>
+                    </div>
+                    <p class="text-white/80 text-sm leading-relaxed">
+                        Los productos FuXion® se presentan en deliciosas bebidas funcionales: refrescos, batidos, tés y cafés. Sus ingredientes naturales se concentran y potencian en formulaciones para multiplicar sus beneficios.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Patents Section -->
+            <div class="mt-10">
+                <h3 class="text-center text-white font-scandia-medium text-lg mb-6">Patentes</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    {['actinos', 'bioferrin', 'prolibra', 'wellmune'].map((patent, index) => (
+                        <div 
+                            class="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20 hover:border-white/40 transition-all duration-300 animate-on-scroll fade-in-up"
+                            style={`animation-delay: ${0.3 + index * 0.1}s`}
+                        >
+                            <img 
+                                src={`/image/patente-${patent}.png`}
+                                alt={`Patente ${patent}`}
+                                class="w-24 md:w-28 h-auto"
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <!-- Bottom Message -->
+            <div class="mt-8 text-center animate-fade-in" style="animation-delay: 0.7s">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 border border-white/20">
+                    <span class="material-icons text-primary text-sm">verified</span>
+                    <span class="text-white text-sm font-scandia-medium">No cápsulas ni pastillas - Solo prácticos sticks listos para mezclar</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+    <WhatsAppButton />
+</BaseLayout>
+
+<style>
+    /* Carousel Animation */
+    .carousel-track {
+        animation: scroll 40s linear infinite;
+    }
+
+    .carousel-wrapper:hover .carousel-track {
+        animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    /* Modal Styles */
+    .image-modal {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .image-modal.show {
+        opacity: 1;
+    }
+
+    .image-modal.show .modal-content img {
+        animation: modalZoom 0.3s ease-out;
+    }
+
+    @keyframes modalZoom {
+        from {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .filter-btn {
+        @apply px-4 py-2 rounded-full font-scandia-medium transition-all duration-300 flex items-center text-sm bg-white bg-opacity-100 backdrop-blur-md border border-gray-200 border-opacity-10;
+    }
+
+    .filter-btn:hover {
+        @apply transform scale-105 bg-gray-100;
+    }
+
+    .filter-btn.active {
+        @apply bg-primary text-white;
+    }
+
+    .products-container {
+        @apply hidden;
+    }
+
+    .products-container.active {
+        @apply block;
+    }
+
+    .btn-sm {
+        @apply px-3 py-2 rounded-lg text-xs font-scandia-medium transition-all duration-300;
+    }
+
+    .btn-primary-outline {
+        @apply border border-primary text-primary;
+    }
+
+    .btn-secondary-outline {
+        @apply border border-gray-300 text-gray-700;
+    }
+
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .products-hero {
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.98),
+            rgba(249, 250, 251, 0.98)
+        );
+    }
+
+    /* Float animation for background elements */
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0) translateX(0);
+        }
+        25% {
+            transform: translateY(-20px) translateX(10px);
+        }
+        50% {
+            transform: translateY(0) translateX(-10px);
+        }
+        75% {
+            transform: translateY(20px) translateX(5px);
+        }
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    /* Water bubble rise animation */
+    @keyframes bubble-rise {
+        0% {
+            transform: translateY(100vh) translateX(0) scale(0);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.6;
+            transform: translateY(90vh) translateX(-10px) scale(1);
+        }
+        30% {
+            transform: translateY(60vh) translateX(15px) scale(1.1);
+        }
+        50% {
+            transform: translateY(40vh) translateX(-20px) scale(1);
+        }
+        70% {
+            transform: translateY(20vh) translateX(10px) scale(0.9);
+        }
+        90% {
+            opacity: 0.3;
+            transform: translateY(5vh) translateX(-5px) scale(0.8);
+        }
+        100% {
+            transform: translateY(-10vh) translateX(0) scale(0.6);
+            opacity: 0;
+        }
+    }
+
+    .water-bubble {
+        animation: bubble-rise linear infinite;
+        bottom: -50px;
+        pointer-events: none;
+    }
+</style>
+
+<script>
+    // Carousel Modal Functionality
+    const imageModal = document.getElementById("imageModal");
+    const modalImage = document.getElementById(
+        "modalImage",
+    ) as HTMLImageElement;
+    const modalClose = document.querySelector(".modal-close");
+    const carouselItems = document.querySelectorAll(".carousel-item img");
+
+    // Open modal when clicking carousel images
+    carouselItems.forEach((item) => {
+        item.addEventListener("click", () => {
+            const src = item.getAttribute("data-modal-src");
+            if (src && modalImage) {
+                modalImage.src = src;
+                imageModal?.classList.remove("hidden");
+                setTimeout(() => {
+                    imageModal?.classList.add("show");
+                }, 10);
+                document.body.style.overflow = "hidden";
+            }
+        });
+    });
+
+    // Close modal
+    const closeModal = () => {
+        imageModal?.classList.remove("show");
+        setTimeout(() => {
+            imageModal?.classList.add("hidden");
+            document.body.style.overflow = "";
+        }, 300);
+    };
+
+    modalClose?.addEventListener("click", closeModal);
+
+    // Close on backdrop click
+    imageModal?.addEventListener("click", (e) => {
+        if (
+            e.target === imageModal ||
+            e.target === imageModal.querySelector(".modal-backdrop")
+        ) {
+            closeModal();
+        }
+    });
+
+    // Close on ESC key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && imageModal?.classList.contains("show")) {
+            closeModal();
+        }
+    });
+
+    // Filter functionality
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const productContainers = document.querySelectorAll(".products-container");
+
+    filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const filter = btn.getAttribute("data-filter");
+
+            // Update buttons
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            // Update containers
+            productContainers.forEach((container) => {
+                container.classList.remove("active");
+            });
+
+            if (filter === "all") {
+                document
+                    .getElementById("all-products")
+                    ?.classList.add("active");
+            } else {
+                document
+                    .getElementById(`${filter}-products`)
+                    ?.classList.add("active");
+            }
+
+            // Scroll to top of products section
+            const filterSection = document.querySelector(".filter-section");
+            if (filterSection) {
+                const offset =
+                    filterSection.getBoundingClientRect().top +
+                    window.pageYOffset -
+                    80;
+                window.scrollTo({ top: offset, behavior: "smooth" });
+            }
+        });
+    });
+
+    // Re-trigger animations when switching filters
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+    };
+
+    const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, observerOptions);
+
+    // Observe new elements when filter changes
+    filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            setTimeout(() => {
+                const animatedElements = document.querySelectorAll(
+                    ".animate-on-scroll:not(.show)",
+                );
+                animatedElements.forEach((el) => animationObserver.observe(el));
+            }, 100);
+        });
+    });
+</script>

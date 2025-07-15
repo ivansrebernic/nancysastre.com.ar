@@ -1,0 +1,281 @@
+---
+const navItems = [
+  { href: '/', text: 'Inicio' },
+  // { href: '/about', text: 'Acerca de mi' }, // Disabled for member sites
+  { href: '/productos', text: 'Productos' },
+  { href: '/blog', text: 'Blog' },
+  { href: '/#contact-wrap', text: 'Contacto' },
+];
+
+const socialLinks = [
+  { 
+    icon: 'fab fa-instagram', 
+    href: 'https://www.instagram.com/nancyemprendedora', 
+    label: 'Instagram',
+    color: 'hover:text-pink-500'
+  },
+  { 
+    icon: 'fab fa-whatsapp', 
+    href: 'https://wa.me/549299651620', 
+    label: 'WhatsApp',
+    color: 'hover:text-green-500'
+  },
+  { 
+    icon: 'fas fa-store', 
+    href: 'https://ifuxion.com/NANCYSASTRE', 
+    label: 'Tienda',
+    color: 'hover:text-primary'
+  },
+];
+---
+
+<header id="main-header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+  <div class="container-narrow relative">
+    <div class="flex items-center justify-between py-2">
+      <!-- Logo -->
+      <div class="flex items-center z-50">
+        <a href="/" class="logo-wrap group">
+          <img 
+            src="/image/LOGO-HS.png" 
+            alt="Nancy Sastre - emprendedora" 
+            class="h-10 md:h-12 w-auto hover:opacity-90 transition-opacity duration-300"
+          />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav id="main-navigation" class="hidden lg:flex items-center gap-6">
+        <!-- Main Navigation -->
+        <ul class="flex items-center space-x-1">
+          {navItems.map((item) => (
+            <li>
+              <a 
+                href={item.href} 
+                class="text-gray-700 hover:text-primary transition-all duration-300 font-scandia-regular text-sm px-4 py-2 rounded-full hover:bg-gray-50 relative group"
+              >
+                {item.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+        
+        <!-- Divider -->
+        <div class="h-6 w-px bg-gray-200"></div>
+        
+        <!-- Social Links -->
+        <div class="flex items-center gap-3">
+          {socialLinks.map((social) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`text-gray-600 ${social.color} transition-all duration-300 p-2 rounded-full hover:bg-gray-50`}
+              aria-label={social.label}
+              title={social.label}
+            >
+              <i class={`${social.icon} text-lg`}></i>
+            </a>
+          ))}
+        </div>
+        
+        <!-- CTA Button -->
+        <a href="https://ifuxion.com/NANCYSASTRE" target="_blank" class="ml-2 bg-primary text-white px-5 py-2 rounded-full text-sm font-scandia-medium hover:bg-primary-dark transition-all duration-300 shadow-sm hover:shadow-md flex items-center gap-2 group">
+          <span>TIENDA OFICIAL</span>
+          <span class="material-icons text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button 
+        id="mobile-toggle" 
+        class="lg:hidden text-gray-900 hover:text-primary transition-colors duration-300 z-50"
+        aria-label="Toggle mobile menu"
+      >
+        <span class="material-icons-outlined text-2xl menu-icon">menu</span>
+        <span class="material-icons-outlined text-2xl close-icon hidden">close</span>
+      </button>
+    </div>
+  </div>
+
+</header>
+
+<!-- Mobile Navigation Menu -->
+<div id="mobile-nav" class="fixed top-0 right-0 w-full h-full bg-white transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden" style="z-index: 9999;">
+  <!-- Close Button -->
+  <div class="absolute top-4 right-4">
+    <button id="mobile-close" class="p-2 text-gray-900 hover:text-primary">
+      <span class="material-icons text-3xl">close</span>
+    </button>
+  </div>
+  
+  <!-- Menu Content -->
+  <div class="pt-20 px-8 h-full overflow-y-auto">
+    <!-- Logo -->
+    <div class="mb-8 text-center">
+      <img src="/image/LOGO-HS.png" alt="Hidratación Saludable" class="h-12 mx-auto">
+    </div>
+    
+    <!-- Navigation Links -->
+    <nav>
+      <ul class="space-y-4 mb-8">
+        {navItems.map((item) => (
+          <li>
+            <a 
+              href={item.href} 
+              class="block text-xl font-scandia-medium text-gray-900 hover:text-primary py-2 mobile-link"
+            >
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    
+    <!-- Social Links -->
+    <div class="flex justify-center gap-4 mb-8">
+      {socialLinks.map((social) => (
+        <a
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`text-gray-700 ${social.color} text-2xl`}
+          aria-label={social.label}
+        >
+          <i class={social.icon}></i>
+        </a>
+      ))}
+    </div>
+    
+    <!-- CTA Button -->
+    <div class="text-center">
+      <a 
+        href="https://ifuxion.com/NANCYSASTRE" 
+        target="_blank" 
+        class="inline-block bg-primary text-white px-8 py-3 rounded-full font-scandia-medium hover:bg-primary-dark transition-colors"
+      >
+        TIENDA OFICIAL
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  #main-header {
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  #main-header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Social icon animations */
+  @keyframes iconPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+  
+  nav a:hover i {
+    animation: iconPulse 0.3s ease-in-out;
+  }
+
+
+  /* Mobile nav open state */
+  #mobile-nav.open {
+    transform: translateX(0) !important;
+  }
+</style>
+
+<script>
+  const header = document.getElementById('main-header');
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  const mobileClose = document.getElementById('mobile-close');
+  const menuIcon = mobileToggle?.querySelector('.menu-icon');
+  const closeIcon = mobileToggle?.querySelector('.close-icon');
+  const scrollLinks = document.querySelectorAll('.scroll-link');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  // Handle scroll effect
+  function handleScroll() {
+    if (window.scrollY > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  }
+
+  // Handle mobile menu toggle
+  function toggleMobileMenu() {
+    if (mobileNav) {
+      mobileNav.classList.toggle('open');
+      
+      // Toggle hamburger/close icon
+      if (menuIcon && closeIcon) {
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      }
+      
+      // Prevent body scroll when menu is open
+      if (mobileNav.classList.contains('open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+  }
+
+  // Handle smooth scrolling
+  function smoothScroll(e: Event) {
+    const target = e.currentTarget as HTMLAnchorElement;
+    const targetHref = target.getAttribute('href');
+    
+    // Check if it's an internal anchor link
+    if (targetHref && targetHref.includes('#') && !targetHref.startsWith('/')) {
+      e.preventDefault();
+      const targetId = targetHref.startsWith('#') ? targetHref : targetHref.split('#')[1];
+      const targetElement = document.querySelector('#' + targetId);
+      if (targetElement) {
+        const offset = 80; // Header height
+        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+        
+        // Close mobile menu if open
+        if (mobileNav?.classList.contains('open')) {
+          toggleMobileMenu();
+        }
+      }
+    } else if (targetHref && targetHref.includes('/#')) {
+      // Handle navigation from other pages
+      e.preventDefault();
+      window.location.href = targetHref;
+    }
+  }
+
+  // Event listeners
+  window.addEventListener('scroll', handleScroll);
+  mobileToggle?.addEventListener('click', toggleMobileMenu);
+  mobileClose?.addEventListener('click', toggleMobileMenu);
+  
+  scrollLinks.forEach(link => {
+    link.addEventListener('click', smoothScroll);
+  });
+  
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      toggleMobileMenu();
+    });
+  });
+
+  // Initial scroll check
+  handleScroll();
+</script>

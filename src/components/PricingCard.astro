@@ -1,0 +1,69 @@
+---
+export interface Props {
+  backgroundImage: string;
+  title: string;
+  features: string[];
+  price: string;
+  buttonText?: string;
+}
+
+const { backgroundImage, title, features, price, buttonText = 'REGISTER NOW' } = Astro.props;
+---
+
+<div class="pricing-card relative h-full overflow-hidden group card-3d">
+  <div 
+    class="wrap-pricing relative h-full min-h-[500px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
+    style={`background-image: url('${backgroundImage}');`}
+  >
+    <!-- Light overlay -->
+    <div class="absolute inset-0 bg-white/60"></div>
+    
+    <!-- Content -->
+    <div class="wrap-pricedetail relative z-10 text-center p-5 bg-white border border-gray-200 shadow-soft rounded-xl mx-4">
+      <h3 class="text-2xl font-scandia-medium uppercase tracking-wider mb-6">{title}</h3>
+      
+      <!-- Features list -->
+      <ul class="detail-price space-y-3 mb-8">
+        {features.map((feature) => (
+          <li class="flex items-center justify-center">
+            <span class="material-icons-outlined ico text-primary mr-2">
+              check_circle
+            </span>
+            <span class="text-gray-900">
+              {feature}
+            </span>
+          </li>
+        ))}
+      </ul>
+      
+      <!-- Price -->
+      <span class="theprice text-5xl font-scandia-medium text-gradient mb-6 block animate-pulse-slow">{price}</span>
+      
+      <!-- Button -->
+      <a href="#" class="btn-secondary hover:scale-105 hover:shadow-large transform transition-all duration-300">
+        {buttonText}
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .pricing-card {
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    perspective: 1000px;
+  }
+  
+  .pricing-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(66, 217, 118, 0.3);
+  }
+  
+  .wrap-pricing {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .pricing-card:hover .wrap-pricing {
+    transform: rotateY(-5deg) rotateX(5deg);
+  }
+</style>

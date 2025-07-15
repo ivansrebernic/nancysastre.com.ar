@@ -1,0 +1,533 @@
+---
+import ProductLayout from '../../layouts/ProductLayout.astro';
+import productsData from '../../../products-clean-final.json';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return productsData.products.map((product) => ({
+    params: { id: product.id },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+
+// Helper function to format price
+const formatPrice = (price: string) => {
+  return `$${(parseFloat(price) * 1000).toLocaleString('es-AR')}`;
+};
+
+// Get product line from images
+const getProductLine = (images: any[]) => {
+  const lineImage = images.find(img => img.url.includes('productDataLine'));
+  if (lineImage) {
+    const match = lineImage.url.match(/\/([A-Z]+)\.jpg$/);
+    return match ? match[1] : '';
+  }
+  return '';
+};
+
+const productLine = getProductLine(product.images);
+
+// WhatsApp message
+const whatsappMessage = encodeURIComponent(
+  `¡Hola! Me interesa el producto ${product.name}. ¿Podrías darme más información sobre precio y disponibilidad?`
+);
+const whatsappUrl = `https://wa.me/549299651620?text=${whatsappMessage}`;
+
+// Related products (get 3 random products excluding current)
+const relatedProducts = productsData.products
+  .filter(p => p.id !== product.id)
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 3);
+---
+
+<ProductLayout 
+  title={`${product.name} - Hidratación Saludable`}
+  description={product.slogan || product.description}
+  image={product.images[0]?.url}
+  price={product.price}
+  productName={product.name}
+>
+  <!-- Product Hero Section -->
+  <section class="product-hero py-6 md:py-12">
+    <div class="container-narrow">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <!-- Image Gallery -->
+        <div class="product-images">
+          <div class="main-image-container relative overflow-hidden rounded-2xl bg-white border border-gray-200 shadow-soft p-4 animate-on-scroll fade-in-left">
+            <div class="product-line-badge absolute top-6 right-6 z-10">
+              {productLine && (
+                <span class="px-4 py-2 bg-primary/20 backdrop-blur-sm rounded-full text-sm font-scandia-medium text-primary border border-primary/20">
+                  Línea {productLine}
+                </span>
+              )}
+            </div>
+            <img 
+              src={product.images[0]?.url} 
+              alt={product.name}
+              class="main-product-image w-full h-auto max-h-[500px] object-contain cursor-zoom-in transition-transform duration-300 hover:scale-110"
+              id="mainImage"
+            />
+          </div>
+          
+          <!-- Thumbnail Gallery -->
+          {product.images.length > 1 && (
+            <div class="thumbnail-gallery mt-4 grid grid-cols-4 gap-3">
+              {product.images.slice(0, 4).map((image, index) => (
+                <button 
+                  class={`thumbnail-btn bg-white border border-gray-200 shadow-soft p-2 rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 ${index === 0 ? 'ring-2 ring-primary' : ''}`}
+                  data-image={image.url}
+                  data-index={index}
+                >
+                  <img 
+                    src={image.url} 
+                    alt={`${product.name} ${index + 1}`}
+                    class="w-full h-20 object-contain"
+                  />
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info animate-on-scroll fade-in-right">
+          <h1 class="text-xl md:text-2xl font-scandia-medium mb-3 text-gradient">{product.name}</h1>
+          {product.slogan && (
+            <p class="text-xl text-gray-700 mb-6 italic">{product.slogan}</p>
+          )}
+          
+          <!-- Price and Points -->
+          <div class="price-section bg-white border border-gray-200 shadow-soft rounded-xl p-5 mb-6">
+            <div class="flex items-end gap-4 mb-4">
+              <div>
+                <p class="text-sm text-gray-600 mb-1">Precio público</p>
+                <p class="text-3xl font-scandia-medium text-gray-900">{formatPrice(product.price)}</p>
+              </div>
+              <div class="ml-auto text-right">
+                <p class="text-sm text-gray-600 mb-1">Puntos</p>
+                <p class="text-2xl font-scandia-medium text-primary">{product.points}</p>
+              </div>
+            </div>
+            <!-- Payment Methods -->
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <p class="text-xs text-gray-600 mb-2">Medios de pago seguros</p>
+              <div class="flex items-center gap-3">
+                <img 
+                  src="/image/mercadopago.webp" 
+                  alt="MercadoPago" 
+                  class="h-8 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                />
+                <span class="text-xs text-gray-500">• Pago 100% seguro</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Presentation -->
+          <div class="presentation-info mb-6">
+            <p class="text-sm text-gray-600 mb-2">Presentación</p>
+            <p class="text-lg font-scandia-medium flex items-center gap-2">
+              <span class="material-icons text-primary">inventory_2</span>
+              {product.presentation}
+            </p>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="cta-buttons space-y-3 mb-8">
+            {product.powerlink && (
+              <a 
+                href={product.powerlink}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full py-4 px-6 bg-gradient-to-r from-primary to-primary-dark text-white rounded-lg font-scandia-medium text-lg hover:shadow-large transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 group animate-pulse-slow"
+              >
+                <span class="material-icons text-2xl group-hover:scale-110 transition-transform">shopping_cart</span>
+                <span>COMPRAR AHORA</span>
+                <img src="/image/mercadopago.webp" alt="MercadoPago" class="h-5 object-contain opacity-90" />
+              </a>
+            )}
+            <a 
+              href={whatsappUrl}
+              target="_blank"
+              class="btn-secondary w-full flex items-center justify-center gap-3 hover:shadow-medium transform hover:scale-105 transition-all duration-300"
+            >
+              <i class="fab fa-whatsapp text-2xl"></i>
+              <span class="font-scandia-medium">CONSULTAR POR WHATSAPP</span>
+            </a>
+            <a 
+              href={`https://wa.me/549299651620?text=${encodeURIComponent(`Hola! Quiero información sobre cómo vender ${product.name} y ganar dinero`)}`}
+              target="_blank"
+              class="btn-secondary w-full flex items-center justify-center gap-3 hover:shadow-medium transform hover:scale-105 transition-all duration-300"
+            >
+              <span class="material-icons">attach_money</span>
+              <span class="font-scandia-medium">QUIERO VENDERLO</span>
+            </a>
+          </div>
+
+
+          <!-- Trust Indicators -->
+          <div class="mini-trust-indicators grid grid-cols-3 gap-3 text-center">
+            <div class="bg-white border border-gray-200 shadow-soft rounded-lg p-3">
+              <span class="material-icons text-2xl text-primary mb-1">verified_user</span>
+              <p class="text-xs">100% Natural</p>
+            </div>
+            <div class="bg-white border border-gray-200 shadow-soft rounded-lg p-3">
+              <span class="material-icons text-2xl text-primary mb-1">science</span>
+              <p class="text-xs">Calidad Certificada</p>
+            </div>
+            <div class="bg-white border border-gray-200 shadow-soft rounded-lg p-3">
+              <span class="material-icons text-2xl text-primary mb-1">favorite</span>
+              <p class="text-xs">Miles lo aman</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Details Tabs -->
+  <section class="product-details py-12 bg-gray-50/50">
+    <div class="container-narrow">
+      <!-- Tab Navigation -->
+      <div class="tab-nav flex flex-wrap gap-2 mb-8 justify-center">
+        <button class="tab-btn active" data-tab="benefits">
+          <span class="material-icons mr-2">star</span>
+          Beneficios
+        </button>
+        <button class="tab-btn" data-tab="ingredients">
+          <span class="material-icons mr-2">eco</span>
+          Ingredientes
+        </button>
+        <button class="tab-btn" data-tab="preparation">
+          <span class="material-icons mr-2">local_cafe</span>
+          Preparación
+        </button>
+        <button class="tab-btn" data-tab="description">
+          <span class="material-icons mr-2">info</span>
+          Descripción
+        </button>
+      </div>
+
+      <!-- Tab Content -->
+      <div class="tab-content max-w-2xl mx-auto">
+        <!-- Benefits Tab -->
+        <div id="benefits-tab" class="tab-pane active">
+          <div class="bg-white border border-gray-200 shadow-soft rounded-2xl p-5 animate-on-scroll fade-in-up">
+            <h2 class="text-2xl font-scandia-medium mb-6 flex items-center gap-3">
+              <span class="material-icons text-primary text-3xl">auto_awesome</span>
+              Beneficios Principales
+            </h2>
+            <div class="benefits-grid">
+              {product.benefits && product.benefits.split('-').filter(b => b.trim()).map((benefit, index) => (
+                <div class="benefit-item flex items-start gap-4 mb-6 animate-on-scroll fade-in-left" style={`animation-delay: ${index * 0.1}s`}>
+                  <div class="benefit-icon">
+                    <span class="material-icons text-primary">check_circle</span>
+                  </div>
+                  <p class="text-gray-700 leading-relaxed">{benefit.trim()}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Ingredients Tab -->
+        <div id="ingredients-tab" class="tab-pane">
+          <div class="bg-white border border-gray-200 shadow-soft rounded-2xl p-5">
+            <h2 class="text-2xl font-scandia-medium mb-6 flex items-center gap-3">
+              <span class="material-icons text-primary text-3xl">science</span>
+              Ingredientes Activos
+            </h2>
+            <div class="ingredients-grid grid grid-cols-1 md:grid-cols-2 gap-4">
+              {product.ingredients && product.ingredients.split(',').map((ingredient, index) => (
+                <div class="ingredient-card bg-white/80 backdrop-blur-sm border border-gray-100 rounded-lg p-4 flex items-center gap-3 hover:scale-105 transition-transform animate-on-scroll scale-in" style={`animation-delay: ${index * 0.1}s`}>
+                  <div class="ingredient-icon w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                    <span class="material-icons text-primary">eco</span>
+                  </div>
+                  <p class="font-scandia-medium">{ingredient.trim()}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Preparation Tab -->
+        <div id="preparation-tab" class="tab-pane">
+          <div class="bg-white border border-gray-200 shadow-soft rounded-2xl p-5">
+            <h2 class="text-2xl font-scandia-medium mb-6 flex items-center gap-3">
+              <span class="material-icons text-primary text-3xl">coffee</span>
+              Modo de Preparación
+            </h2>
+            <div class="preparation-steps">
+              <div class="step-card mb-6">
+                <div class="flex items-start gap-4">
+                  <div class="step-number">
+                    <span class="w-10 h-10 bg-primary rounded-full flex items-center justify-center font-scandia-medium text-white">1</span>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="font-scandia-medium mb-2">Preparación</h3>
+                    <p class="text-gray-700">{product.preparation}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="flex items-start gap-4">
+                  <div class="step-number">
+                    <span class="w-10 h-10 bg-primary rounded-full flex items-center justify-center font-scandia-medium text-white">2</span>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="font-scandia-medium mb-2">Consumo Recomendado</h3>
+                    <p class="text-gray-700">{product.consumption}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Visual Tips -->
+            <div class="tips-section mt-8 p-5 bg-primary/10 rounded-xl border border-primary/20">
+              <h4 class="font-scandia-medium mb-3 flex items-center gap-2">
+                <span class="material-icons text-primary">lightbulb</span>
+                Tips Pro
+              </h4>
+              <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="material-icons text-xs text-primary mt-1">arrow_right</span>
+                  <span>Mejor absorción si se toma en ayunas</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-icons text-xs text-primary mt-1">arrow_right</span>
+                  <span>Puedes combinarlo con tus smoothies favoritos</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-icons text-xs text-primary mt-1">arrow_right</span>
+                  <span>Mantén una rutina diaria para mejores resultados</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description Tab -->
+        <div id="description-tab" class="tab-pane">
+          <div class="bg-white border border-gray-200 shadow-soft rounded-2xl p-5">
+            <h2 class="text-2xl font-scandia-medium mb-6 flex items-center gap-3">
+              <span class="material-icons text-primary text-3xl">description</span>
+              Descripción Completa
+            </h2>
+            <p class="text-gray-700 leading-relaxed whitespace-pre-line">
+              {product.description.replace('AGREGAR AL CARRITO', '').trim()}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Products -->
+  <section class="related-products py-12 bg-gray-50/50">
+    <div class="container-narrow">
+      <h2 class="text-3xl font-scandia-medium text-center mb-8">
+        <span class="text-gradient">Productos Relacionados</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {relatedProducts.map((related, index) => (
+          <a 
+            href={`/productos/${related.id}`}
+            class="related-product-card bg-white border border-gray-200 shadow-soft rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 animate-on-scroll fade-in-up"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
+            <div class="aspect-square overflow-hidden">
+              <img 
+                src={related.images[0]?.url} 
+                alt={related.name}
+                class="w-full h-full object-contain p-4 hover:scale-110 transition-transform duration-300"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="font-scandia-medium mb-1">{related.name}</h3>
+              <p class="text-sm text-gray-600 mb-3 line-clamp-2">{related.slogan}</p>
+              <div class="flex justify-between items-center">
+                <span class="text-lg font-scandia-medium text-primary">{formatPrice(related.price)}</span>
+                <span class="text-sm bg-white/80 backdrop-blur-sm border border-gray-100 px-3 py-1 rounded-full">Ver más →</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</ProductLayout>
+
+<!-- Floating Buy Button -->
+{product.powerlink && (
+  <div class="fixed bottom-6 right-6 z-40 animate-bounce-slow">
+    <a 
+      href={product.powerlink}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="bg-gradient-to-r from-primary to-primary-dark text-white rounded-full p-4 shadow-large hover:shadow-2xl transform hover:scale-110 transition-all duration-300 flex items-center gap-3 group"
+    >
+      <span class="material-icons text-2xl group-hover:rotate-12 transition-transform">shopping_cart</span>
+      <span class="pr-2 font-scandia-medium hidden md:inline">COMPRAR</span>
+    </a>
+  </div>
+)}
+
+<style>
+  .tab-btn {
+    @apply px-6 py-3 rounded-full font-scandia-medium transition-all duration-300 flex items-center bg-white bg-opacity-100 backdrop-blur-md border border-gray-200 border-opacity-10;
+  }
+  
+  .tab-btn:hover {
+    @apply transform scale-105;
+  }
+  
+  .tab-btn.active {
+    @apply bg-primary text-white;
+  }
+  
+  .tab-pane {
+    @apply hidden;
+  }
+  
+  .tab-pane.active {
+    @apply block;
+  }
+  
+  .benefit-icon {
+    @apply w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Image zoom effect */
+  .cursor-zoom-in {
+    cursor: zoom-in;
+  }
+  
+  /* Purchase button pulse animation */
+  @keyframes pulse-scale {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(1, 134, 214, 0.7);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 10px rgba(1, 134, 214, 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(1, 134, 214, 0);
+    }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-scale 2s infinite;
+  }
+  
+  .zoomed {
+    cursor: zoom-out !important;
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(1.5) !important;
+    z-index: 100;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+  
+  .zoom-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 99;
+  }
+</style>
+
+<script>
+  // Tab functionality
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+  
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.getAttribute('data-tab');
+      
+      // Update buttons
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      // Update panes
+      tabPanes.forEach(pane => pane.classList.remove('active'));
+      document.getElementById(`${targetTab}-tab`)?.classList.add('active');
+    });
+  });
+  
+  // Image gallery
+  const mainImage = document.getElementById('mainImage') as HTMLImageElement;
+  const thumbnailBtns = document.querySelectorAll('.thumbnail-btn');
+  
+  thumbnailBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const newImage = btn.getAttribute('data-image');
+      if (mainImage && newImage) {
+        mainImage.src = newImage;
+        
+        // Update active thumbnail
+        thumbnailBtns.forEach(b => b.classList.remove('ring-2', 'ring-primary'));
+        btn.classList.add('ring-2', 'ring-primary');
+      }
+    });
+  });
+  
+  // Image zoom
+  if (mainImage) {
+    mainImage.addEventListener('click', () => {
+      if (mainImage.classList.contains('zoomed')) {
+        mainImage.classList.remove('zoomed');
+        document.querySelector('.zoom-overlay')?.remove();
+      } else {
+        const overlay = document.createElement('div');
+        overlay.className = 'zoom-overlay';
+        document.body.appendChild(overlay);
+        mainImage.classList.add('zoomed');
+        
+        overlay.addEventListener('click', () => {
+          mainImage.classList.remove('zoomed');
+          overlay.remove();
+        });
+      }
+    });
+  }
+  
+  // Purchase button click feedback
+  document.querySelectorAll('a[href*="tiendafuxion.com"]').forEach(link => {
+    link.addEventListener('click', () => {
+      // Create notification
+      const notification = document.createElement('div');
+      notification.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-primary to-primary-dark text-white px-8 py-4 rounded-full shadow-2xl z-50 flex items-center gap-3 animate-slide-down';
+      notification.innerHTML = `
+        <span class="material-icons animate-spin">autorenew</span>
+        <span class="font-scandia-medium">Redirigiendo a checkout seguro...</span>
+      `;
+      document.body.appendChild(notification);
+      
+      // Remove notification after 3 seconds
+      setTimeout(() => {
+        notification.remove();
+      }, 3000);
+    });
+  });
+</script>

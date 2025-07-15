@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import { getCollection } from 'astro:content';
+
+// Get all blog posts sorted by date
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Get featured posts - take only the first one for the featured section
+const featuredPosts = posts.filter(post => post.data.featured);
+const featuredPost = featuredPosts[0]; // Only the first featured post gets the special treatment
+// Include all posts except the first featured one in the regular grid
+const regularPosts = posts.filter(post => post !== featuredPost);
+
+// Category labels
+const categoryLabels = {
+  nutricion: 'Nutrición',
+  ejercicio: 'Ejercicio',
+  negocio: 'Negocio',
+  testimonios: 'Testimonios',
+  productos: 'Productos'
+};
+
+// Category colors - updated to match site theme
+const categoryColors = {
+  nutricion: 'bg-green-500 text-white',
+  ejercicio: 'bg-primary text-white',
+  negocio: 'bg-purple-500 text-white',
+  testimonios: 'bg-amber-500 text-white',
+  productos: 'bg-rose-500 text-white'
+};
+
+export const prerender = true;
+---
+
+<BaseLayout title="Blog - Hidratación Saludable">
+  <Header />
+  <main class="min-h-screen bg-white pt-16">
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-24 overflow-hidden bg-gradient-to-b from-primary-light to-white">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
+      </div>
+
+      <div class="relative container-narrow">
+        <div class="max-w-3xl mx-auto text-center">
+          <p class="text-primary text-sm uppercase tracking-widest mb-4 font-scandia">CONOCIMIENTO Y BIENESTAR</p>
+          <h1 class="text-4xl lg:text-5xl font-scandia-medium text-gray-900 mb-6">
+            Blog de Hidratación Saludable
+          </h1>
+          <p class="text-lg text-gray-600 leading-relaxed font-scandia mb-4">
+            Descubre consejos, historias inspiradoras y estrategias para transformar tu salud y construir el negocio de tus sueños
+          </p>
+          <p class="text-sm text-gray-500 font-scandia">
+            {posts.length} artículos publicados
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Featured Post -->
+    {featuredPost && (
+      <section class="section-padding">
+        <div class="container-narrow">
+          <div class="max-w-6xl mx-auto">
+            <div class="bg-white rounded-lg shadow-soft overflow-hidden hover:shadow-large transition-all duration-300 group">
+              <div class="grid lg:grid-cols-2 gap-0">
+                <!-- Image -->
+                <div class="relative h-64 lg:h-full">
+                  <img
+                    src={featuredPost.data.heroImage || '/image/blog/1.jpg'}
+                    alt={featuredPost.data.title}
+                    class="w-full h-full object-cover"
+                  />
+                  <div class="absolute top-4 left-4">
+                    <span class="bg-primary text-white px-4 py-2 rounded-full text-sm font-scandia-medium uppercase tracking-wider">
+                      ⭐ Destacado
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <div class="p-8 lg:p-10 flex flex-col justify-center">
+                  <div class="flex items-center gap-4 mb-4">
+                    <span class={`px-3 py-1 rounded-full text-sm font-medium ${categoryColors[featuredPost.data.category]}`}>
+                      {categoryLabels[featuredPost.data.category]}
+                    </span>
+                    <time class="text-gray-500 text-sm">
+                      {new Date(featuredPost.data.pubDate).toLocaleDateString('es-AR', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </time>
+                  </div>
+
+                  <h2 class="text-2xl lg:text-3xl font-scandia-medium text-gray-900 mb-4 group-hover:text-primary transition-colors">
+                    <a href={`/blog/${featuredPost.slug}/`}>
+                      {featuredPost.data.title}
+                    </a>
+                  </h2>
+
+                  <p class="text-gray-600 mb-6 line-clamp-3">
+                    {featuredPost.data.description}
+                  </p>
+
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="/image/ivan-about.png"
+                        alt={featuredPost.data.author}
+                        class="w-10 h-10 rounded-full object-cover object-top"
+                      />
+                      <span class="text-gray-700 font-medium">{featuredPost.data.author}</span>
+                    </div>
+
+                    <a
+                      href={`/blog/${featuredPost.slug}/`}
+                      class="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-scandia-medium transition-all group"
+                    >
+                      Leer más
+                      <span class="material-icons text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Blog Grid -->
+    <section class="section-padding bg-gray-50">
+      <div class="container-narrow">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-12">
+            <p class="text-primary text-sm uppercase tracking-widest mb-2 font-scandia">TODOS LOS ARTÍCULOS</p>
+            <h2 class="text-3xl font-scandia-medium text-gray-900">
+              {regularPosts.length} artículos disponibles
+            </h2>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {regularPosts.map((post) => (
+              <article class="bg-white rounded-lg shadow-soft overflow-hidden hover:shadow-large transition-all duration-300 hover:-translate-y-1 group">
+                <a href={`/blog/${post.slug}/`}>
+                  <div class="relative h-48 overflow-hidden">
+                    <img
+                      src={post.data.heroImage || '/image/blog/7.jpg'}
+                      alt={post.data.title}
+                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                  </div>
+                </a>
+
+                <div class="p-6">
+                  <div class="flex items-center gap-3 mb-3">
+                    <span class={`px-3 py-1 rounded-full text-xs font-scandia-medium ${categoryColors[post.data.category]}`}>
+                      {categoryLabels[post.data.category]}
+                    </span>
+                    <time class="text-gray-500 text-xs">
+                      {new Date(post.data.pubDate).toLocaleDateString('es-AR', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </time>
+                  </div>
+
+                  <h3 class="text-xl font-scandia-medium text-gray-900 mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                    <a href={`/blog/${post.slug}/`}>
+                      {post.data.title}
+                    </a>
+                  </h3>
+
+                  <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                    {post.data.description}
+                  </p>
+
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <img
+                        src="/image/ivan-about.png"
+                        alt={post.data.author}
+                        class="w-8 h-8 rounded-full object-cover object-top"
+                      />
+                      <span class="text-gray-700 text-sm font-scandia">{post.data.author}</span>
+                    </div>
+
+                    <a
+                      href={`/blog/${post.slug}/`}
+                      class="text-primary hover:text-primary-dark transition-all group/arrow"
+                    >
+                      <span class="material-icons text-xl group-hover/arrow:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="py-16 lg:py-20 bg-primary relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-dark/20 to-transparent"></div>
+      <div class="container-narrow relative z-10">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl lg:text-4xl font-scandia-medium text-white mb-4">
+            No te pierdas ningún artículo
+          </h2>
+          <p class="text-lg text-white/90 mb-8 font-scandia">
+            Únete a nuestra comunidad y recibe los mejores consejos directo en tu WhatsApp
+          </p>
+          <a
+            href="https://wa.me/549299651620?text=Hola!%20Quiero%20recibir%20los%20artículos%20del%20blog"
+            target="_blank"
+            class="inline-flex items-center gap-2 bg-white text-primary hover:bg-gray-50 px-8 py-4 rounded-full font-scandia-medium uppercase tracking-wider transition-all transform hover:scale-105 shadow-lg group"
+          >
+            <i class="fab fa-whatsapp text-2xl group-hover:scale-110 transition-transform"></i>
+            <span>Unirme al grupo</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <WhatsAppButton />
+</BaseLayout>

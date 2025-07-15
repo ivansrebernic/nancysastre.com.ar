@@ -1,0 +1,201 @@
+---
+import ProductCard from './ProductCard.astro';
+import FeatureCard from './FeatureCard.astro';
+import productsData from '../../products-clean-final.json';
+
+// Featured products: PRUNEX1, VITA XTRA T+, TERMO T3
+const featuredProductIds = ['143855', '143877', '142329'];
+const products = featuredProductIds.map(id => {
+  const product = productsData.products.find(p => p.id === id);
+  if (!product) return null;
+  
+  // Extract benefits from the description
+  const benefitsList = product.benefits ? product.benefits.split('-').filter(b => b.trim()).map(b => b.trim()) : [];
+  
+  return {
+    id: product.id,
+    name: product.name,
+    image: product.images[0]?.url,
+    benefits: benefitsList.length > 0 ? benefitsList : [
+      'Producto natural',
+      'Alta calidad',
+      'Resultados comprobados'
+    ],
+    price: Math.round(parseFloat(product.price) * 1000),
+    originalPrice: null,
+    stock: 100,
+    popular: product.name === 'PRUNEX1',
+    slogan: product.slogan,
+    presentation: product.presentation,
+    powerlink: product.powerlink
+  };
+}).filter(Boolean);
+
+const benefits = [
+  {
+    icon: 'eco',
+    title: '100% NATURAL',
+    description: 'Ingredientes orgánicos certificados sin aditivos artificiales'
+  },
+  {
+    icon: 'science',
+    title: 'RESPALDO CIENTÍFICO',
+    description: 'Fórmulas desarrolladas por nutricionistas expertos'
+  },
+  {
+    icon: 'favorite',
+    title: 'RESULTADOS REALES',
+    description: 'Miles de clientes satisfechos con transformaciones comprobadas'
+  }
+];
+---
+
+<section id="products" class="py-12 md:py-12 md:py-10 md:py-12">
+  <!-- Benefits Section -->
+  <div class="container-narrow mb-8 md:mb-8">
+    <div class="text-center mb-8">
+      <p class="section-title animate-slide-down">POR QUÉ ELEGIRNOS</p>
+      <h3 class="section-heading animate-slide-up">BENEFICIOS COMPROBADOS</h3>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto" id="feature-cards">
+      {benefits.map((benefit, index) => (
+        <div class="stagger-item" style={`animation-delay: ${index * 0.1}s`}>
+          <FeatureCard {...benefit} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- About Fuxion Section -->
+<section class="about-fuxion-section relative py-12 overflow-hidden bg-gray-900">
+    <!-- Background Image -->
+    <div 
+        class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+        style="background-image: url('/image/about-fuxion.jpg');"
+    >
+        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/50"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="container-narrow relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-10 animate-fade-in">
+            <p class="text-white/80 text-sm font-scandia tracking-widest uppercase mb-3">CONOCE MÁS</p>
+            <div class="mb-4">
+                <img 
+                    src="/image/LOGO.png" 
+                    alt="Fuxion" 
+                    class="h-20 md:h-24 w-auto mx-auto brightness-0 invert"
+                />
+            </div>
+            <p class="text-lg text-white/90 max-w-2xl mx-auto">
+                Descubre la ciencia detrás de nuestras bebidas nutracéuticas
+            </p>
+        </div>
+
+        <!-- Content Cards -->
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Salud Plena Card -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300 animate-on-scroll fade-in-up">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-blue-500 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                        <span class="material-icons text-white text-xl">health_and_safety</span>
+                    </div>
+                    <h3 class="text-lg font-scandia-medium text-white">SALUD PLENA</h3>
+                </div>
+                <p class="text-white/80 text-sm leading-relaxed">
+                    Sentirse bien no es lo mismo que estar sano. Para alcanzar una Salud Plena, necesitas que cada célula de tu organismo funcione al 100% de su capacidad, lo que se traduce en un cuerpo sano, libre de enfermedades, con el peso correcto; manteniéndose joven y vital por más tiempo.
+                </p>
+            </div>
+
+            <!-- Fusión Nutracéutica Card -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300 animate-on-scroll fade-in-up" style="animation-delay: 0.1s">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-blue-500 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                        <span class="material-icons text-white text-xl">science</span>
+                    </div>
+                    <h3 class="text-lg font-scandia-medium text-white">FUSIÓN NUTRACÉUTICA®</h3>
+                </div>
+                <p class="text-white/80 text-sm leading-relaxed">
+                    Los productos de FuXion® son alimentos nutracéuticos únicos que producen resultados asombrosos. Son resultado de la fusión de conocimientos milenarios (andinos, amazónicos y asiáticos) con los últimos avances científicos en biología celular y nutrición humana.
+                </p>
+            </div>
+
+            <!-- Alimentos Nutracéuticos Card -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300 animate-on-scroll fade-in-up" style="animation-delay: 0.2s">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-blue-500 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                        <span class="material-icons text-white text-xl">local_drink</span>
+                    </div>
+                    <h3 class="text-lg font-scandia-medium text-white">ALIMENTOS NUTRACÉUTICOS</h3>
+                </div>
+                <p class="text-white/80 text-sm leading-relaxed">
+                    Los productos FuXion® se presentan en deliciosas bebidas funcionales: refrescos, batidos, tés y cafés. Sus ingredientes naturales se concentran y potencian en formulaciones para multiplicar sus beneficios.
+                </p>
+            </div>
+        </div>
+
+        <!-- Patents Section -->
+        <div class="mt-10">
+            <h3 class="text-center text-white font-scandia-medium text-lg mb-6">Patentes</h3>
+            <div class="flex flex-wrap justify-center gap-4">
+                {['actinos', 'bioferrin', 'prolibra', 'wellmune'].map((patent, index) => (
+                    <div 
+                        class="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20 hover:border-white/40 transition-all duration-300 animate-on-scroll fade-in-up"
+                        style={`animation-delay: ${0.3 + index * 0.1}s`}
+                    >
+                        <img 
+                            src={`/image/patente-${patent}.png`}
+                            alt={`Patente ${patent}`}
+                            class="w-24 md:w-28 h-auto"
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+
+        <!-- Bottom Message -->
+        <div class="mt-8 text-center animate-fade-in" style="animation-delay: 0.7s">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 border border-white/20">
+                <span class="material-icons text-primary text-sm">verified</span>
+                <span class="text-white text-sm font-scandia-medium">No cápsulas ni pastillas - Solo prácticos sticks listos para mezclar</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="products" class="py-12 md:py-12 md:py-10 md:py-12">
+  <!-- Products Section -->
+  <div class="container-narrow">
+    <div class="text-center mb-8">
+      <p class="section-title animate-slide-down">NUESTROS PRODUCTOS</p>
+      <h3 class="section-heading animate-slide-up mb-4">BEBIDAS SALUDABLES</h3>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Descubre nuestra línea de bebidas 100% naturales, diseñadas para mejorar tu salud y bienestar
+      </p>
+    </div>
+    
+    <!-- Product Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-on-scroll">
+      {products.map((product, index) => (
+        <div class="stagger-item" style={`animation-delay: ${index * 0.15}s`}>
+          <ProductCard {...product} />
+        </div>
+      ))}
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .wrap-aboutinfo {
+    position: relative;
+  }
+
+  @media (min-width: 768px) {
+    #feature-cards {
+      /* Add carousel functionality with JavaScript for mobile if needed */
+    }
+  }
+</style>

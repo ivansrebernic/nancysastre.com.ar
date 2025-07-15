@@ -1,0 +1,15 @@
+---
+export interface Props {
+  subtitle: string;
+  title: string;
+  watermark: string;
+}
+
+const { subtitle, title, watermark } = Astro.props;
+---
+
+<div class="relative text-center">
+  <p class="section-title">{subtitle}</p>
+  <h3 class="section-heading mb-8">{title}</h3>
+  <h4 class="big-watermark">{watermark}</h4>
+</div>

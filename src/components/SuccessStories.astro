@@ -1,0 +1,268 @@
+---
+const stories = [
+  {
+    name: 'Laura Martínez',
+    role: 'Líder Oro',
+    location: 'Buenos Aires',
+    image: '/image/random/11.jpg',
+    monthlyIncome: '$180.000',
+    timeInBusiness: '8 meses',
+    story: 'Empecé mientras cuidaba a mis hijos en casa. Hoy tengo un equipo de 35 personas y gano más que en mi trabajo anterior.',
+    beforeJob: 'Empleada administrativa',
+    achievements: [
+      'Viaje a Cancún todo incluido',
+      'Auto 0km del plan de incentivos',
+      'Equipo de 35+ distribuidores'
+    ]
+  },
+  {
+    name: 'Roberto Sánchez',
+    role: 'Líder Plata',
+    location: 'Córdoba',
+    image: '/image/random/12.jpg',
+    monthlyIncome: '$95.000',
+    timeInBusiness: '5 meses',
+    story: 'Como jubilado, buscaba ingresos extra. Ahora disfruto ayudando a otros a mejorar su salud mientras genero excelentes ingresos.',
+    beforeJob: 'Jubilado',
+    achievements: [
+      'Duplicó sus ingresos de jubilación',
+      '15 distribuidores activos',
+      'Reconocimiento nacional'
+    ]
+  },
+  {
+    name: 'Carolina Pérez',
+    role: 'Líder Bronce',
+    location: 'Rosario',
+    image: '/image/random/13.jpg',
+    monthlyIncome: '$45.000',
+    timeInBusiness: '3 meses',
+    story: 'Siendo estudiante universitaria, necesitaba flexibilidad. Este negocio me permite estudiar y ganar dinero al mismo tiempo.',
+    beforeJob: 'Estudiante',
+    achievements: [
+      'Paga su universidad',
+      '8 distribuidores activos',
+      'Crecimiento del 200% mensual'
+    ]
+  },
+  {
+    name: 'Miguel Torres',
+    role: 'Líder Oro',
+    location: 'Mendoza',
+    image: '/image/random/14.jpg',
+    monthlyIncome: '$220.000',
+    timeInBusiness: '1 año',
+    story: 'Dejé mi trabajo en ventas para dedicarme 100% a esto. Fue la mejor decisión de mi vida. Mi familia ahora vive sin preocupaciones.',
+    beforeJob: 'Vendedor',
+    achievements: [
+      'Renunció a su trabajo',
+      'Equipo de 45+ personas',
+      'Top 10 nacional'
+    ]
+  }
+];
+---
+
+<section id="success-stories" class="py-12 md:py-10 md:py-12">
+  <div class="container-narrow">
+    <!-- Section Header -->
+    <div class="text-center mb-8 md:mb-8">
+      <p class="section-title animate-slide-down">CASOS DE ÉXITO</p>
+      <h3 class="section-heading animate-slide-up mb-4">HISTORIAS REALES DE TRANSFORMACIÓN</h3>
+      <p class="text-gray-600 max-w-2xl mx-auto animate-fade-in">
+        Conoce a personas como tú que cambiaron su vida con nuestra oportunidad de negocio
+      </p>
+    </div>
+
+    <!-- Success Stories Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+      {stories.map((story, index) => (
+        <div 
+          class="success-story-card bg-white border border-gray-200 shadow-soft rounded-xl overflow-hidden animate-on-scroll fade-in-up transform hover:scale-105 transition-all duration-500"
+          style={`animation-delay: ${index * 0.15}s`}
+        >
+          <div class="p-5 md:p-5">
+            <!-- Header -->
+            <div class="flex items-start gap-4 mb-6">
+              <img 
+                src={story.image} 
+                alt={story.name}
+                class="w-20 h-20 rounded-full object-cover border-3 border-primary"
+              />
+              <div class="flex-1">
+                <h4 class="text-xl font-scandia-medium mb-1">{story.name}</h4>
+                <p class="text-primary font-scandia-medium">{story.role}</p>
+                <p class="text-sm text-gray-600">{story.location}</p>
+              </div>
+              <div class="text-right">
+                <p class="text-2xl font-scandia-medium text-gradient">{story.monthlyIncome}</p>
+                <p class="text-xs text-gray-600">por mes</p>
+              </div>
+            </div>
+
+            <!-- Story -->
+            <blockquote class="relative mb-6">
+              <span class="text-6xl text-primary/20 absolute -top-4 -left-2">"</span>
+              <p class="text-gray-700 italic pl-8">
+                {story.story}
+              </p>
+            </blockquote>
+
+            <!-- Timeline -->
+            <div class="flex items-center gap-4 mb-6 text-sm">
+              <div class="flex items-center gap-2">
+                <span class="material-icons text-primary text-sm">work_outline</span>
+                <span class="text-gray-600">Antes: {story.beforeJob}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="material-icons text-primary text-sm">schedule</span>
+                <span class="text-gray-600">{story.timeInBusiness}</span>
+              </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="space-y-2">
+              <p class="text-sm font-scandia-medium text-gray-700 mb-2">Logros destacados:</p>
+              {story.achievements.map(achievement => (
+                <div class="flex items-center gap-2">
+                  <span class="material-icons text-primary text-sm">star</span>
+                  <span class="text-sm text-gray-600">{achievement}</span>
+                </div>
+              ))}
+            </div>
+
+            <!-- CTA -->
+            <button class="mt-6 text-primary font-scandia-medium hover:text-gray-900 transition-colors flex items-center gap-2">
+              <span>Ver historia completa</span>
+              <span class="material-icons text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Income Growth Chart -->
+    <div class="income-chart bg-white border border-gray-200 shadow-soft rounded-xl p-5 mb-8 animate-on-scroll">
+      <h3 class="text-2xl font-scandia-medium mb-6 text-center">📈 Crecimiento Promedio de Ingresos</h3>
+      <div class="chart-container">
+        <div class="flex items-end justify-around h-64 mb-4">
+          <div class="chart-bar" style="height: 20%">
+            <span class="bar-value">$15K</span>
+            <div class="bar"></div>
+            <span class="bar-label">Mes 1</span>
+          </div>
+          <div class="chart-bar" style="height: 35%">
+            <span class="bar-value">$30K</span>
+            <div class="bar"></div>
+            <span class="bar-label">Mes 3</span>
+          </div>
+          <div class="chart-bar" style="height: 60%">
+            <span class="bar-value">$65K</span>
+            <div class="bar"></div>
+            <span class="bar-label">Mes 6</span>
+          </div>
+          <div class="chart-bar" style="height: 85%">
+            <span class="bar-value">$120K</span>
+            <div class="bar"></div>
+            <span class="bar-label">Mes 9</span>
+          </div>
+          <div class="chart-bar" style="height: 100%">
+            <span class="bar-value">$180K+</span>
+            <div class="bar"></div>
+            <span class="bar-label">Año 1</span>
+          </div>
+        </div>
+        <p class="text-center text-sm text-gray-600">*Basado en el promedio de distribuidores activos que siguen el sistema</p>
+      </div>
+    </div>
+
+    <!-- Start Your Story CTA -->
+    <div class="text-center bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl p-5 animate-on-scroll">
+      <h3 class="text-3xl font-scandia-medium mb-4">¿Listo para escribir tu propia historia de éxito?</h3>
+      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+        Miles de personas ya transformaron su vida. Tú puedes ser el próximo.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button class="btn-primary hover:shadow-large transform hover:scale-105 transition-all duration-300">
+          <span class="flex items-center justify-center gap-2">
+            <span class="material-icons">rocket_launch</span>
+            COMENZAR MI HISTORIA
+          </span>
+        </button>
+        <button class="btn-secondary hover:shadow-medium transform hover:scale-105 transition-all duration-300">
+          <span class="flex items-center justify-center gap-2">
+            <span class="material-icons">play_circle</span>
+            VER VIDEO TESTIMONIOS
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .success-story-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .success-story-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(66, 217, 118, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+  }
+
+  .chart-bar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .bar {
+    width: 60px;
+    background: linear-gradient(to top, #42d976, #3bc968);
+    border-radius: 4px 4px 0 0;
+    height: 100%;
+    margin-bottom: 8px;
+    position: relative;
+    animation: growBar 1s ease-out forwards;
+    animation-delay: calc(var(--index) * 0.1s);
+  }
+
+  .bar-value {
+    position: absolute;
+    top: -30px;
+    font-weight: bold;
+    color: #42d976;
+  }
+
+  .bar-label {
+    font-size: 12px;
+    color: #9ca3af;
+  }
+
+  @keyframes growBar {
+    from {
+      transform: scaleY(0);
+      transform-origin: bottom;
+    }
+    to {
+      transform: scaleY(1);
+      transform-origin: bottom;
+    }
+  }
+
+  .chart-bar:nth-child(1) { --index: 0; }
+  .chart-bar:nth-child(2) { --index: 1; }
+  .chart-bar:nth-child(3) { --index: 2; }
+  .chart-bar:nth-child(4) { --index: 3; }
+  .chart-bar:nth-child(5) { --index: 4; }
+</style>

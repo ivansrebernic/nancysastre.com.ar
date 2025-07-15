@@ -1,0 +1,112 @@
+---
+import { getCollection } from 'astro:content';
+
+// Get latest blog posts
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3); // Show only 3 latest posts
+
+// Category labels
+const categoryLabels = {
+  nutricion: 'Nutrición',
+  ejercicio: 'Ejercicio',
+  negocio: 'Negocio',
+  testimonios: 'Testimonios',
+  productos: 'Productos'
+};
+
+// Category colors for badges
+const categoryColors = {
+  nutricion: 'bg-green-500',
+  ejercicio: 'bg-blue-500',
+  negocio: 'bg-purple-500',
+  testimonios: 'bg-amber-500',
+  productos: 'bg-rose-500'
+};
+---
+
+<section id="wrap-blog" class="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50">
+  <div class="container-narrow">
+    <!-- Section Header -->
+    <div class="flex justify-center mb-12">
+      <div class="text-center max-w-3xl">
+        <div class="relative">
+          <p class="text-primary text-sm uppercase tracking-widest mb-2">ARTÍCULOS RECIENTES</p>
+          <h3 class="text-3xl md:text-4xl font-scandia-medium mb-4 text-gray-900">Blog de Bienestar</h3>
+          <p class="text-gray-600 text-lg">Consejos, historias y estrategias para transformar tu vida</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog Posts -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {posts.map((post) => (
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
+          <a href={`/blog/${post.slug}/`}>
+            <div class="relative h-48 overflow-hidden">
+              <img 
+                src={post.data.heroImage || '/image/blog/1.jpg'} 
+                alt={post.data.title}
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div class="absolute top-4 left-4">
+                <span class={`${categoryColors[post.data.category]} text-white px-3 py-1 rounded-full text-xs font-medium`}>
+                  {categoryLabels[post.data.category]}
+                </span>
+              </div>
+            </div>
+          </a>
+          
+          <div class="p-6">
+            <time class="text-gray-500 text-sm">
+              {new Date(post.data.pubDate).toLocaleDateString('es-AR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </time>
+            
+            <h3 class="text-xl font-bold text-gray-900 mt-2 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+              <a href={`/blog/${post.slug}/`}>
+                {post.data.title}
+              </a>
+            </h3>
+            
+            <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+              {post.data.description}
+            </p>
+            
+            <a 
+              href={`/blog/${post.slug}/`}
+              class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors"
+            >
+              Leer más
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+    
+    <!-- View All Button -->
+    <div class="text-center mt-12">
+      <a 
+        href="/blog"
+        class="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-full font-medium transition-all transform hover:scale-105 shadow-lg"
+      >
+        Ver todos los artículos
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  #wrap-blog {
+    position: relative;
+  }
+</style>

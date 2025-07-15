@@ -1,0 +1,153 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Font Face Definitions */
+@font-face {
+  font-family: 'Scandia-Regular';
+  src: url('/fonts/Scandia-Regular.woff2') format('woff2'),
+       url('/fonts/Scandia-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Scandia-Medium';
+  src: url('/fonts/Scandia-Medium.woff2') format('woff2'),
+       url('/fonts/Scandia-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 font-scandia;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-scandia-medium text-gray-900;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-12 md:py-16;
+  }
+
+  .container-custom {
+    @apply container mx-auto px-4;
+  }
+
+  .container-narrow {
+    @apply max-w-5xl mx-auto px-6;
+  }
+
+  .btn-primary {
+    @apply inline-block px-6 py-2 bg-primary text-white font-scandia-medium text-sm uppercase tracking-wider rounded transition-all duration-300 hover:bg-primary-dark;
+  }
+
+  .btn-secondary {
+    @apply inline-block px-6 py-2 bg-transparent border border-primary text-primary font-scandia-medium text-sm uppercase tracking-wider rounded transition-all duration-300 hover:bg-primary hover:text-white;
+  }
+
+  .section-title {
+    @apply text-primary text-xs uppercase tracking-widest mb-2;
+  }
+
+  .section-heading {
+    @apply text-2xl md:text-3xl font-scandia-medium mb-3;
+  }
+
+  .big-watermark {
+    @apply hidden;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-soft hover:shadow-medium transition-all duration-300;
+  }
+  
+  /* Shopping cart button styles */
+  .btn-purchase {
+    @apply bg-gradient-to-r from-primary to-primary-dark text-white hover:shadow-large transform hover:scale-105 transition-all duration-300;
+  }
+  
+  .btn-purchase:hover .material-icons {
+    @apply scale-110;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+  }
+
+  .text-gradient {
+    @apply text-primary;
+  }
+
+  .border-gradient {
+    @apply border-2 border-primary;
+  }
+
+
+  .animate-on-scroll {
+    opacity: 0;
+  }
+
+  .animate-on-scroll.show {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+
+  /* Simple fade animation */
+  .fade-in {
+    opacity: 0;
+  }
+
+  .fade-in.show {
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out;
+  }
+
+  /* Markdown content fixes */
+  .prose p {
+    white-space: normal !important;
+  }
+  
+  /* Ensure single line breaks in markdown don't create new paragraphs */
+  .prose br {
+    display: none;
+  }
+  
+  /* Only preserve double line breaks (actual paragraphs) */
+  .prose p + br + br {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  /* Fix for markdown rendering with proper paragraph spacing */
+  .article-content p {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Remove unnecessary breaks in lists */
+  .prose li br {
+    display: none;
+  }
+
+}

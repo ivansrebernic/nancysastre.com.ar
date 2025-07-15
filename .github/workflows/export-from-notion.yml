@@ -1,0 +1,52 @@
+name: Exportar blogs desde Notion
+
+on:
+  workflow_dispatch:     # Lo podés ejecutar manualmente desde GitHub
+  schedule:
+    - cron: '0 * * * *'  # Corre cada hora
+  repository_dispatch:
+    types: [notion-export]  # Trigger desde Notion via webhook
+
+jobs:
+  export-blog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Ejecutar exportación desde Notion
+        run: npm run export:blog
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
+
+      - name: Sincronizar con repositorio remoto
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git pull origin main
+
+      - name: Subir cambios si los hay
+        run: |
+          # Add and commit changes (both markdown files and images)
+          git add src/content/blog/ public/image/blog/
+          if git diff --cached --quiet; then
+            echo "No hay cambios en los blogs para commitear"
+          else
+            git commit -m "📝 Blog actualizado desde Notion"
+            git push origin main
+          fi

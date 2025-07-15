@@ -1,0 +1,189 @@
+---
+const currentYear = new Date().getFullYear();
+
+const socialLinks = [
+  { icon: 'fab fa-instagram', href: 'https://www.instagram.com/nancyemprendedora', label: 'Instagram' },
+  { icon: 'fab fa-whatsapp', href: 'https://wa.me/549299651620', label: 'WhatsApp' },
+  { icon: 'fas fa-envelope', href: 'mailto:nancysastre@gmail.com', label: 'Email' },
+];
+
+const contactInfo = [
+  {
+    icon: 'phone',
+    title: 'Teléfono',
+    content: '+54 9 299 651620'
+  },
+  {
+    icon: 'email',
+    title: 'Email',
+    content: 'nancysastre@gmail.com'
+  },
+  {
+    icon: 'alternate_email',
+    title: 'Instagram',
+    content: '@nancyemprendedora'
+  }
+];
+
+const quickLinks = [
+  { text: 'Inicio', href: '/' },
+  { text: 'Acerca de mí', href: '/about' },
+  { text: 'Productos', href: '/productos' },
+  { text: 'Blog', href: '/blog' },
+  { text: 'Contacto', href: '/#contact-wrap' },
+];
+---
+
+<footer id="wrap-footer" class="relative bg-gradient-to-br from-primary to-primary-dark pt-16 pb-8 overflow-hidden">
+  <!-- Pattern overlay -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+  </div>
+  
+  <!-- Geometric pattern -->
+  <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="footer-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+        <circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#footer-pattern)" />
+  </svg>
+  
+  <div class="container-narrow relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <!-- Company Info -->
+      <div class="wrap-footbotom">
+        <h3 class="text-xl font-scandia-medium mb-6 text-white">Sobre Hidratación Saludable</h3>
+        <p class="text-white/80 mb-8 leading-relaxed">
+          Transforma tu salud y tus ingresos con nuestras bebidas 100% naturales.
+          Únete a miles de personas que ya cambiaron su vida.
+        </p>
+        <h3 class="text-xl font-scandia-medium mb-4 text-white">Síguenos</h3>
+        <ul class="sosmed flex space-x-4">
+          {socialLinks.map((social) => (
+            <li>
+              <a 
+                href={social.href} 
+                class="w-12 h-12 bg-white hover:bg-white/90 flex items-center justify-center rounded-full transition-all duration-300 group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                aria-label={social.label}
+              >
+                <i class={`${social.icon} text-primary text-lg`}></i>
+              </a>
+            </li>
+          ))}
+        </ul>
+        
+        <!-- Instagram handle -->
+        <div class="mt-6 flex items-center gap-2">
+          <i class="fab fa-instagram text-white text-2xl"></i>
+          <a href="https://www.instagram.com/nancyemprendedora" class="text-white hover:text-white/80 transition-colors font-scandia-medium">
+            @nancyemprendedora
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="wrap-footbotom">
+        <h3 class="text-xl font-scandia-medium mb-6 text-white">Cómo Contactarme</h3>
+        <ul class="listdetail-fot space-y-6">
+          {contactInfo.map((info) => (
+            <li>
+              <div class="wrap-detailfot flex items-start">
+                <span class="material-icons iconfot text-white/70 mr-3 mt-1">
+                  {info.icon}
+                </span>
+                <div>
+                  <p class="text-sm uppercase tracking-wider text-white/60 mb-1">{info.title}</p>
+                  <p class="text-white">{info.content}</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="wrap-footbotom">
+        <h3 class="text-xl font-scandia-medium mb-6 text-white">Enlaces Rápidos</h3>
+        <ul class="space-y-3">
+          {quickLinks.map((link) => (
+            <li>
+              <a 
+                href={link.href} 
+                class="text-white/80 hover:text-white transition-colors duration-300 flex items-center gap-2"
+              >
+                <span class="material-icons text-sm text-white/60">arrow_forward</span>
+                {link.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Logo column -->
+      <div class="wrap-footbotom">
+        <div class="flex flex-col items-center gap-6">
+          <a href="/" class="inline-block">
+            <img src="/image/LOGO-HS-BLANCO.png" alt="Hidratación Saludable" class="h-24 w-auto drop-shadow-xl" />
+          </a>
+          <img src="/image/LOGOTIPO_BLANCO.png" alt="Empresario Independiente Fuxion" class="h-32 w-auto drop-shadow-xl" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="col-lg-12 mt-12">
+      <div class="botfot pt-8 border-t border-white/20 text-center">
+        <p class="text-white">
+          <span class="font-scandia-medium">Hidratación Saludable {currentYear}</span> | Todos los derechos reservados
+        </p>
+        <p class="text-sm text-white/60 mt-2">
+          Empresario Independiente Fuxion
+        </p>
+        <p class="text-sm text-white/60 mt-4">
+          Sitio web creado por <a href="https://isrebernic.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition-colors underline">Nancy Sastre</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  #wrap-footer {
+    position: relative;
+  }
+
+  .sosmed a {
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .sosmed a::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .sosmed a:hover::before {
+    opacity: 0.2;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.1;
+    }
+  }
+</style>

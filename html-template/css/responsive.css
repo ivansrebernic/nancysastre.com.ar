@@ -1,0 +1,127 @@
+/*
+* ----------------------------------------------------------------------------------------
+Author        : Rama Hardian Sidik
+Template Name : Boine - onepage html multipurpose body builder gmy landingpage template
+Version       : 1.1
+Filename      : responsive.css
+* ----------------------------------------------------------------------------------------
+*/
+
+@media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {}
+
+@media only screen and (device-width : 375px) and (device-height : 812px) and (orientation: landscape) and (-webkit-device-pixel-ratio : 3) {}
+
+@media only screen and (device-width : 812px) and (device-height : 375px) and (orientation: portrait) and (-webkit-device-pixel-ratio : 3) {}
+
+@media screen and (max-width: 2560px) {
+    .hero-pic {
+        height: 1200px;
+    }
+}
+
+@media screen and (max-width: 1440px) {}
+
+@media screen and (max-width: 1366px) {
+    .hero-pic {
+        height: 800px;
+    }
+}
+
+@media screen and (max-width: 1128px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media (max-width: 999px) {
+    .openmenu.mobile-navwrap {
+        height: 100%;
+        visibility: visible;
+      }
+    .toggle-nav {
+        display: block;
+    }
+    .big-nav {
+        display: none;
+    }
+    .logo-wrap {
+        width: 20%;
+    }
+    .big-sidetitle h3 {
+        font-size: 50px;
+        line-height: 50px;
+    }    
+    .h3-title {
+        font-size: 50px; 
+    }
+    .title-minihero p {
+        font-size: 15px;
+    }
+    .bigfont {
+        font-size: 100px;
+    }
+    .masonry>.item {
+        width: 50%;
+    }
+    .left-side, .right-side {
+        max-width: 100%;
+    }
+    .half { 
+        width: 100%;
+        padding-right: 0;
+    }
+    .half-last {
+        width: 100%;
+        padding-right: 0;
+    }
+    .blogpicwrap {
+        height: unset;
+    }
+}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 799px) {
+    .navigationslide {
+        width: 100%;
+    }
+    .bg-testimoni {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 699px) {
+
+    .h3-title {
+        font-size: 30px;
+    }
+    .p-title {
+        font-size: 13px;
+    }
+    .bigfont {
+        font-size: 80px;
+    }
+    .slide-itemabout:after {
+        display: none;
+    }
+    .wrap-blogdetail h3 {
+        line-height: 30px;
+        font-size: 20px;
+    }
+    .masonry>.item {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 580px) {}
+
+@media (max-width: 480px) {}
+
+@media (max-width: 360px) {}
+
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {}

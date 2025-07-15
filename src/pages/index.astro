@@ -1,0 +1,58 @@
+---
+export const prerender = true;
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import AboutMe from "../components/AboutMe.astro";
+import IncomeOpportunity from "../components/IncomeOpportunity.astro";
+import Gallery from "../components/Gallery.astro";
+import PublicFigures from "../components/PublicFigures.astro";
+import MedicalEndorsements from "../components/MedicalEndorsements.astro";
+import DrLaRosaSection from "../components/DrLaRosaSection.astro";
+import DrArrietaSection from "../components/DrArrietaSection.astro";
+import Blog from "../components/Blog.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import SectionDivider from "../components/SectionDivider.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+import TrustIndicators from "../components/TrustIndicators.astro";
+import SuccessStories from "../components/SuccessStories.astro";
+import FAQ from "../components/FAQ.astro";
+import JoinTeamModal from "../components/JoinTeamModal.astro";
+---
+
+<BaseLayout>
+    <Header />
+    <Hero />
+
+    <section class="py-8">
+        <div class="container-narrow">
+            <TrustIndicators />
+        </div>
+    </section>
+
+    <AboutMe />
+
+    <div class="bg-gray-50/50">
+        <About />
+    </div>
+
+    <MedicalEndorsements />
+    
+    <DrLaRosaSection />
+    
+    <DrArrietaSection />
+
+    <Blog />
+
+    <FAQ />
+
+    <div class="bg-gray-50">
+        <Contact />
+    </div>
+    <Footer />
+    <WhatsAppButton />
+    <JoinTeamModal />
+</BaseLayout>

@@ -1,0 +1,88 @@
+---
+import { Image } from 'astro:assets';
+
+export interface Props {
+  id: string;
+  name: string;
+  image: string;
+  benefits: string[];
+  price: number;
+  originalPrice?: number;
+  stock?: number;
+  popular?: boolean;
+  powerlink?: string;
+}
+
+const { id, name, image, benefits, price, originalPrice, stock = 100, popular = false, powerlink } = Astro.props;
+const discount = originalPrice ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0;
+---
+
+<div class="product-card relative group">
+  {popular && (
+    <div class="absolute -top-3 right-3 z-10">
+      <span class="bg-primary text-white px-3 py-1 rounded-full text-xs font-scandia-medium">
+        Popular
+      </span>
+    </div>
+  )}
+  
+  <div class="bg-white border border-gray-200 rounded-lg overflow-hidden transition-shadow duration-300 hover:shadow-lg">
+    <!-- Image container -->
+    <div class="relative overflow-hidden h-64">
+      <Image 
+        src={image} 
+        alt={name}
+        width={400}
+        height={400}
+        loading="lazy"
+        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+      
+      {discount > 0 && (
+        <div class="absolute top-4 right-4 bg-red-500 text-gray-900 px-3 py-1 rounded-full font-scandia-medium">
+          -{discount}%
+        </div>
+      )}
+      
+      
+    </div>
+    
+    <!-- Content -->
+    <div class="p-5">
+      <h3 class="text-xl font-scandia-medium mb-3 group-hover:text-gradient transition-all duration-300">{name}</h3>
+      
+      <!-- Price -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-3xl font-scandia-medium text-gradient">${price.toLocaleString('es-AR')}</span>
+        {originalPrice && (
+          <span class="text-lg text-gray-600 line-through">${originalPrice.toLocaleString('es-AR')}</span>
+        )}
+      </div>
+      
+      <!-- CTA Buttons -->
+      <div class="space-y-3">
+        {powerlink ? (
+          <a 
+            href={powerlink} 
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full btn-primary text-center flex items-center justify-center gap-2 hover:shadow-large transform hover:scale-105 transition-all duration-300 group"
+          >
+            <span class="material-icons text-xl group-hover:scale-110 transition-transform">shopping_cart</span>
+            <span class="font-scandia-medium">COMPRAR AHORA</span>
+          </a>
+        ) : (
+          <a href={`/productos/${id}`} class="w-full btn-primary text-center block">
+            COMPRAR AHORA
+          </a>
+        )}
+        
+        <a href={`/productos/${id}`} class="w-full btn-secondary text-sm text-center flex items-center justify-center gap-2 hover:shadow-medium transform hover:scale-105 transition-all duration-300">
+          <span class="material-icons text-base">info</span>
+          <span>MÁS INFORMACIÓN</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

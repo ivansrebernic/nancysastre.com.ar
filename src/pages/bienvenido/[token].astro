@@ -1,0 +1,959 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getContactByToken } from "../../lib/hubspot-api";
+
+// Get token from URL
+const { token } = Astro.params;
+
+// Debug logging
+console.log("[Bienvenido Page] Received token:", token);
+console.log("[Bienvenido Page] Full URL:", Astro.url.toString());
+
+// Validate token and get contact info
+let contact = null;
+let isValid = false;
+
+if (token) {
+    try {
+        console.log(
+            "[Bienvenido Page] Attempting to fetch contact with token:",
+            token,
+        );
+        contact = await getContactByToken(token);
+        console.log("[Bienvenido Page] Contact found:", contact ? "Yes" : "No");
+        if (contact) {
+            console.log("[Bienvenido Page] Contact details:", {
+                firstName: contact.firstName,
+                email: contact.email,
+                hasToken: !!contact.onboardingToken,
+            });
+        }
+        isValid = !!contact;
+    } catch (error) {
+        console.error("[Bienvenido Page] Error validating token:", error);
+    }
+} else {
+    console.warn("[Bienvenido Page] No token provided in URL");
+}
+
+// If invalid token, return 404
+if (!isValid) {
+    console.error(
+        "[Bienvenido Page] Invalid or missing token, redirecting to 404",
+    );
+    return Astro.redirect("/404");
+}
+
+export const prerender = false; // Dynamic page
+---
+
+<BaseLayout title="Bienvenido al Equipo - Hidratación Saludable">
+    <main
+        class="min-h-screen bg-gradient-to-b from-primary-light via-white to-primary-light/30 relative overflow-hidden"
+    >
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div
+                class="absolute -top-40 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl animate-pulse-slow"
+            >
+            </div>
+            <div
+                class="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-slow"
+                style="animation-delay: 2s;"
+            >
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/3 rounded-full blur-3xl animate-float"
+            >
+            </div>
+        </div>
+
+        <!-- Subtle grid pattern -->
+        <div
+            class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="
+            60"
+            height="60"
+            xmlns="http://www.w3.org/2000/svg"
+            %3E%3Cdefs%3E%3Cpattern
+            id="grid"
+            width="60"
+            height="60"
+            patternUnits="userSpaceOnUse"
+            %3E%3Cpath
+            d="M 60 0 L 0 0 0 60"
+            fill="none"
+            stroke="%230186d6"
+            stroke-width="0.5"
+            opacity="0.05"
+            %3E%3C
+            pattern%3E%3C
+            defs%3E%3Crect
+            width="100%25"
+            height="100%25"
+            fill="url(%23grid)"
+            %3E%3C
+            svg%3E')]
+            pointer-events-none"
+        >
+        </div>
+        <!-- Welcome Hero -->
+        <section class="relative py-12 lg:py-20 z-10">
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="max-w-4xl mx-auto text-center">
+                    <!-- Success Badge -->
+                    <div
+                        class="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm text-primary px-6 py-3 rounded-full mb-8 shadow-soft animate-float border border-primary/20"
+                    >
+                        <svg
+                            class="w-6 h-6 animate-pulse"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                        </svg>
+                        <span
+                            class="font-scandia-medium text-sm uppercase tracking-wider"
+                            >Acceso Exclusivo</span
+                        >
+                    </div>
+
+                    <!-- Welcome Message -->
+                    <div class="animate-fade-in">
+                        <h1
+                            class="text-4xl lg:text-6xl font-scandia-medium bg-gradient-to-r from-primary to-primary-dark bg-clip-text text-transparent mb-6 animate-slide-up"
+                        >
+                            ¡Bienvenido {contact?.firstName}! 🎉
+                        </h1>
+                        <p
+                            class="text-xl lg:text-2xl text-gray-700 font-scandia mb-10 animate-slide-up"
+                            style="animation-delay: 0.2s;"
+                        >
+                            Me alegra mucho que hayas decidido conocer más sobre
+                            esta oportunidad
+                        </p>
+                    </div>
+
+                    <!-- Personal Message -->
+                    <div
+                        class="bg-white/80 backdrop-blur-md rounded-3xl shadow-large p-10 mb-12 relative overflow-hidden animate-slide-up border border-primary/10"
+                        style="animation-delay: 0.4s;"
+                    >
+                        <!-- Decorative corner accent -->
+                        <div
+                            class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"
+                        >
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-primary/10 to-transparent rounded-tr-full"
+                        >
+                        </div>
+
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-center mb-8">
+                                <div class="relative">
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-r from-primary to-primary-dark rounded-full blur-xl opacity-30 animate-pulse-slow"
+                                    >
+                                    </div>
+                                    <img
+                                        src="/image/ivan-about.png"
+                                        alt="Nancy Sastre"
+                                        class="w-36 h-36 object-top rounded-full object-cover border-4 border-white shadow-large relative z-10 transform hover:scale-105 transition-transform duration-300"
+                                    />
+                                    <div
+                                        class="z-10 absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center border-3 border-white shadow-medium animate-bounce-slow"
+                                    >
+                                        <svg
+                                            class="w-6 h-6 text-white"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                        >
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                                            ></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p
+                                class="text-lg lg:text-xl text-gray-800 leading-relaxed font-scandia text-center max-w-3xl mx-auto"
+                            >
+                                Hola <span
+                                    class="font-scandia-medium text-primary"
+                                    >{contact?.firstName}</span
+                                >, soy Nancy. Preparé este video especialmente
+                                para personas como vos, que están buscando una
+                                forma real de mejorar su salud y generar
+                                ingresos extras. En los próximos minutos, te voy
+                                a mostrar exactamente cómo funciona nuestro
+                                sistema y por qué miles de personas ya están
+                                transformando sus vidas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Presentation -->
+        <section
+            class="py-16 lg:py-20 bg-gradient-to-b from-white to-primary-light/30 relative"
+        >
+            <!-- Decorative elements -->
+            <div
+                class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"
+            >
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"
+            >
+            </div>
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Section Title -->
+                    <div class="text-center mb-12">
+                        <p
+                            class="text-primary text-sm uppercase tracking-widest mb-4 font-scandia animate-fade-in"
+                        >
+                            Video Presentación
+                        </p>
+                        <h2
+                            class="text-3xl lg:text-4xl font-scandia-medium text-gray-900 mb-4 animate-slide-up"
+                        >
+                            Tu Presentación Exclusiva
+                        </h2>
+                        <p
+                            class="text-lg lg:text-xl text-gray-700 font-scandia animate-slide-up"
+                            style="animation-delay: 0.2s;"
+                        >
+                            Tomate 15 minutos para ver este video. Puede cambiar
+                            tu vida.
+                        </p>
+                    </div>
+
+                    <!-- YouTube Video -->
+                    <div
+                        class="relative group animate-fade-in"
+                        style="animation-delay: 0.4s;"
+                    >
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-r from-primary to-primary-dark rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300"
+                        >
+                        </div>
+                        <div
+                            class="relative rounded-3xl overflow-hidden shadow-large bg-white p-1"
+                        >
+                            <div
+                                class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden"
+                            >
+                                <iframe
+                                    src="https://www.youtube.com/embed/businessPresentation.videoId?rel=0&modestbranding=1"
+                                    title="Presentación del Negocio Fuxion"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                                    class="w-full h-full"
+                                    style="aspect-ratio: 16/9;"></iframe>
+                            </div>
+                        </div>
+                        <!-- Play button overlay effect -->
+                        <div
+                            class="absolute inset-0 flex items-center justify-center pointer-events-none"
+                        >
+                            <div
+                                class="w-20 h-20 bg-primary/20 rounded-full blur-xl animate-pulse-slow"
+                            >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Benefits -->
+                    <div class="grid md:grid-cols-3 gap-6 mt-16">
+                        <div
+                            class="bg-gradient-to-br from-primary-light to-white rounded-2xl p-8 text-center border border-primary/10 hover:shadow-large transition-all duration-300 hover:-translate-y-1 group animate-slide-up"
+                            style="animation-delay: 0.6s;"
+                        >
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-medium group-hover:scale-110 transition-transform duration-300"
+                            >
+                                <svg
+                                    class="w-8 h-8 text-white"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <h3
+                                class="font-scandia-medium text-lg text-gray-900 mb-2"
+                            >
+                                15 minutos
+                            </h3>
+                            <p class="text-sm text-gray-600 font-scandia">
+                                Presentación completa y directa
+                            </p>
+                        </div>
+
+                        <div
+                            class="bg-gradient-to-br from-primary-light to-white rounded-2xl p-8 text-center border border-primary/10 hover:shadow-large transition-all duration-300 hover:-translate-y-1 group animate-slide-up"
+                            style="animation-delay: 0.8s;"
+                        >
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-medium group-hover:scale-110 transition-transform duration-300"
+                            >
+                                <svg
+                                    class="w-8 h-8 text-white"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <h3
+                                class="font-scandia-medium text-lg text-gray-900 mb-2"
+                            >
+                                Plan probado
+                            </h3>
+                            <p class="text-sm text-gray-600 font-scandia">
+                                Sistema que ya funciona
+                            </p>
+                        </div>
+
+                        <div
+                            class="bg-gradient-to-br from-primary-light to-white rounded-2xl p-8 text-center border border-primary/10 hover:shadow-large transition-all duration-300 hover:-translate-y-1 group animate-slide-up"
+                            style="animation-delay: 1s;"
+                        >
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center mx-auto mb-4 shadow-medium group-hover:scale-110 transition-transform duration-300"
+                            >
+                                <svg
+                                    class="w-8 h-8 text-white"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h3
+                                class="font-scandia-medium text-lg text-gray-900 mb-2"
+                            >
+                                Acción inmediata
+                            </h3>
+                            <p class="text-sm text-gray-600 font-scandia">
+                                Podés empezar hoy mismo
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-gray-100 relative overflow-hidden">
+            <!-- Subtle geometric pattern -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="grid" patternUnits="userSpaceOnUse" width="60" height="60"%3E%3Cpath d="M 10 0 L 0 0 0 10" fill="none" stroke="black" stroke-width="1"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100%25" height="100%25" fill="url(%23grid)" /%3E%3C/svg%3E')"></div>
+            </div>
+            
+            <div class="container mx-auto px-4 lg:px-8 relative z-10">
+                <div class="max-w-5xl mx-auto">
+                    <!-- Section Header -->
+                    <div class="text-center mb-16">
+                        <span class="inline-block px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-scandia-medium tracking-wider uppercase mb-6 animate-fade-in">
+                            Siguiente Paso
+                        </span>
+                        <h2 class="text-4xl lg:text-5xl font-scandia-medium text-gray-900 mb-4 animate-slide-up">
+                            ¿Listo para comenzar?
+                        </h2>
+                        <p class="text-xl text-gray-600 font-scandia max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.1s;">
+                            Elegí la opción que más te convenga para dar el siguiente paso
+                        </p>
+                    </div>
+
+                    <!-- Options Grid -->
+                    <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                        <!-- WhatsApp Option -->
+                        <div class="group animate-slide-left" style="animation-delay: 0.2s;">
+                            <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-soft hover:shadow-large transition-all duration-500 border border-gray-100 hover:border-green-200 relative overflow-hidden h-full">
+                                <!-- Gradient accent -->
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400/10 to-green-600/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                
+                                <!-- Icon -->
+                                <div class="mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center shadow-medium group-hover:scale-110 transition-transform duration-300">
+                                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                
+                                <!-- Content -->
+                                <h3 class="text-2xl font-scandia-medium text-gray-900 mb-3">
+                                    Chateá conmigo
+                                </h3>
+                                <p class="text-gray-600 font-scandia mb-8 leading-relaxed">
+                                    ¿Tenés preguntas? Escribime directamente por WhatsApp y te respondo al instante
+                                </p>
+                                
+                                <!-- CTA -->
+                                <a href="https://wa.me/549299651620?text=Hola%20Nancy!%20Acabo%20de%20ver%20tu%20video%20de%20presentación%20y%20me%20gustaría%20saber%20más"
+                                   target="_blank"
+                                   class="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-2xl font-scandia-medium shadow-soft hover:shadow-large transition-all duration-300 transform hover:scale-105 w-full justify-center group">
+                                    <span>Iniciar conversación</span>
+                                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Calendar Option -->
+                        <div class="group animate-slide-right" style="animation-delay: 0.3s;">
+                            <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-soft hover:shadow-large transition-all duration-500 border border-gray-100 hover:border-primary/30 relative overflow-hidden h-full">
+                                <!-- Gradient accent -->
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-primary-dark/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                
+                                <!-- Icon -->
+                                <div class="mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center shadow-medium group-hover:scale-110 transition-transform duration-300">
+                                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                
+                                <!-- Content -->
+                                <h3 class="text-2xl font-scandia-medium text-gray-900 mb-3">
+                                    Videollamada personal
+                                </h3>
+                                <p class="text-gray-600 font-scandia mb-8 leading-relaxed">
+                                    Tengamos una charla de 30 minutos por Google Meet para conocernos mejor
+                                </p>
+                                
+                                <!-- CTA -->
+                                <button id="schedule-call-btn"
+                                        class="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white px-8 py-4 rounded-2xl font-scandia-medium shadow-soft hover:shadow-large transition-all duration-300 transform hover:scale-105 w-full justify-center group">
+                                    <span>Agendar llamada</span>
+                                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom message -->
+                    <div class="text-center animate-fade-in" style="animation-delay: 0.5s;">
+                        <p class="text-gray-600 font-scandia text-lg">
+                            No te preocupes, no hay presión. Solo quiero ayudarte a tomar la mejor decisión.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendar Modal (hidden by default) -->
+        <div
+            id="calendar-modal"
+            class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        >
+            <div
+                class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden shadow-2xl"
+            >
+                <div
+                    class="p-6 border-b border-gray-200 flex items-center justify-between"
+                >
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900">
+                            Reservá tu videollamada
+                        </h3>
+                        <p class="text-gray-600 text-sm mt-1">
+                            Elijamos un momento para charlar sin apuro
+                        </p>
+                    </div>
+                    <button
+                        id="close-calendar"
+                        class="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    >
+                        <svg
+                            class="w-6 h-6 text-gray-600"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <!-- Google Calendar Appointment Slots -->
+                    <div class="mb-4">
+                        <p class="text-gray-600 mb-2">
+                            Elegí el día y horario que mejor te quede para
+                            nuestra llamada de 30 minutos:
+                        </p>
+                    </div>
+                    <div class="rounded-lg overflow-hidden shadow-inner">
+                        <iframe
+                            src="businessPresentation.calendarLink"
+                            style="border: 0; min-height: 600px;"
+                            width="100%"
+                            height="600"
+                            frameborder="0"></iframe>
+                    </div>
+                    <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                        <p class="text-sm text-blue-700">
+                            💡 <strong>Tip:</strong> Después de agendar, recibirás
+                            un email con el link de Google Meet y un recordatorio
+                            antes de nuestra llamada.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section
+            class="py-16 lg:py-20 bg-gradient-to-b from-white to-primary-light/20 relative"
+        >
+            <!-- Pattern overlay -->
+            <div
+                class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="
+                40"
+                height="40"
+                xmlns="http://www.w3.org/2000/svg"
+                %3E%3Cdefs%3E%3Cpattern
+                id="dots"
+                width="40"
+                height="40"
+                patternUnits="userSpaceOnUse"
+                %3E%3Ccircle
+                cx="20"
+                cy="20"
+                r="1"
+                fill="%230186d6"
+                opacity="0.1"
+                %3E%3C
+                pattern%3E%3C
+                defs%3E%3Crect
+                width="100%25"
+                height="100%25"
+                fill="url(%23dots)"
+                %3E%3C
+                svg%3E')]
+                pointer-events-none"
+            >
+            </div>
+            <div class="container mx-auto px-4 lg:px-8">
+                <div class="max-w-3xl mx-auto">
+                    <h2
+                        class="text-3xl lg:text-4xl font-scandia-medium text-center text-gray-900 mb-12 relative z-10"
+                    >
+                        Preguntas Frecuentes
+                    </h2>
+
+                    <div class="space-y-4 relative z-10">
+                        <details
+                            class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 border border-primary/10 overflow-hidden group"
+                        >
+                            <summary
+                                class="px-8 py-6 cursor-pointer font-scandia-medium text-gray-900 hover:text-primary transition-colors duration-300 flex items-center justify-between group-open:bg-primary-light/30"
+                            >
+                                <span>¿Necesito experiencia previa?</span>
+                                <svg
+                                    class="w-5 h-5 text-primary transform transition-transform duration-300 group-open:rotate-180"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <div
+                                class="px-8 pb-6 text-gray-700 font-scandia leading-relaxed"
+                            >
+                                No, no necesitás experiencia. Yo empecé desde
+                                cero y te voy a enseñar todo lo que necesitás
+                                saber. El sistema está diseñado para que
+                                cualquier persona pueda tener éxito.
+                            </div>
+                        </details>
+
+                        <details
+                            class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 border border-primary/10 overflow-hidden group"
+                        >
+                            <summary
+                                class="px-8 py-6 cursor-pointer font-scandia-medium text-gray-900 hover:text-primary transition-colors duration-300 flex items-center justify-between group-open:bg-primary-light/30"
+                            >
+                                <span>¿Cuánto tiempo necesito dedicarle?</span>
+                                <svg
+                                    class="w-5 h-5 text-primary transform transition-transform duration-300 group-open:rotate-180"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <div
+                                class="px-8 pb-6 text-gray-700 font-scandia leading-relaxed"
+                            >
+                                Podés empezar con solo 1-2 horas por día. Lo
+                                importante es ser constante. Muchos de nuestros
+                                distribuidores exitosos empezaron trabajando en
+                                sus ratos libres.
+                            </div>
+                        </details>
+
+                        <details
+                            class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 border border-primary/10 overflow-hidden group"
+                        >
+                            <summary
+                                class="px-8 py-6 cursor-pointer font-scandia-medium text-gray-900 hover:text-primary transition-colors duration-300 flex items-center justify-between group-open:bg-primary-light/30"
+                            >
+                                <span>¿Cuándo veo resultados?</span>
+                                <svg
+                                    class="w-5 h-5 text-primary transform transition-transform duration-300 group-open:rotate-180"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <div
+                                class="px-8 pb-6 text-gray-700 font-scandia leading-relaxed"
+                            >
+                                Los resultados en tu salud los vas a sentir en
+                                las primeras semanas. En cuanto a ingresos,
+                                depende de tu dedicación, pero muchos ven sus
+                                primeras ganancias en el primer mes.
+                            </div>
+                        </details>
+
+                        <details
+                            class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-soft hover:shadow-large transition-all duration-300 border border-primary/10 overflow-hidden group"
+                        >
+                            <summary
+                                class="px-8 py-6 cursor-pointer font-scandia-medium text-gray-900 hover:text-primary transition-colors duration-300 flex items-center justify-between group-open:bg-primary-light/30"
+                            >
+                                <span>¿Hay algún costo oculto?</span>
+                                <svg
+                                    class="w-5 h-5 text-primary transform transition-transform duration-300 group-open:rotate-180"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </summary>
+                            <div
+                                class="px-8 pb-6 text-gray-700 font-scandia leading-relaxed"
+                            >
+                                No hay costos ocultos. Solo invertís en los
+                                productos que consumís. No hay cuotas mensuales
+                                ni pagos adicionales. Todo es transparente desde
+                                el inicio.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section
+            class="py-20 lg:py-24 bg-gradient-to-br from-primary via-primary-dark to-primary relative overflow-hidden"
+        >
+            <!-- Animated background -->
+            <div class="absolute inset-0">
+                <div
+                    class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg width="
+                    60"
+                    height="60"
+                    xmlns="http://www.w3.org/2000/svg"
+                    %3E%3Cdefs%3E%3Cpattern
+                    id="waves"
+                    width="60"
+                    height="60"
+                    patternUnits="userSpaceOnUse"
+                    %3E%3Cpath
+                    d="M0 30 Q15 20 30 30 T60 30"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="0.5"
+                    opacity="0.1"
+                    %3E%3C
+                    pattern%3E%3C
+                    defs%3E%3Crect
+                    width="100%25"
+                    height="100%25"
+                    fill="url(%23waves)"
+                    %3E%3C
+                    svg%3E')]"
+                >
+                </div>
+                <div
+                    class="absolute -top-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-float"
+                >
+                </div>
+                <div
+                    class="absolute -bottom-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-float"
+                    style="animation-delay: 3s;"
+                >
+                </div>
+            </div>
+            <div class="container mx-auto px-4 lg:px-8 text-center">
+                <h2
+                    class="text-4xl lg:text-5xl font-scandia-medium text-white mb-6 relative z-10 animate-slide-up"
+                >
+                    {contact?.firstName}, es tu momento
+                </h2>
+                <p
+                    class="text-xl lg:text-2xl text-white/95 mb-10 max-w-3xl mx-auto font-scandia relative z-10 animate-slide-up"
+                    style="animation-delay: 0.2s;"
+                >
+                    No dejes pasar esta oportunidad. Miles ya están
+                    transformando sus vidas.
+                </p>
+                <a
+                    href="https://wa.me/549299651620?text=Nancy,%20quiero%20empezar%20YA!"
+                    target="_blank"
+                    class="inline-flex items-center gap-3 bg-white text-primary hover:bg-primary-light px-10 py-5 rounded-full text-lg font-scandia-medium transition-all transform hover:scale-110 shadow-large relative z-10 animate-bounce-slow hover:animate-none"
+                >
+                    Quiero empezar ahora
+                    <svg
+                        class="w-6 h-6 animate-pulse"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Calendar modal functionality
+        const scheduleBtn = document.getElementById("schedule-call-btn");
+        const calendarModal = document.getElementById("calendar-modal");
+        const closeCalendarBtn = document.getElementById("close-calendar");
+
+        scheduleBtn?.addEventListener("click", () => {
+            calendarModal?.classList.remove("hidden");
+        });
+
+        closeCalendarBtn?.addEventListener("click", () => {
+            calendarModal?.classList.add("hidden");
+        });
+
+        calendarModal?.addEventListener("click", (e) => {
+            if (e.target === calendarModal) {
+                calendarModal.classList.add("hidden");
+            }
+        });
+    </script>
+
+    <style>
+        /* Enhanced animations */
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) rotate(2deg);
+            }
+            50% {
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(20px) rotate(-2deg);
+            }
+        }
+
+        /* Smooth fade in animation */
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Slide animations */
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-out both;
+        }
+
+        .animate-slide-down {
+            animation: slideDown 0.8s ease-out both;
+        }
+
+        .animate-slide-left {
+            animation: slideLeft 0.8s ease-out both;
+        }
+
+        .animate-slide-right {
+            animation: slideRight 0.8s ease-out both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced focus states */
+        details summary:focus {
+            outline: 2px solid #0186d6;
+            outline-offset: 2px;
+            border-radius: 0.5rem;
+        }
+
+        /* Custom scrollbar for better UX */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f3f4f6;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #0186d6;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0170b8;
+        }
+
+        /* Glassmorphism effects */
+        .backdrop-blur-md {
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+        }
+
+        .backdrop-blur-sm {
+            -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Gradient text animation */
+        @keyframes gradient-shift {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .bg-gradient-text {
+            background-size: 200% 200%;
+            animation: gradient-shift 3s ease infinite;
+        }
+    </style>
+</BaseLayout>

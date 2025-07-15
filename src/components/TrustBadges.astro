@@ -1,0 +1,83 @@
+---
+const certifications = [
+  { src: '/image/anmat.webp', alt: 'ANMAT Certificación', title: 'Aprobado por ANMAT' },
+  { src: '/image/fda.png', alt: 'FDA Approved', title: 'Registrado FDA' },
+  { src: '/image/clean-label.png', alt: 'Clean Label', title: 'Clean Label Certified' }
+];
+---
+
+<div class="trust-badges-container">
+  <!-- Certifications -->
+  <div class="certifications-row">
+    <p class="text-center text-sm text-gray-600 mb-3">Certificaciones internacionales</p>
+    <div class="flex justify-center items-center gap-8">
+      {certifications.map((cert, index) => (
+        <div 
+          class="certification-badge animate-on-scroll fade-in"
+          style={`animation-delay: ${index * 0.15}s`}
+          title={cert.title}
+        >
+          <img 
+            src={cert.src} 
+            alt={cert.alt} 
+            class={cert.src.includes('fda.png') ? "h-40 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300" : "h-20 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+
+</div>
+
+<style>
+  .trust-badges-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .badge-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .badge-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .badge-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba(1, 134, 214, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .badge-item:hover .badge-icon {
+    background: rgba(1, 134, 214, 0.2);
+    transform: scale(1.1);
+  }
+
+  .payment-icon {
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  }
+
+  .payment-icon:hover {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  .certification-badge {
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+
+  .certification-badge:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+</style>

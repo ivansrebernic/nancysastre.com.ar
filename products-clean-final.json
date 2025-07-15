@@ -1,0 +1,547 @@
+{
+  "metadata": {
+    "totalProducts": 14,
+    "extractedAt": "2025-06-28T23:17:30.548Z",
+    "note": "Clean product data with only essential information"
+  },
+  "products": [
+    {
+      "id": "147014",
+      "name": "NOCARB-T",
+      "slogan": "MANTÉN LOS CARBOHIDRATOS A RAYA",
+      "description": "AGREGAR AL CARRITO Deliciosa bebida, a base de Te verde y fibras solubles de Achicoria y Manzana que ayudan a reducir la absorción de carbohidratos, y Cromo que mantiene normales los niveles de glucosa en sangre, contribuyendo a un mejor control de tu peso y medidas (*) y mantener una vida saludable (**). (*) Junto a una dieta balanceada y ejercicio. (**) Se considera al sobrepeso como un factor de riesgo para diversas enfermedades. FIBRA DE ACACIA",
+      "ingredients": "FIBRA DE ACACIA, FIBRA DE ACHICORIA, EXTRACTO DE CANELA, PECTINA DE MANZANA, EXTRACTO DE YAC",
+      "benefits": "Su consumo diario te ayuda a: - Controlar los carbohidratos de tu dieta. - Mantener normales los niveles de glucosa (**). (*) Junto a una dieta balanceada y ejercicio. (**) Se considera al sobrepeso como un factor de riesgo para diversas enfermedades.",
+      "preparation": "Disolver el contenido de un stick en una taza con 180 ml de agua caliente.",
+      "consumption": "Tomar uno o dos sticks al día, antes o durante las comidas.",
+      "price": "22.150",
+      "points": "10.00",
+      "sku": "147014",
+      "presentation": "CAJA 14 x 5gr",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/271996",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147014_EXT_31072023_224822_MAIN.jpg",
+          "alt": "NOCARB-T"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147014_EXT_31072023_224822_MAIN.jpg",
+          "alt": "NOCARB-T"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147014_EXT_09062023_220942.jpg",
+          "alt": "NOCARB-T"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147014_EXT_09062023_221016.jpg",
+          "alt": "NOCARB-T"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/CONTROL.jpg",
+          "alt": "NOCARB-T"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=147014",
+      "lastUpdated": "2025-06-28T19:38:20.188Z"
+    },
+    {
+      "id": "147015",
+      "name": "TERMO T3",
+      "slogan": "TRANSFORMA LA GRASA EN ENERGÍA",
+      "description": "AGREGAR AL CARRITO Combinación de Té Rojo, Té Negro y Té Verde y otros micronutrientes que, junto a una vida más activa, te ayudará a quemar la grasa de manera más eficiente, eliminando paulatinamente los rollitos. Mix de tés (té rojo, té verde y té negro)",
+      "ingredients": "carnitina, Tamarindo malabar",
+      "benefits": "Termo T3 ayuda a generar energía a partir de la quema de grasa, por lo que reduce la acumulación de reservas de grasa en el organismo. Aumenta tu resistencia, por lo que es recomendable que lo consumas antes de una rutina de ejercicio.",
+      "preparation": "Disolver el contenido de un stick en una taza con 180 ml de agua caliente.",
+      "consumption": "Uno o dos sticks al día, después de las comidas. Si haces ejercicio, tómalo antes de entrenar.",
+      "price": "22.150",
+      "points": "10.00",
+      "sku": "147015",
+      "presentation": "CAJA 14 x 5gr",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147015_EXT_09062023_215355_MAIN.jpg",
+          "alt": "TERMO T3"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147015_EXT_09062023_215355_MAIN.jpg",
+          "alt": "TERMO T3"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147015_EXT_09062023_215437.jpg",
+          "alt": "TERMO T3"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147015_EXT_09062023_215514.jpg",
+          "alt": "TERMO T3"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/CONTROL.jpg",
+          "alt": "TERMO T3"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=147015",
+      "lastUpdated": "2025-06-28T19:38:26.234Z",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719958"
+    },
+    {
+      "id": "147016",
+      "name": "VITA XTRA T+",
+      "slogan": "PARA QUE VIVAS CADA DÍA CON LA ENERGÍA DEL PRIMERO",
+      "description": "AGREGAR AL CARRITO Bebida antioxidante y energizante, a base de extractos frutales y vegetales que ayuda a revitalizar el cuerpo y mantener un efecto prolongado de energía. GINSENG",
+      "ingredients": "GINSENG, ACAI BERRY, ANTOCIANINAS DE MA",
+      "benefits": "VITA XTRA T+ es la combinación nutracéutica que te mantiene alerta y de buen ánimo, mejora el rendimiento físico y el desempeño diario en general con un efecto energético que te durará durante todo el día. También reduce la oxidación de las células y la proliferación de radicales libres.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Uno o dos sticks al día, como snack o merienda entre comidas. También puedes tomarlo como complemento del desayuno o la cena, como batido (solo con agua y hielo) o como smoothie (combinado con jugos y fruta congelada).",
+      "price": "22.150",
+      "points": "10.00",
+      "sku": "147016",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719957",
+      "presentation": "CAJA 14 x 5gr",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147016_EXT_31072023_225251_MAIN.jpg",
+          "alt": "VITA XTRA T+"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147016_EXT_31072023_225251_MAIN.jpg",
+          "alt": "VITA XTRA T+"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147016_EXT_09062023_214458.jpg",
+          "alt": "VITA XTRA T+"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147016_EXT_09062023_214538.jpg",
+          "alt": "VITA XTRA T+"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/REVITALIZA.jpg",
+          "alt": "VITA XTRA T+"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=147016",
+      "lastUpdated": "2025-06-28T19:38:32.245Z"
+    },
+    {
+      "id": "142359",
+      "name": "B-PROTE",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/399548",
+      "slogan": "",
+      "description": "AGREGAR AL CARRITO Batido proteico de la más alta calidad que proporciona un 100% de biodisponibilidad y nutrientes de acción inmunológica. Bio Protein con Colostrum®",
+      "ingredients": "BIO PROTEIN con Colostrum®, BIOFERRIN®, Aminoacidos, Calcio lacteo, DHA, ARA  ",
+      "benefits": "BPROTE ayuda a incrementar cualitativa y cuantitativamente el perfil proteico de la dieta diaria. Está enriquecido con Bioferrín® (agente anti-microbiano natural) e inmunoglobulinas que potencian el sistema inmunológico y la defensa antioxidante; elevando la resistencia a las enfermedades. Fortalece los huesos.",
+      "preparation": "Con la ayuda de un shaker o batidora, mezclar el contenido de un stick en un vaso con 250 ml de agua fría.",
+      "consumption": "Uno o dos sticks al día, como snack o merienda entre comidas. También puedes tomarlo como complemento del desayuno o la cena, como batido (solo con agua y hielo) o como smoothie (combinado con jugos y fruta congelada).",
+      "price": "39.200",
+      "points": "18.00",
+      "sku": "142359",
+      "presentation": "CAJA 14 x 25 gr",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142359_EXT_31072023_224710_MAIN.jpg",
+          "alt": "B-PROTE"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142359_EXT_31072023_224710_MAIN.jpg",
+          "alt": "B-PROTE"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142359_EXT_22122021_204205.jpg",
+          "alt": "B-PROTE"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/NUTRE.jpg",
+          "alt": "B-PROTE"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_1371_ES_22122021_222609.png",
+          "alt": "B-PROTE"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=142359",
+      "lastUpdated": "2025-06-28T19:38:38.249Z"
+    },
+    {
+      "id": "142329",
+      "name": "TERMO T3",
+      "slogan": "TRANSFORMA LA GRASA EN ENERGÍA",
+      "description": "AGREGAR AL CARRITO Combinación de Té Rojo, Té Negro y Té Verde y otros micronutrientes que, junto a una vida más activa, te ayudará a quemar la grasa de manera más eficiente, eliminando paulatinamente los rollitos. Mix de tés (té rojo, té verde y té negro)",
+      "ingredients": "carnitina, Tamarindo malabar",
+      "benefits": "Termo T3 ayuda a generar energía a partir de la quema de grasa, por lo que reduce la acumulación de reservas de grasa en el organismo. Aumenta tu resistencia, por lo que es recomendable que lo consumas antes de una rutina de ejercicio.",
+      "preparation": "Disolver el contenido de un stick en una taza con 180 ml de agua caliente.",
+      "consumption": "Uno o dos sticks al día, después de las comidas. Si haces ejercicio, tómalo antes de entrenar.",
+      "price": "41.400",
+      "points": "20.00",
+      "sku": "142329",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/1045131",
+      "presentation": "CAJA 28 x 5 gr",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142329_EXT_31072023_230958_MAIN.jpeg",
+          "alt": "TERMO T3"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142329_EXT_31072023_230958_MAIN.jpeg",
+          "alt": "TERMO T3"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142329_EXT_14092020_144447.jpg",
+          "alt": "TERMO T3"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/CONTROL.jpg",
+          "alt": "TERMO T3"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_1342_ES_03052018_214006.jpg",
+          "alt": "TERMO T3"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=142329",
+      "lastUpdated": "2025-06-28T19:38:44.249Z"
+    },
+    {
+      "id": "142428",
+      "name": "PASSION",
+      "slogan": "LA PASIÓN DURARÁ UNA ETERNIDAD",
+      "description": "AGREGAR AL CARRITO Refresco con sabor a guaraná que te ayuda a elevar el nivel de energía y la libido para que la pasión se prolongue. Aminoácidos (L-Arginina)",
+      "ingredients": "Jalea Real, Zinc",
+      "benefits": "PASSION ayuda a incrementar el nivel de energía y libido gracias a L-arginina, un potente aminoácido. Favorecer la segregación de hormonas que favorecen la fertilidad y el vigor sexual. Vigorizar el cuerpo gracias a su contenido de jalea real.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Un stick al día, en cualquier momento.",
+      "price": "41.400",
+      "points": "20.00",
+      "sku": "142428",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719969",
+      "presentation": "CAJA 28 x 5 gr",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142428_EXT_31072023_225831_MAIN.jpg",
+          "alt": "PASSION"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142428_EXT_31072023_225831_MAIN.jpg",
+          "alt": "PASSION"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142428_EXT_28102020_231855.jpg",
+          "alt": "PASSION"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/ANTIAGE.jpg",
+          "alt": "PASSION"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_1433_ES_03052018_214252.jpg",
+          "alt": "PASSION"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=142428",
+      "lastUpdated": "2025-06-28T19:38:50.025Z"
+    },
+    {
+      "id": "142527",
+      "name": "OFF",
+      "slogan": "TRANQUILO Y ENFOCADO AVANZANDO POR EL MUNDO",
+      "description": "AGREGAR AL CARRITO Refresco compuesto por aminoácidos, vitaminas y minerales que te ayudan a equilibrar el sistema nervioso y optimizar los procesos naturales de relajación, sin producir sueño. Aminoácidos (L-teanina)",
+      "ingredients": "Vitaminas del complejo B, Magnesio, Calcio l",
+      "benefits": "OFF ayuda a mejorar la relajación y la concentración de manera natural. Reduce el estrés, la tensión y la ansiedad; y a la vez favorece el foco en momentos de mucha presión. Si se consume en la noche mejora la calidad del sueño.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Uno o dos sticks al día, en cualquier momento. Si se quiere mejorar la calidad de sueño, puedo tomarse antes de dormir.",
+      "price": "41.400",
+      "points": "20.00",
+      "sku": "142527",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/344367",
+      "presentation": "CAJA 28 x 5gr",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142527_EXT_31072023_225612_MAIN.jpg",
+          "alt": "OFF"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142527_EXT_31072023_225612_MAIN.jpg",
+          "alt": "OFF"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142527_EXT_03072018_180206.jpg",
+          "alt": "OFF"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/VIGOR.jpg",
+          "alt": "OFF"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_1530_ES_03052018_214459.jpg",
+          "alt": "OFF"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=142527",
+      "lastUpdated": "2025-06-28T19:38:56.100Z"
+    },
+    {
+      "id": "143855",
+      "name": "PRUNEX1",
+      "slogan": "LIBERA EL TRÁNSITO EN TU SISTEMA DIGESTIVO",
+      "description": "AGREGAR AL CARRITO Bebida frutal en base a mix de fibras solubles y extracto de guindones, los cuales representan una alternativa eficaz en casos de estreñimiento, promoviendo la desintoxicación del colon. INULINA DE ACHICORIA",
+      "ingredients": "INULINA DE ACHICORIA, PSYLLIUM, KELP, ANIS ESTRELLA, MUCILAGO DE LINAZA",
+      "benefits": "PRUNEX1 promueve una función digestiva saludable y contribuye a aliviar los síntomas ocasionales del estreñimiento.",
+      "preparation": "Disolver el contenido de un stick en una taza con 180 ml de agua caliente.",
+      "consumption": "Toma medio stick o un sitck al día, de preferencia por la noche antes de dormir.",
+      "price": "41.400",
+      "points": "20.00",
+      "sku": "143855",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/445437",
+      "presentation": "CAJA 28 x 5 gr",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_143855_EXT_31072023_230829_MAIN.jpg",
+          "alt": "PRUNEX1"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_143855_EXT_31072023_230829_MAIN.jpg",
+          "alt": "PRUNEX1"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_143855_EXT_14092020_144248.jpg",
+          "alt": "PRUNEX1"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/LIMPIA.jpg",
+          "alt": "PRUNEX1"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_55324_ES_27082018_145454.png",
+          "alt": "PRUNEX1"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=143855",
+      "lastUpdated": "2025-06-28T19:39:02.336Z"
+    },
+    {
+      "id": "143877",
+      "name": "VITA XTRA T+",
+      "slogan": "PARA QUE VIVAS CADA DÍA CON LA ENERGÍA DEL PRIMERO",
+      "description": "AGREGAR AL CARRITO Bebida antioxidante y energizante, a base de extractos frutales y vegetales que ayuda a revitalizar el cuerpo y mantener un efecto prolongado de energía. GINSENG",
+      "ingredients": "GINSENG, ACAI BERRY, ANTOCIANINAS DE MA",
+      "benefits": "VITA XTRA T+ es la combinación nutracéutica que te mantiene alerta y de buen ánimo, mejora el rendimiento físico y el desempeño diario en general con un efecto energético que te durará durante todo el día. También reduce la oxidación de las células y la proliferación de radicales libres.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Uno o dos sticks al día, como snack o merienda entre comidas. También puedes tomarlo como complemento del desayuno o la cena, como batido (solo con agua y hielo) o como smoothie (combinado con jugos y fruta congelada).",
+      "price": "41.400",
+      "points": "20.00",
+      "sku": "143877",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/445437",
+      "presentation": "CAJA 28 x 5 gr",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_143877_EXT_31072023_231117_MAIN.jpg",
+          "alt": "VITA XTRA T+"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_143877_EXT_31072023_231117_MAIN.jpg",
+          "alt": "VITA XTRA T+"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_143877_EXT_14092020_144421.jpg",
+          "alt": "VITA XTRA T+"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/REVITALIZA.jpg",
+          "alt": "VITA XTRA T+"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_55522_ES_01102018_175014.jpg",
+          "alt": "VITA XTRA T+"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=143877",
+      "lastUpdated": "2025-06-28T19:39:08.468Z"
+    },
+    {
+      "id": "145711",
+      "name": "NOCARB-T",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719960",
+      "slogan": "MANTÉN LOS CARBOHIDRATOS A RAYA",
+      "description": "AGREGAR AL CARRITO Deliciosa bebida, a base de Te verde y fibras solubles de Achicoria y Manzana que ayudan a reducir la absorción de carbohidratos, y Cromo que mantiene normales los niveles de glucosa en sangre, contribuyendo a un mejor control de tu peso y medidas (*) y mantener una vida saludable (**). (*) Junto a una dieta balanceada y ejercicio. (**) Se considera al sobrepeso como un factor de riesgo para diversas enfermedades. FIBRA DE ACACIA",
+      "ingredients": "FIBRA DE ACACIA, FIBRA DE ACHICORIA, EXTRACTO DE CANELA, PECTINA DE MANZANA, EXTRACTO DE YAC",
+      "benefits": "Su consumo diario te ayuda a: - Controlar los carbohidratos de tu dieta. - Mantener normales los niveles de glucosa (**). (*) Junto a una dieta balanceada y ejercicio. (**) Se considera al sobrepeso como un factor de riesgo para diversas enfermedades.",
+      "preparation": "Disolver el contenido de un stick en una taza con 180 ml de agua caliente.",
+      "consumption": "Tomar uno o dos sticks al día, antes o durante las comidas.",
+      "price": "41.400",
+      "points": "20.00",
+      "sku": "145711",
+      "presentation": "CAJA 28 x 5 gr",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_145711_EXT_31072023_225514_MAIN.jpg",
+          "alt": "NOCARB-T"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_145711_EXT_31072023_225514_MAIN.jpg",
+          "alt": "NOCARB-T"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_145711_EXT_03022022_000453.jpg",
+          "alt": "NOCARB-T"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/CONTROL.jpg",
+          "alt": "NOCARB-T"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_145711_ES_02022022_234541.png",
+          "alt": "NOCARB-T"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=145711",
+      "lastUpdated": "2025-06-28T19:39:15.006Z"
+    },
+    {
+      "id": "147257",
+      "name": "YOUTH ELIXIR",
+      "slogan": "VIVE TU JUVENTUD POR MÁS TIEMPO",
+      "description": "AGREGAR AL CARRITO Combinación de aminoácidos con antioxidantes naturales como el resveratrol, café verde y super frutos como el blueberry, cranberry, elderberry entre otros, además de Minerales como el Selenio de mostaza y Zinc; que trabajan en sinergia para reducir los radicales libres en diferentes partes del organismo. Estos ingredientes son reconocidos por nutrir la glándula pituitaria, responsable de segregar la llamada hormona de la juventud. AMINOÁCIDOS",
+      "ingredients": "CIDOS, ANTOCIANINA DE LA UVA, MIX DE BERRIES, RESVERATROL, VITAMINAS C",
+      "benefits": "Los componentes de Youth Elixir te ayudan a: •Aumentar la vitalidad y mejorar la calidad de sueño •Prevenir los efectos del envejecimiento prematuro •Mantener una piel lozana y renovada.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "1 stick al día, de preferencia antes de acostarse.",
+      "price": "41.400",
+      "points": "20.00",
+      "sku": "147257",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2305747",
+      "presentation": "CAJA 28 x 5gr",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147257_EXT_11052024_011305_MAIN.jpg",
+          "alt": "YOUTH ELIXIR"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147257_EXT_11052024_011305_MAIN.jpg",
+          "alt": "YOUTH ELIXIR"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147257_EXT_15052024_180809.jpg",
+          "alt": "YOUTH ELIXIR"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/ANTIAGE.jpg",
+          "alt": "YOUTH ELIXIR"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_58850_ES_15052024_184146.png",
+          "alt": "YOUTH ELIXIR"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=147257",
+      "lastUpdated": "2025-06-28T19:39:21.160Z"
+    },
+    {
+      "id": "147540",
+      "name": "POST SPORT PRO EDITION",
+      "slogan": "TU MEJOR ALIADO DESPUÉS DEL EJERCICIO",
+      "description": "AGREGAR AL CARRITO Bebida funcional rehidratante, energética y reconstituyente con BCAAs, extractos antioxidantes y agua de coco que ayudan a que tus músculos se restablezcan rápidamente después del ejercicio. AMINOÁCIDOS DE CADENA RAMIFICADA (L-LEUCINA",
+      "ingredients": "LEUCINA, L",
+      "benefits": "Mantener la hidratación de las células gracias a su aporte de electrolitos. Prevenir los dolores musculares gracias a su acción anticatabólica y antioxidante. Promover la recuperación y el incremento de la masa muscular luego de la actividad física.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Un stick al día, después del entrenamiento.",
+      "price": "45.500",
+      "points": "22.00",
+      "sku": "147540",
+      "presentation": "CAJA 28 x 5gr",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2496316",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147540_EXT_11052024_004053_MAIN.jpg",
+          "alt": "POST SPORT PRO EDITION"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147540_EXT_11052024_004053_MAIN.jpg",
+          "alt": "POST SPORT PRO EDITION"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/SPORT.jpg",
+          "alt": "POST SPORT PRO EDITION"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_59285_ES_15052024_001258.png",
+          "alt": "POST SPORT PRO EDITION"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=147540",
+      "lastUpdated": "2025-06-28T19:39:27.288Z"
+    },
+    {
+      "id": "147541",
+      "name": "PRE SPORT PRO EDITION",
+      "slogan": "A SUS MARCAS, LISTOS...",
+      "description": "AGREGAR AL CARRITO Bebida funcional rehidratante isotónica, energética y termogénica que prepara el cuerpo para la actividad deportiva intensa y prolongada. BETA ALANINA",
+      "ingredients": "BETA ALANINA, CITRULINA, CREATINA, SAND",
+      "benefits": "PRE SPORT ayuda a Mantener el cuerpo hidratado y con balance de electrolitos, durante el ejercicio. Promover una vasodilatación que aporta más nutrientes a los músculos para una mayor energía y resistencia mejorar el desempeño deportivo gracias a la energía extra que brinda a tu cuerpo.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Un stick al día, antes del entrenamiento.",
+      "price": "45.500",
+      "points": "22.00",
+      "sku": "147541",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719974",
+      "presentation": "CAJA 28 x 5gr",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147541_EXT_11052024_011122_MAIN.jpg",
+          "alt": "PRE SPORT PRO EDITION"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_147541_EXT_11052024_011122_MAIN.jpg",
+          "alt": "PRE SPORT PRO EDITION"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/SPORT.jpg",
+          "alt": "PRE SPORT PRO EDITION"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_59286_ES_15052024_001120.png",
+          "alt": "PRE SPORT PRO EDITION"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=147541",
+      "lastUpdated": "2025-06-28T19:39:33.409Z"
+    },
+    {
+      "id": "146285",
+      "name": "VERA+",
+      "slogan": "REFUERZA TU CUERPO DE MANERA INTELIGENTE",
+      "description": "AGREGAR AL CARRITO Combinación herbal que contiene ingredientes que son reconocidos porque ayudan a mantener activo y optimizar el sistema inmunológico, y junto a una dieta saludable contribuye a mantener tu sistema natural de defensa. BETA GLUCANOS",
+      "ingredients": "BETA GLUCANOS, EXTRACTO DE OLIVA, ALOE VERA, AMINO",
+      "benefits": "Sus componentes, te ayudan a: - Mantener activas las defensas naturales. - Reducir el daño oxidativo que ocasiona deterioro celular",
+      "preparation": "Disolver el contenido de un stick en una taza con 180 ml de agua caliente.",
+      "consumption": "Uno o dos sticks al día, en cualquier momento.",
+      "price": "54.600",
+      "points": "26.00",
+      "sku": "146285",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/1079410 ",
+      "presentation": "CAJA 28 x 5 gr",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_146285_EXT_31072023_224931_MAIN.jpg",
+          "alt": "VERA+"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_146285_EXT_31072023_224931_MAIN.jpg",
+          "alt": "VERA+"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_146285_EXT_07122021_162543.png",
+          "alt": "VERA+"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/INMUNOLOGICA.jpg",
+          "alt": "VERA+"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_146285_ES_07122021_162700.png",
+          "alt": "VERA+"
+        }
+      ],
+      "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=146285",
+      "lastUpdated": "2025-06-28T19:39:39.484Z"
+    }
+  ]
+}

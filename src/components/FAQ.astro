@@ -1,0 +1,245 @@
+---
+const faqCategories = [
+  {
+    category: 'Productos Fuxion',
+    icon: 'local_drink',
+    questions: [
+      {
+        question: '¿Qué son los alimentos nutracéuticos?',
+        answer: 'Los productos FuXion® son alimentos nutracéuticos únicos que se presentan en deliciosas bebidas funcionales: refrescos, batidos, tés y cafés. Son el resultado de la fusión de conocimientos milenarios (andinos, amazónicos y asiáticos) con los últimos avances científicos en biología celular y nutrición humana.'
+      },
+      {
+        question: '¿Los productos vienen en cápsulas o pastillas?',
+        answer: 'No, todos nuestros productos vienen en prácticos sticks listos para mezclar. No utilizamos cápsulas ni pastillas. Simplemente mezclas el contenido del stick con agua y disfrutas de una deliciosa bebida funcional.'
+      },
+      {
+        question: '¿Qué patentes respaldan los productos?',
+        answer: 'Nuestros productos cuentan con ingredientes patentados como Actinos, BioFerrin, Prolibra y Wellmune. Estas patentes garantizan la calidad y efectividad de nuestros ingredientes activos, respaldados por investigación científica.'
+      },
+      {
+        question: '¿Cuáles son los productos más populares?',
+        answer: 'Entre nuestros productos destacados están PRUNEX1 (para la salud digestiva), VITA XTRA T+ (multivitamínico con 28 unidades) y TERMO T3 (para el control de peso). Cada uno está diseñado para diferentes necesidades de salud y bienestar.'
+      }
+    ]
+  },
+  {
+    category: 'Oportunidad de Negocio',
+    icon: 'trending_up',
+    questions: [
+      {
+        question: '¿Cuál es la inversión mínima para comenzar?',
+        answer: 'La inversión mínima es de $180.000 ARS. Este monto te permite comenzar como Empresario Independiente Fuxion con tu propio inventario de productos y acceso a todas las herramientas de negocio.'
+      },
+      {
+        question: '¿Qué tipo de ingresos puedo generar?',
+        answer: 'Como muestra mi experiencia personal, genero ingresos semanales consistentes trabajando desde mi chacra. Los pagos son verificables y se realizan semanalmente, permitiéndote tener un flujo de efectivo constante.'
+      },
+      {
+        question: '¿Necesito experiencia previa en ventas?',
+        answer: 'No es necesaria experiencia previa. Como desarrollador de software que encontró éxito en este negocio, puedo confirmar que el sistema está diseñado para que cualquier persona comprometida pueda tener éxito. Ofrecemos capacitación y apoyo continuo.'
+      },
+      {
+        question: '¿Cómo funciona el programa Cliente Preferente?',
+        answer: 'Al comprar 80 puntos en productos y registrarte como Cliente Preferente, recibes un producto completamente gratis. Además, disfrutas de precios especiales y envíos sin costo. Este beneficio es válido siempre y únicamente a través de la tienda oficial.'
+      }
+    ]
+  },
+  {
+    category: 'Sobre Nancy y el Negocio',
+    icon: 'person',
+    questions: [
+      {
+        question: '¿Quién es Nancy Sastre?',
+        answer: 'businessPresentation.description'
+      },
+      {
+        question: '¿Por qué confiar en este negocio?',
+        answer: 'El negocio cuenta con el respaldo de figuras reconocidas como el Dr. La Rosa (más de 6 millones de suscriptores en YouTube y miembro de Mensa) y el Dr. Arrieta, quienes avalan públicamente el consumo de estas bebidas. Además, mis resultados son 100% verificables con comprobantes de pago semanales.'
+      },
+      {
+        question: '¿Cómo puedo contactarte?',
+        answer: 'Puedes contactarme a través de WhatsApp al +54 9 299 651620, por email a nancysastre@gmail.com, o seguirme en Instagram @nancyemprendedora donde comparto mi día a día y experiencia con el negocio.'
+      }
+    ]
+  }
+];
+---
+
+<section id="faq" class="py-12 md:py-10 md:py-12">
+  <div class="container-narrow">
+    <!-- Section Header -->
+    <div class="text-center mb-8 md:mb-8">
+      <p class="section-title animate-slide-down">PREGUNTAS FRECUENTES</p>
+      <h3 class="section-heading animate-slide-up mb-4">RESOLVEMOS TUS DUDAS</h3>
+      <p class="text-gray-600 max-w-2xl mx-auto animate-fade-in">
+        Encuentra respuestas a las preguntas más comunes sobre nuestros productos y oportunidad de negocio
+      </p>
+    </div>
+
+    <!-- FAQ Categories -->
+    <div class="max-w-2xl mx-auto">
+      {faqCategories.map((category, categoryIndex) => (
+        <div class="faq-category mb-8 animate-on-scroll fade-in-up" style={`animation-delay: ${categoryIndex * 0.1}s`}>
+          <!-- Category Header -->
+          <div class="category-header flex items-center gap-3 mb-6">
+            <div class="category-icon">
+              <span class="material-icons text-2xl">{category.icon}</span>
+            </div>
+            <h3 class="text-xl font-scandia-medium">{category.category}</h3>
+          </div>
+
+          <!-- Questions -->
+          <div class="questions-container space-y-4">
+            {category.questions.map((item, index) => (
+              <div class="faq-item bg-white border border-gray-200 shadow-soft rounded-lg overflow-hidden">
+                <button 
+                  class="faq-question w-full text-left p-5 flex items-center justify-between hover:bg-gray-50 transition-colors"
+                  aria-expanded="false"
+                  aria-controls={`answer-${categoryIndex}-${index}`}
+                >
+                  <span class="font-scandia-medium pr-4">{item.question}</span>
+                  <span class="material-icons text-primary transition-transform duration-300">
+                    expand_more
+                  </span>
+                </button>
+                <div 
+                  id={`answer-${categoryIndex}-${index}`}
+                  class="faq-answer overflow-hidden max-h-0 transition-all duration-300"
+                >
+                  <div class="p-5 pt-0">
+                    <p class="text-gray-700 leading-relaxed">{item.answer}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center mt-8 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl p-5 animate-on-scroll">
+      <h3 class="text-2xl font-scandia-medium mb-4">¿Aún tienes preguntas?</h3>
+      <p class="text-gray-600 mb-6">
+        Nuestro equipo está disponible 24/7 para ayudarte
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="https://wa.me/549299651620?text=Hola!%20Tengo%20algunas%20preguntas" 
+          target="_blank"
+          class="btn-primary hover:shadow-large transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2"
+        >
+          <i class="fab fa-whatsapp"></i>
+          Chat en WhatsApp
+        </a>
+        <button class="btn-secondary hover:shadow-medium transform hover:scale-105 transition-all duration-300">
+          <span class="flex items-center justify-center gap-2">
+            <span class="material-icons">email</span>
+            Enviar Email
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Trust Message -->
+    <div class="mt-12 text-center">
+      <p class="text-sm text-gray-600">
+        <span class="material-icons text-xs align-middle mr-1">verified_user</span>
+        Respaldado por profesionales médicos y miles de clientes satisfechos
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .category-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(1, 134, 214, 0.1), rgba(1, 134, 214, 0.2));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0186d6;
+  }
+
+  .faq-item {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:hover {
+    border-color: rgba(1, 134, 214, 0.3);
+  }
+
+  .faq-question {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .faq-question:focus {
+    outline: none;
+  }
+
+  .faq-question[aria-expanded="true"] .material-icons {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 500px;
+  }
+
+  @media (max-width: 768px) {
+    .faq-question {
+      padding: 20px;
+    }
+    
+    .faq-answer > div {
+      padding: 20px;
+      padding-top: 0;
+    }
+  }
+</style>
+
+<script>
+  // FAQ accordion functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question') as HTMLButtonElement;
+      const answer = item.querySelector('.faq-answer') as HTMLElement;
+      
+      question?.addEventListener('click', () => {
+        const isExpanded = question.getAttribute('aria-expanded') === 'true';
+        
+        // Close all other items in the same category
+        const category = item.closest('.faq-category');
+        const otherItems = category?.querySelectorAll('.faq-item');
+        otherItems?.forEach(otherItem => {
+          if (otherItem !== item) {
+            const otherQuestion = otherItem.querySelector('.faq-question') as HTMLButtonElement;
+            const otherAnswer = otherItem.querySelector('.faq-answer') as HTMLElement;
+            otherQuestion?.setAttribute('aria-expanded', 'false');
+            otherItem.classList.remove('active');
+            if (otherAnswer) otherAnswer.style.maxHeight = '0';
+          }
+        });
+        
+        // Toggle current item
+        question.setAttribute('aria-expanded', (!isExpanded).toString());
+        item.classList.toggle('active');
+        
+        if (!isExpanded && answer) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else if (answer) {
+          answer.style.maxHeight = '0';
+        }
+      });
+    });
+  });
+</script>

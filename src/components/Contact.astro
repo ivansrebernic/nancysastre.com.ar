@@ -1,0 +1,245 @@
+---
+---
+
+<section id="contact-wrap" class="py-12 md:py-10 md:py-12">
+  <div class="container-narrow">
+    <!-- Section Header -->
+    <div class="flex justify-center mb-8 md:mb-8">
+      <div class="text-center max-w-3xl">
+        <div class="relative">
+          <p class="text-primary text-sm uppercase tracking-widest mb-2">ÚNETE A NOSOTROS</p>
+          <h3 class="text-lg md:text-xl font-scandia-medium mb-8 text-gray-900">CONTÁCTANOS</h3>
+          <h4 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-6xl md:text-8xl lg:text-9xl font-scandia-medium text-gray-200 opacity-20 pointer-events-none">CONTACTO</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="max-w-2xl mx-auto">
+      <div class="contact-form">
+        <form 
+          id="contact-form" 
+          class="space-y-6" 
+          method="POST"
+          action="https://formsubmit.co/nancysastre@gmail.com"
+        >
+          <!-- FormSubmit Configuration -->
+          <input type="hidden" name="_subject" value="Nuevo contacto desde Hidratación Saludable">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="type" value="contact">
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Name Field -->
+            <div class="half">
+              <label for="name" class="block text-sm uppercase tracking-wider mb-2 text-gray-600">
+                Name
+              </label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                placeholder="Your Name"
+                required
+                class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded text-gray-900 placeholder-gray-500 focus:border-primary focus:shadow-large focus:outline-none transition-all duration-300 hover:border-gray-300"
+              />
+            </div>
+
+            <!-- Email Field -->
+            <div class="half-last">
+              <label for="email" class="block text-sm uppercase tracking-wider mb-2 text-gray-600">
+                Email
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="yourmail@test.com"
+                required
+                class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded text-gray-900 placeholder-gray-500 focus:border-primary focus:shadow-large focus:outline-none transition-all duration-300 hover:border-gray-300"
+              />
+            </div>
+          </div>
+
+          <!-- Message Field -->
+          <div class="form-comment">
+            <label for="message" class="block text-sm uppercase tracking-wider mb-2 text-gray-600">
+              Message
+            </label>
+            <textarea 
+              name="message" 
+              id="message" 
+              placeholder="Your Message"
+              rows="6"
+              required
+              class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded text-gray-900 placeholder-gray-500 focus:border-primary focus:shadow-large focus:outline-none transition-all duration-300 hover:border-gray-300 resize-none"
+            ></textarea>
+          </div>
+
+          <!-- Flash Messages -->
+          <div id="flash-message" class="flashinfo hidden bg-white px-12 py-4 rounded relative border border-gray-200">
+            <span class="material-icons absolute left-4 top-1/2 transform -translate-y-1/2 text-primary"></span>
+            <span class="message-text"></span>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="btn-submit-form text-center">
+            <button 
+              type="submit" 
+              class="btn-primary px-12 py-4 font-scandia-medium tracking-wider magnetic-btn hover:shadow-large transform hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+              id="submit-btn"
+            >
+              <span class="relative z-10">ENVIAR MENSAJE</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  input:focus,
+  textarea:focus {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(1, 134, 214, 0.15);
+  }
+
+  input,
+  textarea {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    transition: all 0.3s ease;
+  }
+
+  input:focus::placeholder,
+  textarea:focus::placeholder {
+    opacity: 0.5;
+    transform: translateX(10px);
+  }
+
+  .flashinfo {
+    transition: all 0.3s ease;
+  }
+
+  .flashinfo.show {
+    display: block;
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Magnetic button effect */
+  .magnetic-btn {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const flashMessage = document.getElementById('flash-message');
+  const messageText = flashMessage?.querySelector('.message-text');
+  const messageIcon = flashMessage?.querySelector('.material-icons');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+  function showMessage(message: string, type: 'success' | 'error' | 'loading') {
+    if (!flashMessage || !messageText || !messageIcon) return;
+
+    flashMessage.classList.remove('hidden', 'bg-white', 'bg-green-50', 'bg-red-50');
+    flashMessage.classList.add('show');
+    messageText.textContent = message;
+
+    if (type === 'loading') {
+      messageIcon.textContent = 'hourglass_bottom';
+      flashMessage.classList.add('bg-white');
+    } else if (type === 'success') {
+      messageIcon.textContent = 'check_circle';
+      messageIcon.classList.add('text-green-600');
+      flashMessage.classList.add('bg-green-50', 'border-green-200');
+    } else {
+      messageIcon.textContent = 'error';
+      messageIcon.classList.add('text-red-600');
+      flashMessage.classList.add('bg-red-50', 'border-red-200');
+    }
+  }
+
+  function hideMessage() {
+    if (!flashMessage || !messageIcon) return;
+    flashMessage.classList.add('hidden');
+    flashMessage.classList.remove('show', 'bg-white', 'bg-green-50', 'bg-red-50', 'border-green-200', 'border-red-200');
+    messageIcon.classList.remove('text-green-600', 'text-red-600');
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    // Disable submit button
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'ENVIANDO...';
+
+    // Show loading message
+    showMessage('Por favor espera...', 'loading');
+
+    try {
+      // Submit to FormSubmit via AJAX
+      const response = await fetch('https://formsubmit.co/ajax/nancysastre@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(Object.fromEntries(formData))
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        // Success response
+        showMessage('Tu mensaje ha sido enviado, te responderemos pronto', 'success');
+        form.reset();
+      } else {
+        // Error response
+        showMessage('Hubo un error al enviar el mensaje. Por favor intenta de nuevo.', 'error');
+      }
+    } catch (error) {
+      // Network error
+      showMessage('Error de conexión. Por favor verifica tu internet e intenta de nuevo.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'ENVIAR MENSAJE';
+      // Hide message after 5 seconds
+      setTimeout(hideMessage, 5000);
+    }
+  });
+
+  // Magnetic button effect
+  const magneticBtn = document.querySelector('.magnetic-btn') as HTMLElement;
+  if (magneticBtn) {
+    magneticBtn.addEventListener('mousemove', (e) => {
+      const rect = magneticBtn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      magneticBtn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+    });
+
+    magneticBtn.addEventListener('mouseleave', () => {
+      magneticBtn.style.transform = 'translate(0, 0) scale(1)';
+    });
+  }
+</script>

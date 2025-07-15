@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(cp:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)",
+      "Bash(rg:*)",
+      "Bash(node:*)",
+      "Bash(git commit:*)",
+      "Bash(rm:*)",
+      "Bash(grep:*)",
+      "WebFetch(domain:)",
+      "Bash(ls:*)",
+      "Bash(npm run:*)",
+      "WebFetch(domain:developers.hubspot.com)",
+      "Bash(pkill:*)",
+      "Bash(true)",
+      "Bash(env)",
+      "Bash(git rm:*)",
+      "Bash(touch:*)",
+      "Bash(jq:*)",
+      "Bash(cat:*)",
+      "Bash(git push:*)",
+      "Bash(git reset:*)",
+      "Bash(chmod:*)",
+      "Bash(curl:*)",
+      "mcp__zen__analyze",
+      "mcp__zen__listmodels"
+    ],
+    "deny": []
+  }
+}
