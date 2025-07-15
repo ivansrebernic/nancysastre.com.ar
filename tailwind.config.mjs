@@ -25,6 +25,7 @@ export default {
 				'scandia': ['Scandia-Regular', 'sans-serif'],
 				'scandia-medium': ['Scandia-Medium', 'sans-serif'],
 				'poppins': ['Poppins', 'sans-serif'],
+				'bebas': ['Bebas Neue', 'sans-serif'],
 			},
 			animation: {
 				'fade-in': 'fadeIn 0.5s ease-in-out',
