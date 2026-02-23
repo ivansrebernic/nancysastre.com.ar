@@ -1,7 +1,7 @@
 ---
 title: 'Oportunidad Única para Influencers y Emprendedores Digitales'
 description: 'Descubre cómo influencers y emprendedores digitales pueden construir un negocio online exitoso con Fuxion, ganando hasta 50% de comisiones y expandiéndose internacionalmente.'
-author: 'Iván Srebernic'
+author: 'Nancy Sastre'
 pubDate: 2025-01-06
 heroImage: '/image/blog/influencers-digitales-hero.png'
 category: 'negocio'

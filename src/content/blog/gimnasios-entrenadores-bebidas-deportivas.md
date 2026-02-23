@@ -1,7 +1,7 @@
 ---
 title: 'Exclusividad y Fidelización: Bebidas Deportivas Únicas para Gimnasios y Entrenadores'
 description: 'Descubre cómo gimnasios y entrenadores personales pueden fidelizar clientes y generar ingresos adicionales con bebidas deportivas exclusivas sin azúcar.'
-author: 'Iván Srebernic'
+author: 'Nancy Sastre'
 pubDate: 2025-01-06
 heroImage: '/image/blog/gimnasios-deportivas-hero.png'
 category: 'ejercicio'

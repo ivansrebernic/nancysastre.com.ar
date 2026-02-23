@@ -1,7 +1,7 @@
 ---
 title: 'Potencia Tu Enfoque Holístico: Fuxion para Coaches y Terapeutas'
 description: 'Descubre cómo coaches y terapeutas holísticos pueden integrar bebidas nutracéuticas para potenciar resultados y crear una fuente adicional de ingresos.'
-author: 'Iván Srebernic'
+author: 'Nancy Sastre'
 pubDate: 2025-01-06
 heroImage: '/image/blog/coaches-terapeutas-hero.png'
 category: 'nutricion'

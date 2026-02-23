@@ -31,7 +31,8 @@
       "Bash(chmod:*)",
       "Bash(curl:*)",
       "mcp__zen__analyze",
-      "mcp__zen__listmodels"
+      "mcp__zen__listmodels",
+      "Bash(find:*)"
     ],
     "deny": []
   }

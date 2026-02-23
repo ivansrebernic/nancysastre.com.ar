@@ -1,7 +1,7 @@
 ---
 title: 'Eleva tu Centro de Estética: Potencia tus tratamientos con Fuxion y mantén resultados todo el año'
 description: 'Descubre cómo los centros de estética pueden complementar sus tratamientos con bebidas nutracéuticas, fidelizar clientes y generar ingresos recurrentes todo el año.'
-author: 'Iván Srebernic'
+author: 'Nancy Sastre'
 pubDate: 2025-01-06
 heroImage: '/image/blog/centros-estetica-hero.png'
 category: 'negocio'
