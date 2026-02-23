@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "totalProducts": 14,
-    "extractedAt": "2025-06-28T23:17:30.548Z",
+    "totalProducts": 25,
+    "extractedAt": "2026-02-23T15:18:45.579Z",
     "note": "Clean product data with only essential information"
   },
   "products": [
@@ -14,7 +14,7 @@
       "benefits": "Su consumo diario te ayuda a: - Controlar los carbohidratos de tu dieta. - Mantener normales los niveles de glucosa (**). (*) Junto a una dieta balanceada y ejercicio. (**) Se considera al sobrepeso como un factor de riesgo para diversas enfermedades.",
       "preparation": "Disolver el contenido de un stick en una taza con 180 ml de agua caliente.",
       "consumption": "Tomar uno o dos sticks al día, antes o durante las comidas.",
-      "price": "22.150",
+      "price": "24.350",
       "points": "10.00",
       "sku": "147014",
       "presentation": "CAJA 14 x 5gr",
@@ -42,7 +42,7 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=147014",
-      "lastUpdated": "2025-06-28T19:38:20.188Z"
+      "lastUpdated": "2026-02-23T14:54:58.564Z"
     },
     {
       "id": "147015",
@@ -53,7 +53,7 @@
       "benefits": "Termo T3 ayuda a generar energía a partir de la quema de grasa, por lo que reduce la acumulación de reservas de grasa en el organismo. Aumenta tu resistencia, por lo que es recomendable que lo consumas antes de una rutina de ejercicio.",
       "preparation": "Disolver el contenido de un stick en una taza con 180 ml de agua caliente.",
       "consumption": "Uno o dos sticks al día, después de las comidas. Si haces ejercicio, tómalo antes de entrenar.",
-      "price": "22.150",
+      "price": "24.350",
       "points": "10.00",
       "sku": "147015",
       "presentation": "CAJA 14 x 5gr",
@@ -80,7 +80,7 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=147015",
-      "lastUpdated": "2025-06-28T19:38:26.234Z",
+      "lastUpdated": "2026-02-23T14:54:58.565Z",
       "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719958"
     },
     {
@@ -92,7 +92,7 @@
       "benefits": "VITA XTRA T+ es la combinación nutracéutica que te mantiene alerta y de buen ánimo, mejora el rendimiento físico y el desempeño diario en general con un efecto energético que te durará durante todo el día. También reduce la oxidación de las células y la proliferación de radicales libres.",
       "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
       "consumption": "Uno o dos sticks al día, como snack o merienda entre comidas. También puedes tomarlo como complemento del desayuno o la cena, como batido (solo con agua y hielo) o como smoothie (combinado con jugos y fruta congelada).",
-      "price": "22.150",
+      "price": "24.350",
       "points": "10.00",
       "sku": "147016",
       "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719957",
@@ -120,7 +120,46 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=147016",
-      "lastUpdated": "2025-06-28T19:38:32.245Z"
+      "lastUpdated": "2026-02-23T14:54:58.565Z"
+    },
+    {
+      "id": "142539",
+      "name": "BIOPRO+ FIT",
+      "slogan": "MEJORA TU NUTRICIÓN Y REDUCE MEDIDAS",
+      "description": "AGREGAR AL CARRITO Delicioso batido de proteínas, a base de Bioprotein",
+      "ingredients": "a base de Bioprotein, con Colostrum",
+      "benefits": "Su consumo diario te ayudará a: - Mejorar la nutrición a nivel celular, especialmente las fibras musculares si haces ejercicio; lo que contribuye a tonificar la masa muscular. - Acelerar el metabolismo; lo que permite consumir más energía (calorías), eliminando grasa del cuerpo (*). - Reducir la sensación de apetito gracias a la proteína, sumada a la acción de Prolibra®. - Apoyar un programa de control de peso y reducir riesgos en tu salud (**). PROLIBRA® es un ingrediente derivado del suero lácteo. está clínicamente comprobado que disminuye significativamente la grasa corporal mientras se mantiene la masa magra, logrando una pérdida de peso saludable. (*) Junto a una dieta balanceada y ejercicio. (**) Se considera al sobrepeso como un factor de riesgo para diversas enfermedades.",
+      "preparation": "Con la ayuda de un shaker o batidora, mezclar el contenido de un stick en un vaso con 250 ml de agua fría.",
+      "consumption": "Dos sticks al día, como snack o merienda entre comidas (para completar cinco comidas diarias). Tómalo como batido (solo con agua y hielo) o como smoothie (combinado con jugos y fruta congelada).",
+      "price": "37.950",
+      "points": "16.00",
+      "sku": "142539",
+      "presentation": "Caja 14 sticks x 25 gr",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2962563",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142539_EXT_25072025_012602_MAIN.jpeg",
+          "alt": "Biopro+ Fit"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142539_EXT_25072025_012602_MAIN.jpeg",
+          "alt": "Biopro+ Fit"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_142539_EXT_25072025_012616.jpg",
+          "alt": "Biopro+ Fit"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/CONTROL.jpg",
+          "alt": "Biopro+ Fit"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_61066_ES_25072025_012700.jpg",
+          "alt": "Biopro+ Fit"
+        }
+      ],
+      "detailPageUrl": "https://tiendafuxion.com/storelt/NANCYSASTRE/2962563",
+      "lastUpdated": "2026-02-23T15:18:45.578Z"
     },
     {
       "id": "142359",
@@ -128,11 +167,11 @@
       "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/399548",
       "slogan": "",
       "description": "AGREGAR AL CARRITO Batido proteico de la más alta calidad que proporciona un 100% de biodisponibilidad y nutrientes de acción inmunológica. Bio Protein con Colostrum®",
-      "ingredients": "BIO PROTEIN con Colostrum®, BIOFERRIN®, Aminoacidos, Calcio lacteo, DHA, ARA  ",
-      "benefits": "BPROTE ayuda a incrementar cualitativa y cuantitativamente el perfil proteico de la dieta diaria. Está enriquecido con Bioferrín® (agente anti-microbiano natural) e inmunoglobulinas que potencian el sistema inmunológico y la defensa antioxidante; elevando la resistencia a las enfermedades. Fortalece los huesos.",
+      "ingredients": "cidos, Calcio l",
+      "benefits": "B-PROTE ayuda a incrementar cualitativa y cuantitativamente el perfil proteico de la dieta diaria. Está enriquecido con Bioferrín® (agente anti-microbiano natural) e inmunoglobulinas que potencian el sistema inmunológico y la defensa antioxidante; elevando la resistencia a las enfermedades. Fortalece los huesos.",
       "preparation": "Con la ayuda de un shaker o batidora, mezclar el contenido de un stick en un vaso con 250 ml de agua fría.",
       "consumption": "Uno o dos sticks al día, como snack o merienda entre comidas. También puedes tomarlo como complemento del desayuno o la cena, como batido (solo con agua y hielo) o como smoothie (combinado con jugos y fruta congelada).",
-      "price": "39.200",
+      "price": "43.100",
       "points": "18.00",
       "sku": "142359",
       "presentation": "CAJA 14 x 25 gr",
@@ -159,7 +198,7 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=142359",
-      "lastUpdated": "2025-06-28T19:38:38.249Z"
+      "lastUpdated": "2026-02-23T15:18:45.579Z"
     },
     {
       "id": "142329",
@@ -170,7 +209,7 @@
       "benefits": "Termo T3 ayuda a generar energía a partir de la quema de grasa, por lo que reduce la acumulación de reservas de grasa en el organismo. Aumenta tu resistencia, por lo que es recomendable que lo consumas antes de una rutina de ejercicio.",
       "preparation": "Disolver el contenido de un stick en una taza con 180 ml de agua caliente.",
       "consumption": "Uno o dos sticks al día, después de las comidas. Si haces ejercicio, tómalo antes de entrenar.",
-      "price": "41.400",
+      "price": "45.550",
       "points": "20.00",
       "sku": "142329",
       "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/1045131",
@@ -198,7 +237,7 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=142329",
-      "lastUpdated": "2025-06-28T19:38:44.249Z"
+      "lastUpdated": "2026-02-23T14:54:58.565Z"
     },
     {
       "id": "142428",
@@ -209,7 +248,7 @@
       "benefits": "PASSION ayuda a incrementar el nivel de energía y libido gracias a L-arginina, un potente aminoácido. Favorecer la segregación de hormonas que favorecen la fertilidad y el vigor sexual. Vigorizar el cuerpo gracias a su contenido de jalea real.",
       "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
       "consumption": "Un stick al día, en cualquier momento.",
-      "price": "41.400",
+      "price": "45.550",
       "points": "20.00",
       "sku": "142428",
       "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719969",
@@ -237,7 +276,7 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=142428",
-      "lastUpdated": "2025-06-28T19:38:50.025Z"
+      "lastUpdated": "2026-02-23T14:54:58.565Z"
     },
     {
       "id": "142527",
@@ -248,7 +287,7 @@
       "benefits": "OFF ayuda a mejorar la relajación y la concentración de manera natural. Reduce el estrés, la tensión y la ansiedad; y a la vez favorece el foco en momentos de mucha presión. Si se consume en la noche mejora la calidad del sueño.",
       "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
       "consumption": "Uno o dos sticks al día, en cualquier momento. Si se quiere mejorar la calidad de sueño, puedo tomarse antes de dormir.",
-      "price": "41.400",
+      "price": "45.550",
       "points": "20.00",
       "sku": "142527",
       "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/344367",
@@ -276,7 +315,7 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=142527",
-      "lastUpdated": "2025-06-28T19:38:56.100Z"
+      "lastUpdated": "2026-02-23T14:54:58.565Z"
     },
     {
       "id": "143855",
@@ -287,7 +326,7 @@
       "benefits": "PRUNEX1 promueve una función digestiva saludable y contribuye a aliviar los síntomas ocasionales del estreñimiento.",
       "preparation": "Disolver el contenido de un stick en una taza con 180 ml de agua caliente.",
       "consumption": "Toma medio stick o un sitck al día, de preferencia por la noche antes de dormir.",
-      "price": "41.400",
+      "price": "45.550",
       "points": "20.00",
       "sku": "143855",
       "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/445437",
@@ -315,7 +354,7 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=143855",
-      "lastUpdated": "2025-06-28T19:39:02.336Z"
+      "lastUpdated": "2026-02-23T14:54:58.565Z"
     },
     {
       "id": "143877",
@@ -326,7 +365,7 @@
       "benefits": "VITA XTRA T+ es la combinación nutracéutica que te mantiene alerta y de buen ánimo, mejora el rendimiento físico y el desempeño diario en general con un efecto energético que te durará durante todo el día. También reduce la oxidación de las células y la proliferación de radicales libres.",
       "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
       "consumption": "Uno o dos sticks al día, como snack o merienda entre comidas. También puedes tomarlo como complemento del desayuno o la cena, como batido (solo con agua y hielo) o como smoothie (combinado con jugos y fruta congelada).",
-      "price": "41.400",
+      "price": "45.550",
       "points": "20.00",
       "sku": "143877",
       "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/445437",
@@ -354,7 +393,7 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=143877",
-      "lastUpdated": "2025-06-28T19:39:08.468Z"
+      "lastUpdated": "2026-02-23T14:54:58.565Z"
     },
     {
       "id": "145711",
@@ -366,7 +405,7 @@
       "benefits": "Su consumo diario te ayuda a: - Controlar los carbohidratos de tu dieta. - Mantener normales los niveles de glucosa (**). (*) Junto a una dieta balanceada y ejercicio. (**) Se considera al sobrepeso como un factor de riesgo para diversas enfermedades.",
       "preparation": "Disolver el contenido de un stick en una taza con 180 ml de agua caliente.",
       "consumption": "Tomar uno o dos sticks al día, antes o durante las comidas.",
-      "price": "41.400",
+      "price": "45.550",
       "points": "20.00",
       "sku": "145711",
       "presentation": "CAJA 28 x 5 gr",
@@ -393,7 +432,7 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=145711",
-      "lastUpdated": "2025-06-28T19:39:15.006Z"
+      "lastUpdated": "2026-02-23T14:54:58.565Z"
     },
     {
       "id": "147257",
@@ -404,7 +443,7 @@
       "benefits": "Los componentes de Youth Elixir te ayudan a: •Aumentar la vitalidad y mejorar la calidad de sueño •Prevenir los efectos del envejecimiento prematuro •Mantener una piel lozana y renovada.",
       "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
       "consumption": "1 stick al día, de preferencia antes de acostarse.",
-      "price": "41.400",
+      "price": "45.550",
       "points": "20.00",
       "sku": "147257",
       "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2305747",
@@ -432,7 +471,280 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=147257",
-      "lastUpdated": "2025-06-28T19:39:21.160Z"
+      "lastUpdated": "2026-02-23T14:54:58.565Z"
+    },
+    {
+      "id": "149622",
+      "name": "ALPHA BALANCE",
+      "slogan": "MANTÉN TU CUERPO BALANCEADO, LIMPIO Y DESINTOXICADO",
+      "description": "AGREGAR AL CARRITO Bebida saludable alcalinizante que te ayuda a promover la limpieza de elementos tóxicos de tu organismo y equilibrar el pH de tu cuerpo, para que puedas vivir sano y con energía. ALFALFA",
+      "ingredients": "ALFALFA, ALGAS",
+      "benefits": "Sus extractos de vegetales verdes, ricos en clorofila y energía natural te ayudan a: - Mantener tu organismo balanceado, limpio y purificado. - Liberarte de residuos y toxinas perjudiciales para tu organismo. - Tener más energía para que tu cuerpo funcione correctamente.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Toma uno o dos sticks al día a la hora que lo desees. De preferencia al levantarte o con tu jugo del desayuno.",
+      "price": "45.550",
+      "points": "20.00",
+      "sku": "149622",
+      "presentation": "Doypack 28 sticks x 5 gr",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2858836 ",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149622_EXT_25072025_011333_MAIN.jpg",
+          "alt": "Alpha Balance"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149622_EXT_25072025_011333_MAIN.jpg",
+          "alt": "Alpha Balance"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149622_EXT_25072025_011348.jpg",
+          "alt": "Alpha Balance"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/LIMPIA.jpg",
+          "alt": "Alpha Balance"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_61063_ES_25072025_011359.jpg",
+          "alt": "Alpha Balance"
+        }
+      ],
+      "detailPageUrl": "https://tiendafuxion.com/storelt/NANCYSASTRE/2858836",
+      "lastUpdated": "2026-02-23T15:18:45.579Z"
+    },
+    {
+      "id": "149628",
+      "name": "ON",
+      "slogan": "MENTE ACTIVA Y ALERTA",
+      "description": "AGREGAR AL CARRITO Deliciosa bebida nutritiva que ayuda a activar tu mente y mantenerla alerta. On está hecho a base de una combinación de aminoácidos como la Taurina y la Gaba, con extractos vegetales como el Camu camu y el Acai Berry que trabajan en sinergia con las vitaminas, minerales y aceites esenciales para contribuir a una adecuada función cognitiva. GABA",
+      "ingredients": "GABA, TAURINA DE LA PROTE",
+      "benefits": "La acción de los ingredientes de On te ayudan a: - Mantener tu mente activa y alerta. - Nutrir tu cerebro y mejorar tu función neuronal. - Reforzar tu función cognitiva.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Toma uno o dos sticks al día, en cualquier momento.",
+      "price": "45.550",
+      "points": "20.00",
+      "sku": "149628",
+      "presentation": "Doypack 28 sticks x 5 gr",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/3053004",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149628_EXT_25072025_013911_MAIN.jpeg",
+          "alt": "On"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149628_EXT_25072025_013911_MAIN.jpeg",
+          "alt": "On"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149628_EXT_25072025_013926.jpg",
+          "alt": "On"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/VIGOR.jpg",
+          "alt": "On"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_61071_ES_25072025_013938.jpg",
+          "alt": "On"
+        }
+      ],
+      "detailPageUrl": "https://tiendafuxion.com/storelt/NANCYSASTRE/3053004",
+      "lastUpdated": "2026-02-23T15:18:45.579Z"
+    },
+    {
+      "id": "149629",
+      "name": "REXET",
+      "slogan": "PREPARA Y REINICIA TU CUERPO",
+      "description": "AGREGAR AL CARRITO Bebida efervescente que aporta nutrientes conocidos por ayudar a proteger el hígado y promover su función desintoxicante de manera saludable. MIX DE CONCENTRADOS DE FRUTAS Y VEGETALES (TUNA ROJA, ALCACHOFA, HIERBA LUISA, PEREJIL, ACEROLA, CLOROFILA)",
+      "ingredients": "BICARBONATO DE SODIO, MIX DE MINERALES",
+      "benefits": "Sus componentes te ayudan a: - Mantener optimas las funciones metabólicas del hígado. - Promover la función depurativa desde el sistema digestivo. - Mantener el cuerpo en equilibrio, limpio de toxinas.",
+      "preparation": "Disuelve el contenido efervescente en un vaso grande con 180 ml de agua fría.",
+      "consumption": "Tómalo inmediatamente para aprovechar su efervescencia.",
+      "price": "45.550",
+      "points": "20.00",
+      "sku": "149629",
+      "presentation": "Doypack 28 sticks x 5 gr",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2941448",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149629_EXT_25072025_014111_MAIN.jpeg",
+          "alt": "Rexet"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149629_EXT_25072025_014111_MAIN.jpeg",
+          "alt": "Rexet"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149629_EXT_25072025_014125.jpg",
+          "alt": "Rexet"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/LIMPIA.jpg",
+          "alt": "Rexet"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_61072_ES_25072025_014141.jpg",
+          "alt": "Rexet"
+        }
+      ],
+      "detailPageUrl": "https://tiendafuxion.com/storelt/NANCYSASTRE/2941448",
+      "lastUpdated": "2026-02-23T15:18:45.579Z"
+    },
+    {
+      "id": "149630",
+      "name": "NUTRADAY",
+      "slogan": "BRINDA A TU CUERPO LOS NUTRIENTES QUE NECESITA",
+      "description": "AGREGAR AL CARRITO Delicioso refresco sabor a fresa natural con todos los micronutrientes que tu familia y tú necesitan para tener más vitalidad y fortalecer sus defensas. Está potenciado con extracto de Moringa, fuente natural de hierro (25 veces más concentrado que la espinaca) y calcio (17 veces más que la leche). Este delicioso mix es el alimento ideal para complementar la nutrición de tu familia, desde tus hijos a tus abuelos. MORINGA EN POLVO",
+      "ingredients": "MORINGA EN POLVO, GUAYABA, LIM",
+      "benefits": "Su consumo diario ayudará a: - Complementar tu nutrición con la dosis adecuada de antioxidantes, vitaminas y minerales. - Mantener en estado óptimo tu sistema inmunológico. - Tener un óptimo desarrollo físico y mental.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Tomar uno o dos sticks al día, de preferencia por las mañanas y por las tardes.",
+      "price": "45.550",
+      "points": "20.00",
+      "sku": "149630",
+      "presentation": "Doypack 28 sticks x 5 gr",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2921452",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149630_EXT_25072025_013653_MAIN.jpg",
+          "alt": "Nutraday"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149630_EXT_25072025_013653_MAIN.jpg",
+          "alt": "Nutraday"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149630_EXT_25072025_013721.jpg",
+          "alt": "Nutraday"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/REVITALIZA.jpg",
+          "alt": "Nutraday"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_61070_ES_25072025_013735.jpg",
+          "alt": "Nutraday"
+        }
+      ],
+      "detailPageUrl": "https://tiendafuxion.com/storelt/NANCYSASTRE/2921452",
+      "lastUpdated": "2026-02-23T15:18:45.579Z"
+    },
+    {
+      "id": "149631",
+      "name": "LIQUID FIBER",
+      "slogan": "NUTRICIÓN PREBIÓTICA, PARA UN SISTEMA DIGESTIVO PUNTUAL",
+      "description": "AGREGAR AL CARRITO Porque la puntualidad de tu sistema digestivo es la clave para empezar el día aliviado y de buen ánimo. Esta deliciosa bebida, con sabor a limón, es una formulación sinérgica de fibras prebióticas de cadena corta y larga (Synergy1®) enriquecida con micronutrientes. FIBRAS PREBIÓTICAS (INULINA Y OLIGOFRUCTUOSA, EXTRAÍDAS DE RAÍZ DE ACHICORIA)",
+      "ingredients": "",
+      "benefits": "Su consumo diario te ayudará a: - Mejorar la .nutrición y el balance de la flora intestinal. - Mejorar la frecuencia de las evacuaciones intestinales de manera natural. - Promover la salud digestiva.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Uno o dos sticks al día, de preferencia antes de acostarse.",
+      "price": "45.550",
+      "points": "20.00",
+      "sku": "149631",
+      "presentation": "Caja 28 sticks x 5 gr",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2931355",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149631_EXT_25072025_013434_MAIN.jpeg",
+          "alt": "Liquid Fiber"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149631_EXT_25072025_013434_MAIN.jpeg",
+          "alt": "Liquid Fiber"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149631_EXT_25072025_013452.jpg",
+          "alt": "Liquid Fiber"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/LIMPIA.jpg",
+          "alt": "Liquid Fiber"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_61069_ES_25072025_013508.jpg",
+          "alt": "Liquid Fiber"
+        }
+      ],
+      "detailPageUrl": "https://tiendafuxion.com/storelt/NANCYSASTRE/2931355",
+      "lastUpdated": "2026-02-23T15:18:45.579Z"
+    },
+    {
+      "id": "149634",
+      "name": "XTRA MILE",
+      "slogan": "ENERGÍA PARA DAR LA MILLA EXTRA",
+      "description": "AGREGAR AL CARRITO Bebida isotónica de resistencia a base de Palatinose®, carbohidrato de bajo índice glicémico obtenido a partir de la betarraga, que brinda energía balanceada y sostenida en el tiempo. Además, su mix isotónico está hecho a base de agua de coco amazónico, 6 minerales (Potasio, Sodio, Calcio, Zinc, Cromo y Magnesio) y Sal de Maras, lo que permitirá que tu hidratación sea más eficiente, evitando la fatiga. PALATINOSE®",
+      "ingredients": "NICO, SAL DE MARAS, MIX DE ELECTROLITOS",
+      "benefits": "Su consumo durante el ejercicio te ayuda a: - Mantener adecuados niveles de glucosa. - Mantener la energía de manera sostenida. - Reducir la fatiga durante el ejercicio.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Tomar un stick al día, antes o durante del entrenamiento.",
+      "price": "45.550",
+      "points": "20.00",
+      "sku": "149634",
+      "presentation": "Caja 28 sticks x 5 gr",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/3053005",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149634_EXT_25072025_014306_MAIN.jpeg",
+          "alt": "Xtra Mile"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149634_EXT_25072025_014306_MAIN.jpeg",
+          "alt": "Xtra Mile"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149634_EXT_25072025_014321.jpg",
+          "alt": "Xtra Mile"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/SPORT.jpg",
+          "alt": "Xtra Mile"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_61073_ES_25072025_014334.jpg",
+          "alt": "Xtra Mile"
+        }
+      ],
+      "detailPageUrl": "https://tiendafuxion.com/storelt/NANCYSASTRE/3053005",
+      "lastUpdated": "2026-02-23T15:18:45.579Z"
+    },
+    {
+      "id": "149633",
+      "name": "BIOPRO+ SPORT",
+      "slogan": "EJERCICIO SALUDABLE Y MÚSCULOS TONIFICADOS",
+      "description": "AGREGAR AL CARRITO Batido proteico que ayuda a nutrir tus músculos adecuadamente para evitar su deterioro y promover un sano desarrollo de tu cuerpo, gracias a Bioprotein",
+      "ingredients": "gracias a Bioprotein, con Colostrum",
+      "benefits": "Sus ingredientes te ayudarán a: - Incrementar el flujo sanguíneo y el rendimiento físico, formulación de péptidos patentada. - Generar masa muscular magra y marcada menos tiempo. (*) - Mejorar la recuperación y aporte de oxígeno al músculo.",
+      "preparation": "Con la ayuda de un shaker o batidora, mezclar el contenido de un stick en un vaso con 250 ml de agua fría.",
+      "consumption": "Tomar dos sticks al día, entre comidas o después del entrenamiento. Tómalo como batido (solo con agua y hielo) o como smoothie (combinado con jugos y fruta congelada)",
+      "price": "46.550",
+      "points": "20.00",
+      "sku": "149633",
+      "presentation": "Caja 14 sticks x 25 gr",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/3053001",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149633_EXT_25072025_013004_MAIN.jpeg",
+          "alt": "Biopro+ Sport"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149633_EXT_25072025_013004_MAIN.jpeg",
+          "alt": "Biopro+ Sport"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149633_EXT_25072025_013019.jpg",
+          "alt": "Biopro+ Sport"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/SPORT.jpg",
+          "alt": "Biopro+ Sport"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_61067_ES_25072025_013032.jpg",
+          "alt": "Biopro+ Sport"
+        }
+      ],
+      "detailPageUrl": "https://tiendafuxion.com/storelt/NANCYSASTRE/3053001",
+      "lastUpdated": "2026-02-23T15:18:45.579Z"
     },
     {
       "id": "147540",
@@ -443,7 +755,7 @@
       "benefits": "Mantener la hidratación de las células gracias a su aporte de electrolitos. Prevenir los dolores musculares gracias a su acción anticatabólica y antioxidante. Promover la recuperación y el incremento de la masa muscular luego de la actividad física.",
       "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
       "consumption": "Un stick al día, después del entrenamiento.",
-      "price": "45.500",
+      "price": "50.050",
       "points": "22.00",
       "sku": "147540",
       "presentation": "CAJA 28 x 5gr",
@@ -467,7 +779,7 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=147540",
-      "lastUpdated": "2025-06-28T19:39:27.288Z"
+      "lastUpdated": "2026-02-23T14:54:58.565Z"
     },
     {
       "id": "147541",
@@ -478,7 +790,7 @@
       "benefits": "PRE SPORT ayuda a Mantener el cuerpo hidratado y con balance de electrolitos, durante el ejercicio. Promover una vasodilatación que aporta más nutrientes a los músculos para una mayor energía y resistencia mejorar el desempeño deportivo gracias a la energía extra que brinda a tu cuerpo.",
       "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
       "consumption": "Un stick al día, antes del entrenamiento.",
-      "price": "45.500",
+      "price": "50.050",
       "points": "22.00",
       "sku": "147541",
       "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2719974",
@@ -502,7 +814,124 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=147541",
-      "lastUpdated": "2025-06-28T19:39:33.409Z"
+      "lastUpdated": "2026-02-23T14:54:58.565Z"
+    },
+    {
+      "id": "149626",
+      "name": "FLORA LIV",
+      "slogan": "PROTEGE TU ORGANISMO DESDE ADENTRO",
+      "description": "AGREGAR AL CARRITO Bacterias probióticas, cuya acción en el intestino se potencia con la ayuda de la fibra prebiótica, así como las vitaminas y minerales que contiene.? FIBRA DE INULINA DE ACHICORIA",
+      "ingredients": "FIBRA DE INULINA DE ACHICORIA, GRANADILLA LIOFILIZADA, AGUAYMANTO, CULTIVOS PROBI",
+      "benefits": "Su consumo diario te ayuda a: - Regenerar y equilibrar la flora intestinal, necesaria para la correcta asimilación de los nutrientes. - Mantener activo tu sistema de defensa. - Prevenir trastornos digestivos. - Recuperar la flora intestinal luego de tratamientos, que alteran el ecosistema intestinal.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Uno o dos sticks al día, de preferencia por la mañana en ayunas o por la noche antes de dormir.?",
+      "price": "54.100",
+      "points": "25.00",
+      "sku": "149626",
+      "presentation": "Doypack 28 sticks x 5 gr",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/3053001",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149626_EXT_25072025_013225_MAIN.jpeg",
+          "alt": "Flora Liv"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149626_EXT_25072025_013225_MAIN.jpeg",
+          "alt": "Flora Liv"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149626_EXT_25072025_013244.jpg",
+          "alt": "Flora Liv"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/LIMPIA.jpg",
+          "alt": "Flora Liv"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_61068_ES_25072025_013257.jpg",
+          "alt": "Flora Liv"
+        }
+      ],
+      "detailPageUrl": "https://tiendafuxion.com/storelt/NANCYSASTRE/3053001",
+      "lastUpdated": "2026-02-23T15:18:45.579Z"
+    },
+    {
+      "id": "149623",
+      "name": "BEAUTY-IN",
+      "slogan": "EL SECRETO DE LA VERDADERA BELLEZA VIENE DESDE ADENTRO",
+      "description": "AGREGAR AL CARRITO Delicioso refresco nutritivo de guayaba con una potente combinación de péptidos de colágeno bioactivo que nutren tu piel desde adentro, para que luzca radiante y juvenil, por más tiempo. Beauty-In utiliza colágeno optimizado (cuatro veces más potente que el colágeno convencional), que estimula a las células de la piel a producir más colágeno y elastina, trabajando en sinergia con los antioxidantes y vitaminas presentes en su formulación, para una piel rejuvenecida. PÉPTIDOS DE COLÁGENO BIOACTIVO OPTIMIZADO",
+      "ingredients": "GENO BIOACTIVO OPTIMIZADO, COENZIMA Q10, SESBANIA",
+      "benefits": "Su consumo diario ayuda a: - Mejorar la estructura de la dermis; para tener una piel con mayor elasticidad, más firme y uniforme (sin arrugas). - Nutrir, proteger y reparar la piel dañada. - Prevenir la aparición de los signos del envejecimiento prematuro causado por los radicales libres. - Fortalecer también cabello y uñas.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Un stick al día, de preferencia antes de acostarse.",
+      "price": "57.300",
+      "points": "25.00",
+      "sku": "149623",
+      "presentation": "Doypack 28 sticks x 5 gr",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2980762",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149623_EXT_25072025_011543_MAIN.jpeg",
+          "alt": "Beauty-in"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149623_EXT_25072025_011543_MAIN.jpeg",
+          "alt": "Beauty-in"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149623_EXT_25072025_011559.jpg",
+          "alt": "Beauty-in"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/ANTIAGE.jpg",
+          "alt": "Beauty-in"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_61064_ES_25072025_011611.jpg",
+          "alt": "Beauty-in"
+        }
+      ],
+      "detailPageUrl": "https://tiendafuxion.com/storelt/NANCYSASTRE/2980762",
+      "lastUpdated": "2026-02-23T15:18:45.579Z"
+    },
+    {
+      "id": "149624",
+      "name": "BERRY BALANCE",
+      "slogan": "PROTEGE TU ORGANISMO Y MANTENLO EN PERFECTO EQUILIBRIO",
+      "description": "AGREGAR AL CARRITO Delicioso concentrado de antioxidantes extraidos de bayas (berries) que ayudan a proteger tu sistema urinario de manera natural y más completa. EXTRACTO DE CRANBERRY",
+      "ingredients": "EXTRACTO DE CRANBERRY, CONCENTRADO DE BERRIES Y FRUTAS TROPICALES",
+      "benefits": "Los ingredientes de Berry Balance te ayudarán a: . Prevenir las molestias del tracto urinario. . Prevenir la retención de líquidos. . Promover el equilibrio del pH de la flora que protege el tracto urinario.",
+      "preparation": "Disolver el contenido de un stick en un vaso con 180 ml de agua fría.",
+      "consumption": "Toma uno o dos sticks al día, a cualquier hora. Para mejores resultádos tómalo entre comidas, con el estómago vacío.",
+      "price": "59.400",
+      "points": "26.00",
+      "sku": "149624",
+      "presentation": "Doypack 28 sticks x 5 gr",
+      "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/2941371",
+      "images": [
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149624_EXT_25072025_012316_MAIN.jpeg",
+          "alt": "Berry Balance"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149624_EXT_25072025_012316_MAIN.jpeg",
+          "alt": "Berry Balance"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDetails/AR/AR_149624_EXT_25072025_012353.jpg",
+          "alt": "Berry Balance"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/productDataLine/LIMPIA.jpg",
+          "alt": "Berry Balance"
+        },
+        {
+          "url": "https://fuxionstorage.blob.core.windows.net/vhdfuxionoffix/newOffix/nutritionalInformation/AR/IN_AR_61065_ES_25072025_012421.jpg",
+          "alt": "Berry Balance"
+        }
+      ],
+      "detailPageUrl": "https://tiendafuxion.com/storelt/NANCYSASTRE/2941371",
+      "lastUpdated": "2026-02-23T15:18:45.579Z"
     },
     {
       "id": "146285",
@@ -513,7 +942,7 @@
       "benefits": "Sus componentes, te ayudan a: - Mantener activas las defensas naturales. - Reducir el daño oxidativo que ocasiona deterioro celular",
       "preparation": "Disolver el contenido de un stick en una taza con 180 ml de agua caliente.",
       "consumption": "Uno o dos sticks al día, en cualquier momento.",
-      "price": "54.600",
+      "price": "60.050",
       "points": "26.00",
       "sku": "146285",
       "powerlink": "https://tiendafuxion.com/storelt/NANCYSASTRE/1079410 ",
@@ -541,7 +970,7 @@
         }
       ],
       "detailPageUrl": "https://ifuxion.com/NANCYSASTRE/enrollment/productsdet?itemcode=146285",
-      "lastUpdated": "2025-06-28T19:39:39.484Z"
+      "lastUpdated": "2026-02-23T14:54:58.565Z"
     }
   ]
 }
