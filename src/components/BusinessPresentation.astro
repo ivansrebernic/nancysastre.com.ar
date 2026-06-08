@@ -1,0 +1,32 @@
+---
+import VideoEmbed from './VideoEmbed.astro';
+import { videos } from '../data/videos';
+---
+
+<section id="presentacion-negocio" class="py-16 md:py-20">
+  <div class="container-narrow">
+    <div class="max-w-3xl mx-auto">
+      <!-- Title above the player -->
+      <div class="text-center mb-8">
+        <h2 class="text-2xl md:text-3xl font-scandia-medium mb-3">
+          "Detrás de un gran producto, existe un gran negocio"
+        </h2>
+        <p class="text-gray-600">
+          Dale play y conocé cómo opera el modelo de Microfranquicia Digital FuXion en 37 países.
+        </p>
+      </div>
+
+      <VideoEmbed video={videos.presentation} />
+
+      <!-- Action prompt below the player -->
+      <div class="text-center mt-8">
+        <p class="text-gray-700 font-scandia-medium mb-5">
+          ¿Viste el video y te atrae la propuesta de negocios? Completá el formulario para coordinar una entrevista personalizada.
+        </p>
+        <a href="#contact-wrap" class="btn-primary scroll-link">
+          Coordiná tu entrevista
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

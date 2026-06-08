@@ -1,0 +1,43 @@
+---
+import VideoEmbed from './VideoEmbed.astro';
+import { videos } from '../data/videos';
+---
+
+<section id="vehiculo-comercial" class="py-16 md:py-20">
+  <div class="container-narrow">
+    <!-- Section header -->
+    <div class="text-center mb-12 max-w-3xl mx-auto">
+      <p class="section-title animate-slide-down">EL VEHÍCULO COMERCIAL</p>
+      <h2 class="section-heading animate-slide-up mb-4">Innovación y Tendencia Global</h2>
+      <p class="text-gray-600 animate-fade-in">
+        Los mercados se mueven por tendencias, y la del bienestar es la más grande de nuestra era.
+        No comercializamos productos suntuarios; posicionamos la evolución de las bebidas diarias a través de la ciencia.
+      </p>
+    </div>
+
+    <!-- Two parallel blocks -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
+      <!-- Product video block -->
+      <div>
+        <h3 class="text-xl font-scandia-medium mb-3">El Producto: Ciencia en cada bebida</h3>
+        <p class="text-gray-600 text-sm leading-relaxed mb-5">
+          Mirá este video institucional para comprender el concepto científico, la infraestructura
+          de producción y el millonario respaldo patentado que sostiene a nuestra plataforma comercial.
+        </p>
+        <VideoEmbed video={videos.product} />
+      </div>
+
+      <!-- Corporate video block -->
+      <div>
+        <h3 class="text-xl font-scandia-medium mb-3">El Respaldo Corporativo: Una Estructura Transnacional</h3>
+        <p class="text-gray-600 text-sm leading-relaxed mb-5">
+          Un gran proyecto requiere un respaldo sólido. FuXion es una organización transnacional respaldada
+          por un prestigioso grupo empresarial con más de 85 años de trayectoria industrial y financiera.
+          Conocé la visión de nuestro fundador, el músculo financiero de la compañía y la estructura global
+          que sostendrá la expansión de tu microfranquicia.
+        </p>
+        <VideoEmbed video={videos.corporate} />
+      </div>
+    </div>
+  </div>
+</section>

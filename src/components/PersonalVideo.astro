@@ -1,0 +1,21 @@
+---
+import VideoEmbed from './VideoEmbed.astro';
+import { videos } from '../data/videos';
+---
+
+<section id="mensaje-nancy" class="py-16 md:py-20 bg-gray-50/60">
+  <div class="container-narrow">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-8">
+        <p class="section-title animate-slide-down">UN MENSAJE PARA VOS</p>
+        <h2 class="section-heading animate-slide-up mb-4">Hablemos un momento</h2>
+        <p class="text-gray-600 animate-fade-in">
+          Ya viste el respaldo transnacional de FuXion, la ciencia detrás de las bebidas y el potencial
+          de operar en 37 países. Lo que yo hago es ayudarte a engranar todo este sistema internacional
+          dentro de tu profesión, tus tiempos y tu estilo de vida actual, tal como yo lo hice.
+        </p>
+      </div>
+      <VideoEmbed video={videos.personal} />
+    </div>
+  </div>
+</section>

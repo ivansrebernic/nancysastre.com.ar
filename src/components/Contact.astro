@@ -1,124 +1,166 @@
 ---
 ---
 
-<section id="contact-wrap" class="py-12 md:py-10 md:py-12">
+<section id="contact-wrap" class="py-12 md:py-16">
   <div class="container-narrow">
     <!-- Section Header -->
-    <div class="flex justify-center mb-8 md:mb-8">
-      <div class="text-center max-w-3xl">
-        <div class="relative">
-          <p class="text-primary text-sm uppercase tracking-widest mb-2">ÚNETE A NOSOTROS</p>
-          <h3 class="text-lg md:text-xl font-scandia-medium mb-8 text-gray-900">CONTÁCTANOS</h3>
-          <h4 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-6xl md:text-8xl lg:text-9xl font-scandia-medium text-gray-200 opacity-20 pointer-events-none">CONTACTO</h4>
-        </div>
-      </div>
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <p class="section-title">ÚLTIMO PASO</p>
+      <h3 class="section-heading mb-4 text-gray-900">Coordiná tu entrevista personalizada</h3>
+      <p class="text-gray-600">
+        Si querés evaluar la viabilidad de sumarte a Fuxion, completá el formulario a continuación.
+        Tus respuestas me permiten preparar una entrevista a la medida de tu perfil y tus objetivos.
+      </p>
     </div>
 
-    <!-- Contact Form -->
+    <!-- Qualifying Form -->
     <div class="max-w-2xl mx-auto">
-      <div class="contact-form">
-        <form 
-          id="contact-form" 
-          class="space-y-6" 
-          method="POST"
-          action="https://formsubmit.co/nancysastre@gmail.com"
-        >
-          <!-- FormSubmit Configuration -->
-          <input type="hidden" name="_subject" value="Nuevo contacto desde Hidratación Saludable">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="type" value="contact">
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Name Field -->
-            <div class="half">
-              <label for="name" class="block text-sm uppercase tracking-wider mb-2 text-gray-600">
-                Name
-              </label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                placeholder="Your Name"
-                required
-                class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded text-gray-900 placeholder-gray-500 focus:border-primary focus:shadow-large focus:outline-none transition-all duration-300 hover:border-gray-300"
-              />
-            </div>
+      <form
+        id="contact-form"
+        class="space-y-6"
+        method="POST"
+        action="https://formsubmit.co/nancysastre@gmail.com"
+      >
+        <!-- FormSubmit Configuration -->
+        <input type="hidden" name="_subject" value="Nueva solicitud de entrevista - Microfranquicia Digital" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" style="display:none" />
+        <input type="hidden" name="type" value="entrevista" />
 
-            <!-- Email Field -->
-            <div class="half-last">
-              <label for="email" class="block text-sm uppercase tracking-wider mb-2 text-gray-600">
-                Email
-              </label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                placeholder="yourmail@test.com"
-                required
-                class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded text-gray-900 placeholder-gray-500 focus:border-primary focus:shadow-large focus:outline-none transition-all duration-300 hover:border-gray-300"
-              />
-            </div>
-          </div>
-
-          <!-- Message Field -->
-          <div class="form-comment">
-            <label for="message" class="block text-sm uppercase tracking-wider mb-2 text-gray-600">
-              Message
-            </label>
-            <textarea 
-              name="message" 
-              id="message" 
-              placeholder="Your Message"
-              rows="6"
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Name -->
+          <div>
+            <label for="name" class="block text-sm uppercase tracking-wider mb-2 text-gray-600">Nombre</label>
+            <input
+              type="text"
+              id="name"
+              name="Nombre"
+              placeholder="Tu nombre"
               required
-              class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded text-gray-900 placeholder-gray-500 focus:border-primary focus:shadow-large focus:outline-none transition-all duration-300 hover:border-gray-300 resize-none"
-            ></textarea>
+              class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded text-gray-900 placeholder-gray-500 focus:border-primary focus:outline-none transition-all duration-300 hover:border-gray-300"
+            />
           </div>
 
-          <!-- Flash Messages -->
-          <div id="flash-message" class="flashinfo hidden bg-white px-12 py-4 rounded relative border border-gray-200">
-            <span class="material-icons absolute left-4 top-1/2 transform -translate-y-1/2 text-primary"></span>
-            <span class="message-text"></span>
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-sm uppercase tracking-wider mb-2 text-gray-600">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="Email"
+              placeholder="tucorreo@ejemplo.com"
+              required
+              class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded text-gray-900 placeholder-gray-500 focus:border-primary focus:outline-none transition-all duration-300 hover:border-gray-300"
+            />
           </div>
 
-          <!-- Submit Button -->
-          <div class="btn-submit-form text-center">
-            <button 
-              type="submit" 
-              class="btn-primary px-12 py-4 font-scandia-medium tracking-wider magnetic-btn hover:shadow-large transform hover:scale-105 transition-all duration-300 relative overflow-hidden group"
-              id="submit-btn"
-            >
-              <span class="relative z-10">ENVIAR MENSAJE</span>
-            </button>
+          <!-- WhatsApp -->
+          <div>
+            <label for="whatsapp" class="block text-sm uppercase tracking-wider mb-2 text-gray-600">WhatsApp</label>
+            <input
+              type="tel"
+              id="whatsapp"
+              name="WhatsApp"
+              placeholder="+54 9 ..."
+              required
+              class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded text-gray-900 placeholder-gray-500 focus:border-primary focus:outline-none transition-all duration-300 hover:border-gray-300"
+            />
           </div>
-        </form>
-      </div>
+
+          <!-- Country -->
+          <div>
+            <label for="pais" class="block text-sm uppercase tracking-wider mb-2 text-gray-600">País de residencia</label>
+            <input
+              type="text"
+              id="pais"
+              name="Pais de residencia"
+              placeholder="Tu país"
+              required
+              class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded text-gray-900 placeholder-gray-500 focus:border-primary focus:outline-none transition-all duration-300 hover:border-gray-300"
+            />
+          </div>
+        </div>
+
+        <!-- Q1: Perfil -->
+        <div>
+          <label for="perfil" class="block text-sm uppercase tracking-wider mb-2 text-gray-600">¿Cuál es tu perfil actual?</label>
+          <select
+            id="perfil"
+            name="Perfil actual"
+            required
+            class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded text-gray-900 focus:border-primary focus:outline-none transition-all duration-300 hover:border-gray-300"
+          >
+            <option value="" disabled selected>Seleccioná una opción</option>
+            <option>Profesional de la salud / Bienestar</option>
+            <option>Emprendedor / Comerciante / Dueño de negocio</option>
+            <option>Creador de contenido / Influencer</option>
+            <option>Busco mi primer emprendimiento digital / Manejo del hogar</option>
+          </select>
+        </div>
+
+        <!-- Q2: Tiempo semanal -->
+        <div>
+          <label for="tiempo" class="block text-sm uppercase tracking-wider mb-2 text-gray-600">¿Cuánto tiempo semanal dispones para desarrollar tu microfranquicia?</label>
+          <select
+            id="tiempo"
+            name="Tiempo semanal disponible"
+            required
+            class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded text-gray-900 focus:border-primary focus:outline-none transition-all duration-300 hover:border-gray-300"
+          >
+            <option value="" disabled selected>Seleccioná una opción</option>
+            <option>De 2 a 5 horas semanales (Como ingreso extra)</option>
+            <option>De 5 a 12 horas semanales (Enfoque de crecimiento rápido)</option>
+            <option>Más de 12 horas (Dedicación exclusiva)</option>
+          </select>
+        </div>
+
+        <!-- Q3: Objetivo -->
+        <div>
+          <label for="objetivo" class="block text-sm uppercase tracking-wider mb-2 text-gray-600">¿Cuál es tu principal objetivo al postularte a esta entrevista?</label>
+          <select
+            id="objetivo"
+            name="Objetivo principal"
+            required
+            class="w-full px-4 py-3 bg-white border-2 border-gray-200 rounded text-gray-900 focus:border-primary focus:outline-none transition-all duration-300 hover:border-gray-300"
+          >
+            <option value="" disabled selected>Seleccioná una opción</option>
+            <option>Conocer cómo generar ingresos residuales en dólares/euros desde mi país.</option>
+            <option>Aprender a usar sistemas digitales y automatizados aplicados al bienestar.</option>
+            <option>Diversificar mis ingresos actuales sin descuidar mi profesión.</option>
+          </select>
+        </div>
+
+        <!-- Flash Messages -->
+        <div id="flash-message" class="flashinfo hidden bg-white px-12 py-4 rounded relative border border-gray-200">
+          <span class="material-icons absolute left-4 top-1/2 transform -translate-y-1/2 text-primary"></span>
+          <span class="message-text"></span>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button
+            type="submit"
+            class="btn-primary px-12 py-4 font-scandia-medium tracking-wider hover:shadow-large transform hover:scale-105 transition-all duration-300"
+            id="submit-btn"
+          >
+            <span class="relative z-10">QUIERO MI ENTREVISTA</span>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </section>
 
 <style>
   input:focus,
-  textarea:focus {
+  select:focus {
     background-color: #ffffff;
-    transform: translateY(-2px);
     box-shadow: 0 4px 20px rgba(1, 134, 214, 0.15);
   }
 
   input,
-  textarea {
+  select {
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  input::placeholder,
-  textarea::placeholder {
-    transition: all 0.3s ease;
-  }
-
-  input:focus::placeholder,
-  textarea:focus::placeholder {
-    opacity: 0.5;
-    transform: translateX(10px);
   }
 
   .flashinfo {
@@ -139,12 +181,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-  }
-
-  /* Magnetic button effect */
-  .magnetic-btn {
-    position: relative;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 </style>
 
@@ -188,15 +224,11 @@
 
     const formData = new FormData(form);
 
-    // Disable submit button
     submitBtn.disabled = true;
     submitBtn.textContent = 'ENVIANDO...';
-
-    // Show loading message
     showMessage('Por favor espera...', 'loading');
 
     try {
-      // Submit to FormSubmit via AJAX
       const response = await fetch('https://formsubmit.co/ajax/nancysastre@gmail.com', {
         method: 'POST',
         headers: {
@@ -206,40 +238,18 @@
         body: JSON.stringify(Object.fromEntries(formData))
       });
 
-      const result = await response.json();
-
       if (response.ok) {
-        // Success response
-        showMessage('Tu mensaje ha sido enviado, te responderemos pronto', 'success');
+        showMessage('¡Gracias! Recibí tu solicitud y me pondré en contacto para coordinar la entrevista.', 'success');
         form.reset();
       } else {
-        // Error response
-        showMessage('Hubo un error al enviar el mensaje. Por favor intenta de nuevo.', 'error');
+        showMessage('Hubo un error al enviar el formulario. Por favor intentá de nuevo.', 'error');
       }
     } catch (error) {
-      // Network error
-      showMessage('Error de conexión. Por favor verifica tu internet e intenta de nuevo.', 'error');
+      showMessage('Error de conexión. Verificá tu internet e intentá de nuevo.', 'error');
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'ENVIAR MENSAJE';
-      // Hide message after 5 seconds
-      setTimeout(hideMessage, 5000);
+      submitBtn.textContent = 'QUIERO MI ENTREVISTA';
+      setTimeout(hideMessage, 6000);
     }
   });
-
-  // Magnetic button effect
-  const magneticBtn = document.querySelector('.magnetic-btn') as HTMLElement;
-  if (magneticBtn) {
-    magneticBtn.addEventListener('mousemove', (e) => {
-      const rect = magneticBtn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      
-      magneticBtn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
-    });
-
-    magneticBtn.addEventListener('mouseleave', () => {
-      magneticBtn.style.transform = 'translate(0, 0) scale(1)';
-    });
-  }
 </script>

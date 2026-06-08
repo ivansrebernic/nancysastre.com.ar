@@ -1,35 +1,5 @@
 ---
-import ProductCard from './ProductCard.astro';
 import FeatureCard from './FeatureCard.astro';
-import productsData from '../../products-clean-final.json';
-
-// Featured products: PRUNEX1, VITA XTRA T+, TERMO T3
-const featuredProductIds = ['143855', '143877', '142329'];
-const products = featuredProductIds.map(id => {
-  const product = productsData.products.find(p => p.id === id);
-  if (!product) return null;
-  
-  // Extract benefits from the description
-  const benefitsList = product.benefits ? product.benefits.split('-').filter(b => b.trim()).map(b => b.trim()) : [];
-  
-  return {
-    id: product.id,
-    name: product.name,
-    image: product.images[0]?.url,
-    benefits: benefitsList.length > 0 ? benefitsList : [
-      'Producto natural',
-      'Alta calidad',
-      'Resultados comprobados'
-    ],
-    price: Math.round(parseFloat(product.price) * 1000),
-    originalPrice: null,
-    stock: 100,
-    popular: product.name === 'PRUNEX1',
-    slogan: product.slogan,
-    presentation: product.presentation,
-    powerlink: product.powerlink
-  };
-}).filter(Boolean);
 
 const benefits = [
   {
@@ -163,29 +133,6 @@ const benefits = [
             </div>
         </div>
     </div>
-</section>
-
-<section id="products" class="py-12 md:py-12 md:py-10 md:py-12">
-  <!-- Products Section -->
-  <div class="container-narrow">
-    <div class="text-center mb-8">
-      <p class="section-title animate-slide-down">NUESTROS PRODUCTOS</p>
-      <h3 class="section-heading animate-slide-up mb-4">BEBIDAS SALUDABLES</h3>
-      <p class="text-gray-600 max-w-2xl mx-auto">
-        Descubre nuestra línea de bebidas 100% naturales, diseñadas para mejorar tu salud y bienestar
-      </p>
-    </div>
-    
-    <!-- Product Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-on-scroll">
-      {products.map((product, index) => (
-        <div class="stagger-item" style={`animation-delay: ${index * 0.15}s`}>
-          <ProductCard {...product} />
-        </div>
-      ))}
-    </div>
-  </div>
-
 </section>
 
 <style>

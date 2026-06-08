@@ -4,54 +4,64 @@ export const prerender = true;
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import AboutMe from "../components/AboutMe.astro";
-import IncomeOpportunity from "../components/IncomeOpportunity.astro";
-import Gallery from "../components/Gallery.astro";
-import PublicFigures from "../components/PublicFigures.astro";
-import MedicalEndorsements from "../components/MedicalEndorsements.astro";
-import DrLaRosaSection from "../components/DrLaRosaSection.astro";
-import DrArrietaSection from "../components/DrArrietaSection.astro";
-import Blog from "../components/Blog.astro";
-import Contact from "../components/Contact.astro";
-import Footer from "../components/Footer.astro";
-import SectionDivider from "../components/SectionDivider.astro";
-import WhatsAppButton from "../components/WhatsAppButton.astro";
 import TrustIndicators from "../components/TrustIndicators.astro";
-import SuccessStories from "../components/SuccessStories.astro";
+import AboutMe from "../components/AboutMe.astro";
+import VehiculoComercial from "../components/VehiculoComercial.astro";
+import About from "../components/About.astro";
+import PersonalVideo from "../components/PersonalVideo.astro";
+import BusinessPresentation from "../components/BusinessPresentation.astro";
+import FunnelCTA from "../components/FunnelCTA.astro";
+import Contact from "../components/Contact.astro";
 import FAQ from "../components/FAQ.astro";
+import Blog from "../components/Blog.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
 import JoinTeamModal from "../components/JoinTeamModal.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
-<BaseLayout>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
     <Header />
+
+    <!-- 1. Business-focused hero -->
     <Hero />
 
+    <!-- 2. Early credibility strip -->
     <section class="py-8">
         <div class="container-narrow">
             <TrustIndicators />
         </div>
     </section>
 
+    <!-- 3. Nancy's story -->
     <AboutMe />
 
+    <!-- 4. The commercial vehicle: product + corporate videos -->
+    <VehiculoComercial />
+
+    <!-- 5. Fuxion company context -->
     <div class="bg-gray-50/50">
         <About />
     </div>
 
-    <MedicalEndorsements />
-    
-    <DrLaRosaSection />
-    
-    <DrArrietaSection />
+    <!-- 6. Nancy's personal 1-min video -->
+    <PersonalVideo />
 
-    <Blog />
+    <!-- 7. Business presentation video + CTA -->
+    <BusinessPresentation />
 
+    <!-- 8. Scarcity CTA -->
+    <FunnelCTA />
+
+    <!-- 9. Qualifying form (conversion) -->
+    <Contact />
+
+    <!-- 10. FAQ -->
     <FAQ />
 
-    <div class="bg-gray-50">
-        <Contact />
-    </div>
+    <!-- 11. Blog teaser -->
+    <Blog />
+
     <Footer />
     <WhatsAppButton />
     <JoinTeamModal />

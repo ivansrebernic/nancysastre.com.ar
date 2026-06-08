@@ -1,0 +1,36 @@
+---
+import type { FunnelVideo } from '../data/videos';
+
+export interface Props {
+  video: FunnelVideo;
+}
+
+const { video } = Astro.props;
+const { youtubeId, title, placeholderLabel } = video;
+---
+
+<div class="video-embed relative w-full rounded-xl overflow-hidden shadow-medium bg-gray-900" style="aspect-ratio: 16 / 9;">
+  {youtubeId ? (
+    <iframe
+      class="absolute inset-0 w-full h-full"
+      src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
+      title={title}
+      loading="lazy"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  ) : (
+    <div
+      class="video-placeholder absolute inset-0 flex flex-col items-center justify-center text-center px-6 bg-gradient-to-br from-primary/90 to-primary-dark"
+      data-video-pending
+      aria-label={`${placeholderLabel} (próximamente)`}
+    >
+      <div class="w-16 h-16 rounded-full bg-white/15 flex items-center justify-center mb-4 ring-1 ring-white/30">
+        <span class="material-icons text-white text-4xl">play_arrow</span>
+      </div>
+      <p class="text-white font-scandia-medium text-base md:text-lg">{placeholderLabel}</p>
+      <p class="text-white/70 text-xs uppercase tracking-widest mt-2">Próximamente</p>
+    </div>
+  )}
+</div>
