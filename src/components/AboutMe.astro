@@ -1,6 +1,7 @@
 ---
-// Nancy's portrait is pending — the story block uses a styled placeholder
-// until a real photo is dropped into src/images and wired here.
+import { Image } from "astro:assets";
+import nancyPortrait from "../images/gallery/gallery-02.jpeg";
+
 const stats = [
     { number: "16", label: "Años cuando empecé a emprender" },
     { number: "4", label: "Hijos" },
@@ -120,13 +121,17 @@ const stats = [
                         >
                         </div>
 
-                        <!-- Portrait placeholder (Nancy photo pending) -->
-                        <div class="relative z-10 aspect-[3/4] flex flex-col items-center justify-center text-center">
-                            <div class="w-28 h-28 rounded-full bg-white/70 backdrop-blur-sm flex items-center justify-center shadow-lg mb-4">
-                                <span class="text-4xl font-bebas tracking-wider text-primary">NS</span>
-                            </div>
-                            <span class="material-icons text-primary/40 text-5xl">photo_camera</span>
-                            <p class="text-primary/60 text-xs uppercase tracking-widest mt-3">Foto próximamente</p>
+                        <!-- Nancy portrait -->
+                        <div class="relative z-10">
+                            <Image
+                                src={nancyPortrait}
+                                alt="Nancy Sastre"
+                                widths={[400, 600]}
+                                sizes="(max-width: 1024px) 90vw, 400px"
+                                loading="lazy"
+                                class="w-full h-auto drop-shadow-2xl"
+                                style="mask-image: linear-gradient(to bottom, black 70%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);"
+                            />
                         </div>
 
                         <!-- Wave overlay at bottom -->
