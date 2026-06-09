@@ -37,61 +37,6 @@ const benefits = [
   </div>
 </section>
 
-<!-- About Fuxion Section -->
-<section class="about-fuxion-section relative py-12 overflow-hidden bg-gray-900">
-    <!-- Background Image -->
-    <div 
-        class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-        style="background-image: url('/image/about-fuxion.jpg');"
-    >
-        <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/50"></div>
-    </div>
-
-    <!-- Content -->
-    <div class="container-narrow relative z-10">
-        <!-- Header -->
-        <div class="text-center mb-10 animate-fade-in">
-            <p class="text-white/80 text-sm font-scandia tracking-widest uppercase mb-3">CONOCE MÁS</p>
-            <div class="mb-4">
-                <img 
-                    src="/image/LOGO.png" 
-                    alt="Fuxion" 
-                    class="h-20 md:h-24 w-auto mx-auto brightness-0 invert"
-                />
-            </div>
-            <p class="text-lg text-white/90 max-w-2xl mx-auto">
-                Descubre la ciencia detrás de nuestras bebidas nutracéuticas
-            </p>
-        </div>
-
-        <!-- Patents Section -->
-        <div class="mt-10">
-            <h3 class="text-center text-white font-scandia-medium text-lg mb-6">Patentes</h3>
-            <div class="flex flex-wrap justify-center gap-4">
-                {['actinos', 'bioferrin', 'prolibra', 'wellmune'].map((patent, index) => (
-                    <div 
-                        class="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20 hover:border-white/40 transition-all duration-300 animate-on-scroll fade-in-up"
-                        style={`animation-delay: ${0.3 + index * 0.1}s`}
-                    >
-                        <img 
-                            src={`/image/patente-${patent}.png`}
-                            alt={`Patente ${patent}`}
-                            class="w-24 md:w-28 h-auto"
-                        />
-                    </div>
-                ))}
-            </div>
-        </div>
-
-        <!-- Bottom Message -->
-        <div class="mt-8 text-center animate-fade-in" style="animation-delay: 0.7s">
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 border border-white/20">
-                <span class="material-icons text-primary text-sm">verified</span>
-                <span class="text-white text-sm font-scandia-medium">No cápsulas ni pastillas - Solo prácticos sticks listos para mezclar</span>
-            </div>
-        </div>
-    </div>
-</section>
 
 <style>
   .wrap-aboutinfo {
