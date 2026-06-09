@@ -19,6 +19,10 @@ _Avoid_: Consulta, demo, meeting.
 **El Vehículo Comercial**:
 The landing section presenting two institutional videos — a product video and a corporate-backing video — before Nancy's personal pitch.
 
+**Lifestyle Gallery**:
+A masonry photo section (right after *Mi historia*) of real photos of Nancy, used as social proof that the business works — framed as "La vida que construí con este negocio". Mixed-orientation images optimized via Astro (`src/images/gallery`), masonry + lightbox, initial ~12 with a "Ver más" expander.
+_Avoid_: "Galería" generic, testimonials-as-quotes (these are photos, not text testimonials).
+
 **Qualifying form**:
 The funnel's lead-capture form. Captures name, email, WhatsApp, país de residencia, plus three diagnostic multiple-choice questions: perfil, tiempo semanal disponible, objetivo principal. Submits to FormSubmit (email to nancysastre@gmail.com) with all fields included.
 _Avoid_: Contact form (it is no longer a generic contact form).

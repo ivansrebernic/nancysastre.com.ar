@@ -1,0 +1,146 @@
+---
+import { Image, getImage } from "astro:assets";
+
+// Bulk-import the lifestyle photos (only the gallery-NN.jpeg set, not the
+// old template images that also live in this folder).
+const modules = import.meta.glob<{ default: ImageMetadata }>(
+  "../images/gallery/gallery-*.jpeg",
+  { eager: true },
+);
+
+const images = Object.entries(modules)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, m]) => m.default);
+
+// Precompute a larger WebP variant per photo for the lightbox.
+const items = await Promise.all(
+  images.map(async (img, index) => {
+    const full = await getImage({ src: img, width: 1400, format: "webp" });
+    return { img, full: full.src, index };
+  }),
+);
+
+const INITIAL_COUNT = 12;
+const hasMore = items.length > INITIAL_COUNT;
+---
+
+<section id="lifestyle-gallery" class="py-16 md:py-20">
+  <div class="container-narrow">
+    <!-- Header -->
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <p class="section-title">MI ESTILO DE VIDA</p>
+      <h2 class="section-heading mb-4">La vida que construí con este negocio</h2>
+      <p class="text-gray-600">
+        Más que ingresos, este camino me dio libertad de tiempo, experiencias y la posibilidad de
+        elegir cómo vivir. Estas son fotos reales de la vida que estás a punto de conocer.
+      </p>
+    </div>
+
+    <!-- Masonry (CSS columns) -->
+    <div id="gallery-masonry" class="columns-2 md:columns-3 gap-4 [column-fill:_balance]">
+      {items.map((item) => (
+        <button
+          type="button"
+          class="gallery-tile mb-4 block w-full overflow-hidden rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 break-inside-avoid focus:outline-none focus:ring-2 focus:ring-primary"
+          class:list={[{ hidden: item.index >= INITIAL_COUNT }]}
+          data-index={item.index}
+          data-full={item.full}
+          aria-label={`Ver foto ${item.index + 1} en grande`}
+        >
+          <Image
+            src={item.img}
+            alt={`Nancy Sastre — estilo de vida ${item.index + 1}`}
+            widths={[300, 500, 700]}
+            sizes="(max-width: 768px) 45vw, 30vw"
+            loading="lazy"
+            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-[1.03]"
+          />
+        </button>
+      ))}
+    </div>
+
+    {hasMore && (
+      <div class="text-center mt-8">
+        <button id="gallery-more-btn" type="button" class="btn-secondary px-8">
+          Ver más fotos
+        </button>
+      </div>
+    )}
+  </div>
+
+  <!-- Lightbox -->
+  <div
+    id="gallery-lightbox"
+    class="fixed inset-0 z-[9998] hidden items-center justify-center bg-black/90 p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Foto ampliada"
+  >
+    <button id="lb-close" type="button" class="absolute top-4 right-4 text-white/80 hover:text-white p-2" aria-label="Cerrar">
+      <span class="material-icons text-3xl">close</span>
+    </button>
+    <button id="lb-prev" type="button" class="absolute left-2 md:left-6 text-white/70 hover:text-white p-2" aria-label="Anterior">
+      <span class="material-icons text-4xl">chevron_left</span>
+    </button>
+    <img id="lb-image" src="" alt="Foto ampliada de Nancy Sastre" class="max-h-[88vh] max-w-[92vw] object-contain rounded-lg shadow-2xl" />
+    <button id="lb-next" type="button" class="absolute right-2 md:right-6 text-white/70 hover:text-white p-2" aria-label="Siguiente">
+      <span class="material-icons text-4xl">chevron_right</span>
+    </button>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const masonry = document.getElementById("gallery-masonry");
+    const moreBtn = document.getElementById("gallery-more-btn");
+    const lightbox = document.getElementById("gallery-lightbox");
+    const lbImage = document.getElementById("lb-image") as HTMLImageElement | null;
+    const lbClose = document.getElementById("lb-close");
+    const lbPrev = document.getElementById("lb-prev");
+    const lbNext = document.getElementById("lb-next");
+    if (!masonry || !lightbox || !lbImage) return;
+
+    const tiles = Array.from(masonry.querySelectorAll<HTMLElement>(".gallery-tile"));
+    let current = 0;
+
+    // "Ver más" reveals the hidden tiles.
+    moreBtn?.addEventListener("click", () => {
+      tiles.forEach((t) => t.classList.remove("hidden"));
+      moreBtn.remove();
+    });
+
+    function openAt(index: number) {
+      const tile = tiles[index];
+      if (!tile || !lbImage) return;
+      current = index;
+      lbImage.src = tile.dataset.full || "";
+      lightbox!.classList.remove("hidden");
+      lightbox!.classList.add("flex");
+      document.body.style.overflow = "hidden";
+    }
+
+    function close() {
+      lightbox!.classList.add("hidden");
+      lightbox!.classList.remove("flex");
+      document.body.style.overflow = "";
+    }
+
+    function step(dir: number) {
+      const next = (current + dir + tiles.length) % tiles.length;
+      openAt(next);
+    }
+
+    tiles.forEach((tile, i) => tile.addEventListener("click", () => openAt(i)));
+    lbClose?.addEventListener("click", close);
+    lbPrev?.addEventListener("click", (e) => { e.stopPropagation(); step(-1); });
+    lbNext?.addEventListener("click", (e) => { e.stopPropagation(); step(1); });
+    lightbox.addEventListener("click", (e) => { if (e.target === lightbox) close(); });
+
+    document.addEventListener("keydown", (e) => {
+      if (lightbox.classList.contains("hidden")) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") step(-1);
+      else if (e.key === "ArrowRight") step(1);
+    });
+  });
+</script>
