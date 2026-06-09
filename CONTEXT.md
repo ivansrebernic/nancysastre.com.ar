@@ -20,7 +20,7 @@ _Avoid_: Consulta, demo, meeting.
 The landing section presenting two institutional videos — a product video and a corporate-backing video — before Nancy's personal pitch.
 
 **Lifestyle Gallery**:
-A masonry photo section (right after *Mi historia*) of real photos of Nancy, used as social proof that the business works — framed as "La vida que construí con este negocio". Mixed-orientation images optimized via Astro (`src/images/gallery`), masonry + lightbox, initial ~12 with a "Ver más" expander.
+A masonry photo section of real photos of Nancy, used as social proof that the business works — framed as "La vida que construí con este negocio". Positioned as the emotional peak right before the closing block (1-min *Mensaje de Nancy* video → form), so inspiration immediately precedes the application. Mixed-orientation images optimized via Astro (`src/images/gallery`), masonry + lightbox, initial ~12 with a "Ver más" expander.
 _Avoid_: "Galería" generic, testimonials-as-quotes (these are photos, not text testimonials).
 
 **Qualifying form**:
