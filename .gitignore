@@ -40,3 +40,4 @@ member-assets/*.gif
 
 # playwright MCP artifacts
 .playwright-mcp/
+.vercel
