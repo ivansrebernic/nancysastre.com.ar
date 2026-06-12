@@ -19,9 +19,28 @@ import Footer from "../components/Footer.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
 import JoinTeamModal from "../components/JoinTeamModal.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+// PROTOTYPE — homepage redesign variants, dev-only (src/components/prototype/).
+// Switch with ?variant= or the floating bar. Production renders only the
+// current design; the extra variants and the switcher never ship.
+import PrototypeSwitcher from "../components/prototype/PrototypeSwitcher.astro";
+import HomeVariantC from "../components/prototype/HomeVariantC.astro";
+import HomeVariantC2 from "../components/prototype/HomeVariantC2.astro";
+import HomeVariantC3 from "../components/prototype/HomeVariantC3.astro";
+import HomeVariantC4 from "../components/prototype/HomeVariantC4.astro";
+
+const SHOW_PROTOTYPES = import.meta.env.DEV;
+const PROTO_VARIANTS = [
+    { key: "A", name: "Actual" },
+    { key: "C", name: "Cinemático" },
+    { key: "C2", name: "Cine Alba" },
+    { key: "C3", name: "Cine Costa" },
+    { key: "C4", name: "Cine Bosque" },
+];
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+    <div data-proto-variant="A">
     <Header />
 
     <!-- 1. Business-focused hero -->
@@ -67,6 +86,28 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     <Blog />
 
     <Footer />
+    </div>
+
+    {
+        SHOW_PROTOTYPES && (
+            <>
+                <div data-proto-variant="C" hidden>
+                    <HomeVariantC />
+                </div>
+                <div data-proto-variant="C2" hidden>
+                    <HomeVariantC2 />
+                </div>
+                <div data-proto-variant="C3" hidden>
+                    <HomeVariantC3 />
+                </div>
+                <div data-proto-variant="C4" hidden>
+                    <HomeVariantC4 />
+                </div>
+                <PrototypeSwitcher variants={PROTO_VARIANTS} />
+            </>
+        )
+    }
+
     <WhatsAppButton />
     <JoinTeamModal />
 </BaseLayout>

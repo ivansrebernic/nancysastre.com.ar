@@ -1,0 +1,81 @@
+---
+// PROTOTYPE — floating bar to switch homepage variants via ?variant=.
+// Only rendered in dev (gated from index.astro). Delete with the variants.
+export interface Props {
+  variants: { key: string; name: string }[];
+}
+const { variants } = Astro.props;
+---
+
+<div
+  id="proto-switcher"
+  class="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9999] flex items-center gap-1 rounded-full bg-gray-900/95 text-white shadow-2xl ring-1 ring-white/25 backdrop-blur px-2 py-1.5 font-poppins text-sm"
+  data-variants={JSON.stringify(variants)}
+>
+  <button
+    id="proto-prev"
+    type="button"
+    class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/15 transition-colors"
+    aria-label="Variante anterior"
+  >
+    <span class="material-icons text-xl leading-none">chevron_left</span>
+  </button>
+  <span id="proto-label" class="min-w-[170px] text-center select-none tracking-wide"></span>
+  <button
+    id="proto-next"
+    type="button"
+    class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/15 transition-colors"
+    aria-label="Variante siguiente"
+  >
+    <span class="material-icons text-xl leading-none">chevron_right</span>
+  </button>
+</div>
+
+<script>
+  const bar = document.getElementById("proto-switcher") as HTMLElement;
+  const label = document.getElementById("proto-label") as HTMLElement;
+  const variants: { key: string; name: string }[] = JSON.parse(bar.dataset.variants || "[]");
+  const keys = variants.map((v) => v.key);
+
+  function currentKey(): string {
+    const k = new URLSearchParams(location.search).get("variant") || keys[0];
+    return keys.includes(k) ? k : keys[0];
+  }
+
+  function apply(key: string, updateUrl = true) {
+    document.querySelectorAll<HTMLElement>("[data-proto-variant]").forEach((el) => {
+      el.hidden = el.dataset.protoVariant !== key;
+    });
+    const v = variants.find((v) => v.key === key)!;
+    label.textContent = `${v.key} — ${v.name}`;
+    if (updateUrl) {
+      const url = new URL(location.href);
+      url.searchParams.set("variant", key);
+      history.replaceState(null, "", url);
+    }
+    window.scrollTo({ top: 0 });
+  }
+
+  function cycle(dir: number) {
+    const i = keys.indexOf(currentKey());
+    apply(keys[(i + dir + keys.length) % keys.length]);
+  }
+
+  document.getElementById("proto-prev")!.addEventListener("click", () => cycle(-1));
+  document.getElementById("proto-next")!.addEventListener("click", () => cycle(1));
+
+  document.addEventListener("keydown", (e) => {
+    const t = e.target as HTMLElement;
+    if (
+      t.tagName === "INPUT" ||
+      t.tagName === "TEXTAREA" ||
+      t.tagName === "SELECT" ||
+      t.isContentEditable
+    )
+      return;
+    if (e.key === "ArrowLeft") cycle(-1);
+    if (e.key === "ArrowRight") cycle(1);
+  });
+
+  apply(currentKey(), false);
+</script>

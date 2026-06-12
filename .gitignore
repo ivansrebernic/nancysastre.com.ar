@@ -37,3 +37,6 @@ member-assets/*.gif
 # Member-specific files
 .env.local
 .member-token.json
+
+# playwright MCP artifacts
+.playwright-mcp/
