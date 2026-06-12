@@ -20,16 +20,18 @@ import WhatsAppButton from "../components/WhatsAppButton.astro";
 import JoinTeamModal from "../components/JoinTeamModal.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
-// PROTOTYPE — homepage redesign variants, dev-only (src/components/prototype/).
-// Switch with ?variant= or the floating bar. Production renders only the
-// current design; the extra variants and the switcher never ship.
+// PROTOTYPE — homepage redesign variants (src/components/prototype/).
+// Switch with ?variant= or the floating bar. Rendered in dev, and in builds
+// where PUBLIC_SHOW_PROTOTYPES=true (set only in Vercel's Preview env, so
+// branch previews show the variants). Production never sets it.
 import PrototypeSwitcher from "../components/prototype/PrototypeSwitcher.astro";
 import HomeVariantC from "../components/prototype/HomeVariantC.astro";
 import HomeVariantC2 from "../components/prototype/HomeVariantC2.astro";
 import HomeVariantC3 from "../components/prototype/HomeVariantC3.astro";
 import HomeVariantC4 from "../components/prototype/HomeVariantC4.astro";
 
-const SHOW_PROTOTYPES = import.meta.env.DEV;
+const SHOW_PROTOTYPES =
+    import.meta.env.DEV || import.meta.env.PUBLIC_SHOW_PROTOTYPES === "true";
 const PROTO_VARIANTS = [
     { key: "A", name: "Actual" },
     { key: "C", name: "Cinemático" },

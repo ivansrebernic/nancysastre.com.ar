@@ -22,8 +22,9 @@ Heros de toda la familia: foto a plena opacidad con scrim lateral izquierdo (la
 derecha — Nancy en el pasto — queda 100% limpia), banda de stats debajo del hero,
 y en mobile recorte anclado a la derecha + scrim inferior.
 
-Solo se renderizan en dev (`import.meta.env.DEV` en `src/pages/index.astro`);
-producción muestra únicamente la variante A. Los formularios de las variantes son
+Se renderizan en dev y en builds con `PUBLIC_SHOW_PROTOTYPES=true` (seteada solo
+en el entorno Preview de Vercel — los deploys de ramas las muestran); producción
+muestra únicamente la variante A. Los formularios de las variantes son
 ilustrativos (no envían nada).
 
 **Próximo paso:** elegir paleta ganadora → absorberla como diseño real de la
