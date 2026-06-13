@@ -12,11 +12,15 @@ la **familia Cinemática**. Las demás se eliminaron; quedan en evaluación las
 **Cómo probar:** `npm run dev` → http://localhost:4321/ y alternar con la barra
 flotante inferior, las flechas ← → del teclado, o `?variant=A|C|C2|C3|C4`.
 
+**Veredicto de paleta (2026-06-12):** a Nancy le gustaron los verdes de "Bosque"
+(C4), así que toda la familia usa esa paleta (salvia #eef1e9, bosque #182c21 /
+#2e5e41, lima #9bc53d); ahora se compara tipografía/carácter:
+
 - **A — Actual**: el diseño en producción (baseline).
-- **C — Cinemático**: oscuro, acento ámbar, Bebas gigante.
-- **C2 — Cine Alba**: clave clara cálida; marfil + espresso + cobre, serif Fraunces.
-- **C3 — Cine Costa**: blanco + azul de marca (#0186d6) + navy, Anton condensada.
-- **C4 — Cine Bosque**: salvia claro + verde bosque + lima, Bricolage Grotesque.
+- **C — Bosque Noche**: la oscura; verde bosque nocturno + lima, Bebas gigante.
+- **C2 — Bosque Serif**: clara; serif Fraunces, acentos en itálica, redondeos.
+- **C3 — Bosque Bold**: clara; Anton condensada, bordes duros de 2px.
+- **C4 — Bosque**: la original; Bricolage Grotesque, subrayado lima.
 
 Heros de toda la familia: foto a plena opacidad con scrim lateral izquierdo (la
 derecha — Nancy en el pasto — queda 100% limpia), banda de stats debajo del hero,

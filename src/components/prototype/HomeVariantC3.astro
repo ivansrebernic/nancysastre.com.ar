@@ -1,6 +1,6 @@
 ---
-// PROTOTYPE — Variant C3 "Cine Costa": the Cinematic layout in crisp white +
-// brand azure + navy; Anton condensed display. Throwaway — do not ship.
+// PROTOTYPE — Variant C3 "Bosque Bold": the Cinematic layout in the sage/forest
+// green palette with Anton condensed display + hard 2px borders. Throwaway.
 import { Image, Picture } from "astro:assets";
 import { videos } from "../../data/videos";
 import VideoEmbed from "../VideoEmbed.astro";
@@ -34,7 +34,7 @@ const stats = [
   href="https://fonts.googleapis.com/css2?family=Anton&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;1,400&display=swap"
 />
 
-<div class="proto-c3 bg-white text-[#0d1b2e]">
+<div class="proto-c3 bg-[#eef1e9] text-[#182c21]">
   <!-- Hero: full screen, white-out cinematic -->
   <section class="relative min-h-screen flex flex-col">
     <div class="absolute inset-0">
@@ -47,15 +47,15 @@ const stats = [
         loading="eager"
         class="w-full h-full object-cover object-[75%_center] md:object-center"
       />
-      <div class="absolute inset-0 hidden md:block bg-gradient-to-r from-white via-white/70 via-30% to-transparent to-60%"></div>
-      <div class="absolute inset-0 md:hidden bg-gradient-to-t from-white/95 via-white/40 to-transparent"></div>
+      <div class="absolute inset-0 hidden md:block bg-gradient-to-r from-[#eef1e9] via-[#eef1e9]/70 via-30% to-transparent to-60%"></div>
+      <div class="absolute inset-0 md:hidden bg-gradient-to-t from-[#eef1e9]/95 via-[#eef1e9]/40 to-transparent"></div>
     </div>
 
     <header class="relative z-10 flex items-center justify-between px-6 md:px-12 py-6">
-      <p class="font-cond text-2xl uppercase text-[#0d1b2e]">Nancy Sastre</p>
+      <p class="font-cond text-2xl uppercase text-[#182c21]">Nancy Sastre</p>
       <a
         href="#cierre-c3"
-        class="font-body-c3 text-xs uppercase tracking-[0.25em] bg-[#0186d6] text-white px-6 py-3 hover:bg-[#0d1b2e] transition-colors"
+        class="font-body-c3 text-xs uppercase tracking-[0.25em] bg-[#2e5e41] text-white px-6 py-3 hover:bg-[#182c21] transition-colors"
       >
         Entrevista
       </a>
@@ -63,14 +63,14 @@ const stats = [
 
     <div class="relative z-10 flex-1 flex items-end px-6 md:px-12 pb-20">
       <div class="max-w-4xl">
-        <p class="font-body-c3 text-[#0186d6] text-xs uppercase tracking-[0.35em] font-bold mb-5">
+        <p class="font-body-c3 text-[#2e5e41] text-xs uppercase tracking-[0.35em] font-bold mb-5">
           Microfranquicia digital · 37 países
         </p>
-        <h1 class="font-cond text-7xl md:text-8xl lg:text-9xl leading-[0.92] uppercase text-[#0d1b2e]">
+        <h1 class="font-cond text-7xl md:text-8xl lg:text-9xl leading-[0.92] uppercase text-[#182c21]">
           Tu tiempo no<br />
-          se <span class="text-[#0186d6]">negocia.</span>
+          se <span class="text-[#2e5e41]">negocia.</span>
         </h1>
-        <p class="font-body-c3 mt-6 max-w-xl text-[#3e526b] leading-relaxed">
+        <p class="font-body-c3 mt-6 max-w-xl text-[#44584b] leading-relaxed">
           Un sistema automatizado de bienestar, respaldado por ciencia, que trabaja para vos —
           y no al revés.
         </p>
@@ -80,12 +80,12 @@ const stats = [
   </section>
 
   <!-- Stats band -->
-  <div class="border-y-2 border-[#0d1b2e] bg-white">
-    <div class="grid grid-cols-3 divide-x-2 divide-[#0d1b2e]">
+  <div class="border-y-2 border-[#182c21] bg-[#eef1e9]">
+    <div class="grid grid-cols-3 divide-x-2 divide-[#182c21]">
       {stats.map((s) => (
         <div class="px-6 md:px-12 py-6">
-          <p class="font-cond text-4xl md:text-5xl text-[#0186d6]">{s.number}</p>
-          <p class="font-body-c3 text-xs uppercase tracking-widest text-[#3e526b] mt-1">{s.label}</p>
+          <p class="font-cond text-4xl md:text-5xl text-[#2e5e41]">{s.number}</p>
+          <p class="font-body-c3 text-xs uppercase tracking-widest text-[#44584b] mt-1">{s.label}</p>
         </div>
       ))}
     </div>
@@ -94,10 +94,10 @@ const stats = [
   <!-- Paso 2 — Videos -->
   <section class="px-6 md:px-12 py-24">
     <div class="max-w-5xl mx-auto">
-      <p class="font-body-c3 text-[#0186d6] text-xs uppercase tracking-[0.35em] font-bold mb-3">
+      <p class="font-body-c3 text-[#2e5e41] text-xs uppercase tracking-[0.35em] font-bold mb-3">
         El vehículo comercial
       </p>
-      <h2 class="font-cond text-5xl md:text-7xl uppercase text-[#0d1b2e] mb-14">
+      <h2 class="font-cond text-5xl md:text-7xl uppercase text-[#182c21] mb-14">
         La envergadura del proyecto
       </h2>
       <div class="space-y-16">
@@ -106,14 +106,14 @@ const stats = [
             <VideoEmbed video={videos.product} />
           </div>
           <div class="md:col-span-3">
-            <p class="font-cond text-4xl text-[#c8d4e2]">01</p>
-            <p class="font-body-c3 text-sm text-[#3e526b]">{videos.product.placeholderLabel}</p>
+            <p class="font-cond text-4xl text-[#b9c6ae]">01</p>
+            <p class="font-body-c3 text-sm text-[#44584b]">{videos.product.placeholderLabel}</p>
           </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
           <div class="md:col-span-3 order-2 md:order-1 text-right md:text-left">
-            <p class="font-cond text-4xl text-[#c8d4e2]">02</p>
-            <p class="font-body-c3 text-sm text-[#3e526b]">{videos.corporate.placeholderLabel}</p>
+            <p class="font-cond text-4xl text-[#b9c6ae]">02</p>
+            <p class="font-body-c3 text-sm text-[#44584b]">{videos.corporate.placeholderLabel}</p>
           </div>
           <div class="md:col-span-9 order-1 md:order-2">
             <VideoEmbed video={videos.corporate} />
@@ -124,7 +124,7 @@ const stats = [
   </section>
 
   <!-- Paso 3 — Historia -->
-  <section class="border-y-2 border-[#0d1b2e] bg-[#eef5fb]">
+  <section class="border-y-2 border-[#182c21] bg-[#e2e8da]">
     <div class="max-w-5xl mx-auto px-6 md:px-12 py-24 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
       <div class="md:col-span-4">
         <div class="relative">
@@ -136,15 +136,15 @@ const stats = [
             loading="lazy"
             class="w-full h-[420px] object-cover object-top"
           />
-          <div class="absolute -bottom-3 -right-3 bg-[#0186d6] text-white px-4 py-2 font-cond text-xl uppercase">
+          <div class="absolute -bottom-3 -right-3 bg-[#2e5e41] text-white px-4 py-2 font-cond text-xl uppercase">
             Tu mentora
           </div>
         </div>
       </div>
       <div class="md:col-span-8">
-        <p class="font-body-c3 text-[#0186d6] text-xs uppercase tracking-[0.35em] font-bold mb-3">Quién te guía</p>
-        <h2 class="font-cond text-5xl uppercase text-[#0d1b2e] mb-8">Nancy Sastre</h2>
-        <div class="font-body-c3 space-y-5 text-[#3e526b] leading-relaxed border-l-2 border-[#0186d6] pl-6">
+        <p class="font-body-c3 text-[#2e5e41] text-xs uppercase tracking-[0.35em] font-bold mb-3">Quién te guía</p>
+        <h2 class="font-cond text-5xl uppercase text-[#182c21] mb-8">Nancy Sastre</h2>
+        <div class="font-body-c3 space-y-5 text-[#44584b] leading-relaxed border-l-2 border-[#2e5e41] pl-6">
           <p>
             Mi nombre es Nancy Sastre. Durante años me dediqué al comercio tradicional y a la
             gestión de mi propio espacio (mi querida casa de té). Descubrí que el negocio
@@ -169,12 +169,12 @@ const stats = [
   <section class="py-24 overflow-hidden">
     <div class="px-6 md:px-12 mb-10 flex items-end justify-between max-w-full">
       <div>
-        <p class="font-body-c3 text-[#0186d6] text-xs uppercase tracking-[0.35em] font-bold mb-3">
+        <p class="font-body-c3 text-[#2e5e41] text-xs uppercase tracking-[0.35em] font-bold mb-3">
           El estilo de vida
         </p>
-        <h2 class="font-cond text-5xl uppercase text-[#0d1b2e]">Viajes, bonos, comunidad</h2>
+        <h2 class="font-cond text-5xl uppercase text-[#182c21]">Viajes, bonos, comunidad</h2>
       </div>
-      <p class="font-body-c3 hidden md:block text-xs text-[#9fb0c4] uppercase tracking-widest">Deslizá →</p>
+      <p class="font-body-c3 hidden md:block text-xs text-[#8da183] uppercase tracking-widest">Deslizá →</p>
     </div>
     <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 md:px-12 pb-4">
       {galleryImages.map((img, i) => (
@@ -193,16 +193,16 @@ const stats = [
   </section>
 
   <!-- Paso 4b — Cierre -->
-  <section id="cierre-c3" class="border-t-2 border-[#0d1b2e] px-6 md:px-12 py-24 bg-[#eef5fb]">
+  <section id="cierre-c3" class="border-t-2 border-[#182c21] px-6 md:px-12 py-24 bg-[#e2e8da]">
     <div class="max-w-3xl mx-auto text-center">
-      <p class="font-body-c3 text-[#0186d6] text-xs uppercase tracking-[0.35em] font-bold mb-3">El cierre</p>
-      <h2 class="font-cond text-5xl md:text-7xl uppercase text-[#0d1b2e] mb-10">
+      <p class="font-body-c3 text-[#2e5e41] text-xs uppercase tracking-[0.35em] font-bold mb-3">El cierre</p>
+      <h2 class="font-cond text-5xl md:text-7xl uppercase text-[#182c21] mb-10">
         Un mensaje para vos
       </h2>
       <VideoEmbed video={videos.personal} />
 
       <form class="mt-16 text-left space-y-4" onsubmit="return false">
-        <p class="font-body-c3 text-[10px] uppercase tracking-[0.25em] text-[#9fb0c4] text-center">
+        <p class="font-body-c3 text-[10px] uppercase tracking-[0.25em] text-[#8da183] text-center">
           Formulario ilustrativo — prototipo
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -211,19 +211,19 @@ const stats = [
               <input
                 type="text"
                 placeholder={label}
-                class="font-body-c3 bg-white border-2 border-[#0d1b2e]/20 focus:border-[#0186d6] outline-none px-4 py-3.5 text-[#0d1b2e] placeholder:text-[#9fb0c4]"
+                class="font-body-c3 bg-white border-2 border-[#182c21]/20 focus:border-[#2e5e41] outline-none px-4 py-3.5 text-[#182c21] placeholder:text-[#8da183]"
               />
             ))
           }
         </div>
-        <select class="font-body-c3 w-full bg-white border-2 border-[#0d1b2e]/20 focus:border-[#0186d6] outline-none px-4 py-3.5 text-[#3e526b]">
+        <select class="font-body-c3 w-full bg-white border-2 border-[#182c21]/20 focus:border-[#2e5e41] outline-none px-4 py-3.5 text-[#44584b]">
           <option>Perfil actual</option>
           <option>Profesional de la salud / Bienestar</option>
           <option>Emprendedor / Comerciante</option>
           <option>Creador de contenido / Influencer</option>
           <option>Primer emprendimiento digital</option>
         </select>
-        <select class="font-body-c3 w-full bg-white border-2 border-[#0d1b2e]/20 focus:border-[#0186d6] outline-none px-4 py-3.5 text-[#3e526b]">
+        <select class="font-body-c3 w-full bg-white border-2 border-[#182c21]/20 focus:border-[#2e5e41] outline-none px-4 py-3.5 text-[#44584b]">
           <option>Tiempo semanal disponible</option>
           <option>De 2 a 5 horas semanales</option>
           <option>De 5 a 12 horas semanales</option>
@@ -231,7 +231,7 @@ const stats = [
         </select>
         <button
           type="button"
-          class="font-cond w-full bg-[#0186d6] text-white text-2xl uppercase tracking-wide py-4 hover:bg-[#0d1b2e] transition-colors"
+          class="font-cond w-full bg-[#2e5e41] text-white text-2xl uppercase tracking-wide py-4 hover:bg-[#182c21] transition-colors"
         >
           Solicitar mi entrevista
         </button>
@@ -239,8 +239,8 @@ const stats = [
     </div>
   </section>
 
-  <footer class="border-t-2 border-[#0d1b2e] px-6 md:px-12 py-6 flex items-center justify-between text-xs text-[#9fb0c4] font-body-c3">
-    <span class="font-cond text-lg uppercase text-[#0d1b2e]">Nancy Sastre</span>
+  <footer class="border-t-2 border-[#182c21] px-6 md:px-12 py-6 flex items-center justify-between text-xs text-[#8da183] font-body-c3">
+    <span class="font-cond text-lg uppercase text-[#182c21]">Nancy Sastre</span>
     <span>Empresaria independiente FuXion</span>
   </footer>
 </div>
