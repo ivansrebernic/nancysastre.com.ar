@@ -8,10 +8,7 @@ import TrustIndicators from "../components/TrustIndicators.astro";
 import AboutMe from "../components/AboutMe.astro";
 import LifestyleGallery from "../components/LifestyleGallery.astro";
 import VehiculoComercial from "../components/VehiculoComercial.astro";
-import About from "../components/About.astro";
 import PersonalVideo from "../components/PersonalVideo.astro";
-import BusinessPresentation from "../components/BusinessPresentation.astro";
-import FunnelCTA from "../components/FunnelCTA.astro";
 import Contact from "../components/Contact.astro";
 import FAQ from "../components/FAQ.astro";
 import Blog from "../components/Blog.astro";
@@ -19,35 +16,16 @@ import Footer from "../components/Footer.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
 import JoinTeamModal from "../components/JoinTeamModal.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-
-// PROTOTYPE — homepage redesign variants (src/components/prototype/).
-// Switch with ?variant= or the floating bar. Rendered in dev, and in builds
-// where PUBLIC_SHOW_PROTOTYPES=true (set only in Vercel's Preview env, so
-// branch previews show the variants). Production never sets it.
-import PrototypeSwitcher from "../components/prototype/PrototypeSwitcher.astro";
-import HomeVariantC2 from "../components/prototype/HomeVariantC2.astro";
-
-const SHOW_PROTOTYPES =
-    import.meta.env.DEV || import.meta.env.PUBLIC_SHOW_PROTOTYPES === "true";
-const PROTO_VARIANTS = [
-    { key: "A", name: "Actual" },
-    { key: "C2", name: "Bosque Serif" },
-];
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-    <div data-proto-variant="A">
     <Header />
 
-    <!-- 1. Business-focused hero -->
+    <!-- 1. Full-screen cinematic hero -->
     <Hero />
 
-    <!-- 2. Early credibility strip -->
-    <section class="py-8">
-        <div class="container-narrow">
-            <TrustIndicators />
-        </div>
-    </section>
+    <!-- 2. Credibility stats band, flush under the hero -->
+    <TrustIndicators />
 
     <!-- 3. The commercial vehicle: product + corporate videos -->
     <VehiculoComercial />
@@ -55,46 +33,22 @@ const PROTO_VARIANTS = [
     <!-- 4. Nancy's compact story: the success guarantee -->
     <AboutMe />
 
-    <!-- 5. Fuxion company context -->
-    <div class="bg-gray-50/50">
-        <About />
-    </div>
-
-    <!-- 6. Business presentation video + CTA -->
-    <BusinessPresentation />
-
-    <!-- 7. Scarcity CTA -->
-    <FunnelCTA />
-
-    <!-- 8. Lifestyle gallery: emotional peak before the application -->
+    <!-- 5. Lifestyle gallery: emotional peak before the application -->
     <LifestyleGallery />
 
-    <!-- 9. Nancy's personal 1-min video: the invitation to apply -->
+    <!-- 6. Nancy's personal 1-min video: the invitation to apply -->
     <PersonalVideo />
 
-    <!-- 10. Qualifying form (conversion) -->
+    <!-- 7. Qualifying form (conversion) -->
     <Contact />
 
-    <!-- 11. FAQ -->
+    <!-- 8. FAQ -->
     <FAQ />
 
-    <!-- 12. Blog teaser -->
+    <!-- 9. Blog teaser -->
     <Blog />
 
     <Footer />
-    </div>
-
-    {
-        SHOW_PROTOTYPES && (
-            <>
-                <div data-proto-variant="C2" hidden>
-                    <HomeVariantC2 />
-                </div>
-                <PrototypeSwitcher variants={PROTO_VARIANTS} />
-            </>
-        )
-    }
-
     <WhatsAppButton />
     <JoinTeamModal />
 </BaseLayout>

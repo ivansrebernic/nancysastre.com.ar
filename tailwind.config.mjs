@@ -4,9 +4,11 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'primary': '#0186d6',
-				'primary-dark': '#0170b8',
-				'primary-light': '#e6f4ff',
+				'primary': '#2e5e41',
+				'primary-dark': '#182c21',
+				'primary-light': '#e2e8da',
+				'sage': '#eef1e9',
+				'lime-accent': '#9bc53d',
 			},
 			maxWidth: {
 				'8xl': '88rem',
@@ -22,8 +24,12 @@ export default {
 				}
 			},
 			fontFamily: {
-				'scandia': ['Scandia-Regular', 'sans-serif'],
-				'scandia-medium': ['Scandia-Medium', 'sans-serif'],
+				// Bosque Serif rebrand: Scandia (files were never shipped) now
+				// aliases the body font so every existing class follows the theme.
+				'scandia': ['Albert Sans', 'sans-serif'],
+				'scandia-medium': ['Albert Sans', 'sans-serif'],
+				'fraunces': ['Fraunces', 'Georgia', 'serif'],
+				'albert': ['Albert Sans', 'sans-serif'],
 				'poppins': ['Poppins', 'sans-serif'],
 				'bebas': ['Bebas Neue', 'sans-serif'],
 			},

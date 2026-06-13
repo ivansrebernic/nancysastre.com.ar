@@ -3,40 +3,48 @@ import VideoEmbed from './VideoEmbed.astro';
 import { videos } from '../data/videos';
 ---
 
-<section id="vehiculo-comercial" class="py-16 md:py-20">
-  <div class="container-narrow">
+<section id="vehiculo-comercial" class="py-16 md:py-24">
+  <div class="max-w-5xl mx-auto px-6 md:px-12">
     <!-- Section header -->
-    <div class="text-center mb-12 max-w-3xl mx-auto">
+    <div class="mb-14 max-w-3xl">
       <p class="section-title animate-slide-down">EL VEHÍCULO COMERCIAL</p>
-      <h2 class="section-heading animate-slide-up mb-4">Innovación y Tendencia Global</h2>
-      <p class="text-gray-600 animate-fade-in">
+      <h2 class="section-heading animate-slide-up mb-4">Innovación y tendencia global</h2>
+      <p class="text-primary-dark/70 animate-fade-in">
         Los mercados se mueven por tendencias, y la del bienestar es la más grande de nuestra era.
         No comercializamos productos suntuarios; posicionamos la evolución de las bebidas diarias a través de la ciencia.
       </p>
     </div>
 
-    <!-- Two parallel blocks -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
-      <!-- Product video block -->
-      <div>
-        <h3 class="text-xl font-scandia-medium mb-3">El Producto: Ciencia en cada bebida</h3>
-        <p class="text-gray-600 text-sm leading-relaxed mb-5">
-          Mirá este video institucional para comprender el concepto científico, la infraestructura
-          de producción y el millonario respaldo patentado que sostiene a nuestra plataforma comercial.
-        </p>
-        <VideoEmbed video={videos.product} />
+    <div class="space-y-16">
+      <!-- 01 — Product video -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+        <div class="md:col-span-8">
+          <VideoEmbed video={videos.product} />
+        </div>
+        <div class="md:col-span-4">
+          <p class="font-fraunces font-semibold text-3xl text-primary-dark/25">01</p>
+          <h3 class="font-fraunces font-medium text-xl mb-2">El producto: ciencia en cada bebida</h3>
+          <p class="text-primary-dark/70 text-sm leading-relaxed">
+            El concepto científico, la infraestructura de producción y el millonario respaldo
+            patentado que sostiene a nuestra plataforma comercial.
+          </p>
+        </div>
       </div>
 
-      <!-- Corporate video block -->
-      <div>
-        <h3 class="text-xl font-scandia-medium mb-3">El Respaldo Corporativo: Una Estructura Transnacional</h3>
-        <p class="text-gray-600 text-sm leading-relaxed mb-5">
-          Un gran proyecto requiere un respaldo sólido. FuXion es una organización transnacional respaldada
-          por un prestigioso grupo empresarial con más de 85 años de trayectoria industrial y financiera.
-          Conocé la visión de nuestro fundador, el músculo financiero de la compañía y la estructura global
-          que sostendrá la expansión de tu microfranquicia.
-        </p>
-        <VideoEmbed video={videos.corporate} />
+      <!-- 02 — Corporate video -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+        <div class="md:col-span-4 order-2 md:order-1">
+          <p class="font-fraunces font-semibold text-3xl text-primary-dark/25">02</p>
+          <h3 class="font-fraunces font-medium text-xl mb-2">El respaldo: una estructura transnacional</h3>
+          <p class="text-primary-dark/70 text-sm leading-relaxed">
+            FuXion es una organización transnacional respaldada por un prestigioso grupo empresarial
+            con más de 85 años de trayectoria industrial y financiera. Conocé la visión del fundador
+            y la estructura global que sostendrá la expansión de tu microfranquicia.
+          </p>
+        </div>
+        <div class="md:col-span-8 order-1 md:order-2">
+          <VideoEmbed video={videos.corporate} />
+        </div>
       </div>
     </div>
   </div>

@@ -20,7 +20,7 @@ _Avoid_: Consulta, demo, meeting.
 The landing section presenting two institutional videos — a product video and a corporate-backing video — before Nancy's personal pitch.
 
 **Lifestyle Gallery**:
-A masonry photo section of real photos of Nancy, used as social proof that the business works — framed as "La vida que construí con este negocio". Positioned as the emotional peak right before the closing block (1-min *Mensaje de Nancy* video → form), so inspiration immediately precedes the application. Mixed-orientation images optimized via Astro (`src/images/gallery`), masonry + lightbox, initial ~12 with a "Ver más" expander.
+A photo strip of real photos of Nancy, used as social proof that the business works — framed as "La vida que construí con este negocio". Positioned as the emotional peak right before the closing block (1-min *Mensaje de Nancy* video → form), so inspiration immediately precedes the application. Since the Bosque Serif redesign ([ADR-0002](docs/adr/0002-bosque-serif-redesign.md)) it is a horizontal snap-scroll strip with all 30 images and a lightbox (Astro-optimized, `src/images/gallery`).
 _Avoid_: "Galería" generic, testimonials-as-quotes (these are photos, not text testimonials).
 
 **Qualifying form**:
@@ -45,8 +45,8 @@ _Avoid_: Contact form (it is no longer a generic contact form).
 - **Videos**: all four (product, corporate, Nancy's 1-min personal, business presentation) built as swappable placeholders — no YouTube IDs available yet.
 - **Nancy photo**: placeholder for now; the existing Ivan photo (`ivan-4.png`) is removed from the story block.
 - **Copy fidelity**: COPY.md lines 445–560 reproduced verbatim, fixing only clear typos. Figures normalized to 37 countries where the funnel sections already use it.
-- **Sections dropped from homepage**: MedicalEndorsements, Dr. La Rosa, Dr. Arrieta.
-- **Sections kept**: TrustIndicators, About (Fuxion company), Blog teaser, JoinTeamModal (left wired as a secondary trigger).
+- **Sections dropped from homepage**: MedicalEndorsements, Dr. La Rosa, Dr. Arrieta; later (Bosque Serif redesign, [ADR-0002](docs/adr/0002-bosque-serif-redesign.md)) also About (Fuxion cards), BusinessPresentation and FunnelCTA — the scarcity line lives under the form's submit button.
+- **Sections kept**: TrustIndicators (now the stats band under the hero), Blog teaser, JoinTeamModal (left wired as a secondary trigger).
 
 ## Flagged ambiguities
 

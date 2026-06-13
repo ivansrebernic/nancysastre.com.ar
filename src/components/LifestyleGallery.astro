@@ -19,53 +19,44 @@ const items = await Promise.all(
     return { img, full: full.src, index };
   }),
 );
-
-const INITIAL_COUNT = 12;
-const hasMore = items.length > INITIAL_COUNT;
 ---
 
-<section id="lifestyle-gallery" class="py-16 md:py-20">
-  <div class="container-narrow">
-    <!-- Header -->
-    <div class="text-center max-w-2xl mx-auto mb-10">
+<section id="lifestyle-gallery" class="py-16 md:py-24 overflow-hidden">
+  <!-- Header -->
+  <div class="max-w-5xl mx-auto px-6 md:px-12 mb-10 md:flex items-end justify-between">
+    <div class="max-w-2xl">
       <p class="section-title">MI ESTILO DE VIDA</p>
       <h2 class="section-heading mb-4">La vida que construí con este negocio</h2>
-      <p class="text-gray-600">
+      <p class="text-primary-dark/70">
         Más que ingresos, este camino me dio libertad de tiempo, experiencias y la posibilidad de
         elegir cómo vivir. Estas son fotos reales de la vida que estás a punto de conocer.
       </p>
     </div>
+    <p class="hidden md:block text-xs text-primary-dark/40 uppercase tracking-widest shrink-0 ml-8">
+      Deslizá →
+    </p>
+  </div>
 
-    <!-- Masonry (CSS columns) -->
-    <div id="gallery-masonry" class="columns-2 md:columns-3 gap-4 [column-fill:_balance]">
-      {items.map((item) => (
-        <button
-          type="button"
-          class="gallery-tile mb-4 block w-full overflow-hidden rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 break-inside-avoid focus:outline-none focus:ring-2 focus:ring-primary"
-          class:list={[{ hidden: item.index >= INITIAL_COUNT }]}
-          data-index={item.index}
-          data-full={item.full}
-          aria-label={`Ver foto ${item.index + 1} en grande`}
-        >
-          <Image
-            src={item.img}
-            alt={`Nancy Sastre — estilo de vida ${item.index + 1}`}
-            widths={[300, 500, 700]}
-            sizes="(max-width: 768px) 45vw, 30vw"
-            loading="lazy"
-            class="w-full h-auto object-cover transition-transform duration-500 hover:scale-[1.03]"
-          />
-        </button>
-      ))}
-    </div>
-
-    {hasMore && (
-      <div class="text-center mt-8">
-        <button id="gallery-more-btn" type="button" class="btn-secondary px-8">
-          Ver más fotos
-        </button>
-      </div>
-    )}
+  <!-- Horizontal snap strip -->
+  <div id="gallery-strip" class="flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 md:px-12 pb-4">
+    {items.map((item) => (
+      <button
+        type="button"
+        class="gallery-tile snap-start shrink-0 w-64 md:w-80 overflow-hidden rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary"
+        data-index={item.index}
+        data-full={item.full}
+        aria-label={`Ver foto ${item.index + 1} en grande`}
+      >
+        <Image
+          src={item.img}
+          alt={`Nancy Sastre — estilo de vida ${item.index + 1}`}
+          widths={[300, 500, 700]}
+          sizes="320px"
+          loading="lazy"
+          class="w-full h-80 md:h-96 object-cover transition-transform duration-500 hover:scale-[1.03]"
+        />
+      </button>
+    ))}
   </div>
 
   <!-- Lightbox -->
@@ -91,23 +82,16 @@ const hasMore = items.length > INITIAL_COUNT;
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const masonry = document.getElementById("gallery-masonry");
-    const moreBtn = document.getElementById("gallery-more-btn");
+    const strip = document.getElementById("gallery-strip");
     const lightbox = document.getElementById("gallery-lightbox");
     const lbImage = document.getElementById("lb-image") as HTMLImageElement | null;
     const lbClose = document.getElementById("lb-close");
     const lbPrev = document.getElementById("lb-prev");
     const lbNext = document.getElementById("lb-next");
-    if (!masonry || !lightbox || !lbImage) return;
+    if (!strip || !lightbox || !lbImage) return;
 
-    const tiles = Array.from(masonry.querySelectorAll<HTMLElement>(".gallery-tile"));
+    const tiles = Array.from(strip.querySelectorAll<HTMLElement>(".gallery-tile"));
     let current = 0;
-
-    // "Ver más" reveals the hidden tiles.
-    moreBtn?.addEventListener("click", () => {
-      tiles.forEach((t) => t.classList.remove("hidden"));
-      moreBtn.remove();
-    });
 
     function openAt(index: number) {
       const tile = tiles[index];

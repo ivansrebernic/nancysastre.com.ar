@@ -38,7 +38,7 @@
   }
 
   body {
-    @apply bg-white text-gray-900 font-scandia;
+    @apply bg-sage text-primary-dark font-albert;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
@@ -46,7 +46,12 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-scandia-medium text-gray-900;
+    @apply font-fraunces font-medium text-primary-dark;
+  }
+
+  /* Scandia never shipped; the alias maps to Albert Sans — keep the medium weight. */
+  .font-scandia-medium {
+    font-weight: 600;
   }
 }
 
@@ -64,19 +69,19 @@
   }
 
   .btn-primary {
-    @apply inline-block px-6 py-2 bg-primary text-white font-scandia-medium text-sm uppercase tracking-wider rounded transition-all duration-300 hover:bg-primary-dark;
+    @apply inline-block px-6 py-2.5 bg-primary text-white font-scandia-medium text-sm uppercase tracking-wider rounded-full transition-all duration-300 hover:bg-primary-dark;
   }
 
   .btn-secondary {
-    @apply inline-block px-6 py-2 bg-transparent border border-primary text-primary font-scandia-medium text-sm uppercase tracking-wider rounded transition-all duration-300 hover:bg-primary hover:text-white;
+    @apply inline-block px-6 py-2.5 bg-transparent border border-primary text-primary font-scandia-medium text-sm uppercase tracking-wider rounded-full transition-all duration-300 hover:bg-primary hover:text-white;
   }
 
   .section-title {
-    @apply text-primary text-xs uppercase tracking-widest mb-2;
+    @apply text-primary text-xs uppercase tracking-[0.3em] mb-2 font-albert;
   }
 
   .section-heading {
-    @apply text-2xl md:text-3xl font-scandia-medium mb-3;
+    @apply text-3xl md:text-4xl font-fraunces font-medium mb-3;
   }
 
   .big-watermark {

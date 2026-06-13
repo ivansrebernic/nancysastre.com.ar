@@ -1,55 +1,21 @@
 ---
-const indicators = [
-  {
-    icon: 'public',
-    text: 'Presencia en 37 países',
-    color: 'text-primary'
-  },
-  {
-    icon: 'payments',
-    text: 'Comisiones semanales',
-    color: 'text-primary'
-  },
-  {
-    icon: 'inventory_2',
-    text: 'Sin stock ni logística',
-    color: 'text-primary'
-  }
+// Full-width credibility band, first thing under the hero.
+const stats = [
+  { number: '37', label: 'Países en operación' },
+  { number: '7d', label: 'Comisiones semanales' },
+  { number: '0', label: 'Stock e inventario' },
 ];
-
 ---
 
-<div class="trust-indicators">
-  <!-- Inline Trust Badges -->
-  <div class="indicators-row">
-    <div class="flex flex-wrap justify-center gap-4 mb-6">
-      {indicators.map((indicator, index) => (
-        <div 
-          class="indicator-item flex items-center gap-2 px-4 py-2 bg-gray-50 rounded-full animate-on-scroll fade-in"
-          style={`animation-delay: ${index * 0.1}s`}
-        >
-          <span class={`material-icons text-lg ${indicator.color}`}>
-            {indicator.icon}
-          </span>
-          <span class="text-sm text-gray-700">{indicator.text}</span>
-        </div>
-      ))}
-    </div>
+<div class="border-y border-primary-dark/15 bg-sage">
+  <div class="grid grid-cols-3 divide-x divide-primary-dark/15">
+    {stats.map((stat) => (
+      <div class="px-6 md:px-12 py-6">
+        <p class="font-fraunces font-semibold text-3xl md:text-5xl text-primary">{stat.number}</p>
+        <p class="text-[10px] md:text-xs uppercase tracking-widest text-primary-dark/60 mt-1">
+          {stat.label}
+        </p>
+      </div>
+    ))}
   </div>
-
-
 </div>
-
-<style>
-  .indicator-item {
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-  }
-
-  .indicator-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-  }
-
-</style>
-
