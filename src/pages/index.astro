@@ -25,19 +25,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 // where PUBLIC_SHOW_PROTOTYPES=true (set only in Vercel's Preview env, so
 // branch previews show the variants). Production never sets it.
 import PrototypeSwitcher from "../components/prototype/PrototypeSwitcher.astro";
-import HomeVariantC from "../components/prototype/HomeVariantC.astro";
 import HomeVariantC2 from "../components/prototype/HomeVariantC2.astro";
-import HomeVariantC3 from "../components/prototype/HomeVariantC3.astro";
-import HomeVariantC4 from "../components/prototype/HomeVariantC4.astro";
 
 const SHOW_PROTOTYPES =
     import.meta.env.DEV || import.meta.env.PUBLIC_SHOW_PROTOTYPES === "true";
 const PROTO_VARIANTS = [
     { key: "A", name: "Actual" },
-    { key: "C", name: "Bosque Noche" },
     { key: "C2", name: "Bosque Serif" },
-    { key: "C3", name: "Bosque Bold" },
-    { key: "C4", name: "Bosque" },
 ];
 ---
 
@@ -93,17 +87,8 @@ const PROTO_VARIANTS = [
     {
         SHOW_PROTOTYPES && (
             <>
-                <div data-proto-variant="C" hidden>
-                    <HomeVariantC />
-                </div>
                 <div data-proto-variant="C2" hidden>
                     <HomeVariantC2 />
-                </div>
-                <div data-proto-variant="C3" hidden>
-                    <HomeVariantC3 />
-                </div>
-                <div data-proto-variant="C4" hidden>
-                    <HomeVariantC4 />
                 </div>
                 <PrototypeSwitcher variants={PROTO_VARIANTS} />
             </>

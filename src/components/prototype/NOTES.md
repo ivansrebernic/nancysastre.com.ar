@@ -4,33 +4,24 @@
 manteniendo el embudo de Nancy (hero → videos corporativos → historia compacta →
 galería → video 1 min → formulario)?
 
-**Veredicto parcial (2026-06-12):** de 8 direcciones exploradas (Editorial,
-Cinemático, Minimal, Orgánica, Brutalista, Lujo, Aurora + el diseño actual), ganó
-la **familia Cinemática**. Las demás se eliminaron; quedan en evaluación las
-4 paletas de esa estructura. Falta elegir la paleta definitiva.
+**Veredicto final (2026-06-12):** ganó **C2 — Bosque Serif**. El camino:
+1. De 8 direcciones (Editorial, Cinemático, Minimal, Orgánica, Brutalista, Lujo,
+   Aurora + el actual), Nancy eligió la estructura **Cinemática**.
+2. De 4 paletas sobre esa estructura, eligió los **verdes "Bosque"** (salvia
+   #eef1e9, bosque #182c21/#2e5e41, lima #9bc53d) — se unificó la familia.
+3. De 4 tipografías/caracteres, eligió **Bosque Serif**: display Fraunces con
+   acentos en itálica verde, cuerpo Albert Sans, esquinas redondeadas.
 
-**Cómo probar:** `npm run dev` → http://localhost:4321/ y alternar con la barra
-flotante inferior, las flechas ← → del teclado, o `?variant=A|C|C2|C3|C4`.
+Titular del hero: "Construye un negocio inteligente / en la industria del
+bienestar" (el mismo de producción). Hero con foto a plena opacidad, scrim
+lateral izquierdo (Nancy a la derecha queda limpia), stats debajo del hero,
+mobile con recorte a la derecha + scrim inferior.
 
-**Veredicto de paleta (2026-06-12):** a Nancy le gustaron los verdes de "Bosque"
-(C4), así que toda la familia usa esa paleta (salvia #eef1e9, bosque #182c21 /
-#2e5e41, lima #9bc53d); ahora se compara tipografía/carácter:
+**Cómo probar:** `npm run dev` → barra flotante o `?variant=A|C2`.
+Preview pública: rama `prototype/cinematic` en Vercel (gate
+`PUBLIC_SHOW_PROTOTYPES=true`, solo entorno Preview).
 
-- **A — Actual**: el diseño en producción (baseline).
-- **C — Bosque Noche**: la oscura; verde bosque nocturno + lima, Bebas gigante.
-- **C2 — Bosque Serif**: clara; serif Fraunces, acentos en itálica, redondeos.
-- **C3 — Bosque Bold**: clara; Anton condensada, bordes duros de 2px.
-- **C4 — Bosque**: la original; Bricolage Grotesque, subrayado lima.
-
-Heros de toda la familia: foto a plena opacidad con scrim lateral izquierdo (la
-derecha — Nancy en el pasto — queda 100% limpia), banda de stats debajo del hero,
-y en mobile recorte anclado a la derecha + scrim inferior.
-
-Se renderizan en dev y en builds con `PUBLIC_SHOW_PROTOTYPES=true` (seteada solo
-en el entorno Preview de Vercel — los deploys de ramas las muestran); producción
-muestra únicamente la variante A. Los formularios de las variantes son
-ilustrativos (no envían nada).
-
-**Próximo paso:** elegir paleta ganadora → absorberla como diseño real de la
-homepage y borrar este directorio junto con los bloques de prototipo en
-`index.astro`.
+**Próximo paso:** absorber C2 como diseño real de la homepage — reescribirla
+como secciones de producción (el prototipo se escribió sin tests ni manejo de
+errores), conectar el formulario real (FormSubmit), Header/Footer/FAQ/Blog,
+y borrar este directorio + los bloques de prototipo en `index.astro`.
