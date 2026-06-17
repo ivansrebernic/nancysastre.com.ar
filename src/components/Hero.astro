@@ -30,7 +30,7 @@ const {
       class="w-full h-full object-cover object-[75%_center] md:object-center"
     />
     <!-- Desktop: left scrim behind the headline; the right side stays clean -->
-    <div class="absolute inset-0 hidden md:block bg-gradient-to-r from-sage via-sage/70 via-30% to-transparent to-60%"></div>
+    <div class="absolute inset-0 hidden md:block bg-gradient-to-r from-sage via-sage/75 via-35% to-transparent to-70%"></div>
     <!-- Mobile: right-anchored crop keeps Nancy in frame; soft bottom scrim -->
     <div class="absolute inset-0 md:hidden bg-gradient-to-t from-sage/95 via-sage/40 to-transparent"></div>
   </div>
@@ -38,20 +38,22 @@ const {
   <!-- Headline pinned bottom-left -->
   <div class="relative z-10 flex-1 flex items-end px-6 md:px-12 pb-16 md:pb-20">
     <div class="max-w-4xl">
-      <p class="text-primary text-xs uppercase tracking-[0.35em] mb-5 animate-slide-down">
+      <p class="inline-flex items-center gap-2.5 bg-primary-dark/90 text-sage text-xs md:text-sm uppercase tracking-[0.2em] rounded-full px-5 py-2.5 mb-6 animate-slide-down">
+        <span class="w-2 h-2 rounded-full bg-lime-accent animate-pulse"></span>
         {subtitle}
       </p>
       <h1 class="font-fraunces font-medium text-4xl md:text-6xl lg:text-7xl leading-[1.05] text-primary-dark animate-slide-up">
-        {title}<br />
-        <em class="text-primary">{titleHighlight}</em>
+        Construye<br />
+        un negocio inteligente<br />
+        <em class="text-primary">en la industria<br />
+        del bienestar</em>
       </h1>
       <p class="mt-6 max-w-xl text-primary-dark/70 leading-relaxed animate-fade-in">
-        Un sistema automatizado de bienestar, respaldado por ciencia y sin jefes ni horarios,
-        que trabaja para vos — y no al revés.
+        Un sistema automatizado de bienestar que trabaja para vos
       </p>
       <div class="mt-8 animate-fade-in">
         <a href="#contact-wrap" class="btn-primary scroll-link px-8 py-3">
-          Coordiná una entrevista personalizada
+          Agendá tu entrevista
         </a>
       </div>
     </div>

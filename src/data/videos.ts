@@ -15,13 +15,13 @@ export interface FunnelVideo {
 export const videos: Record<string, FunnelVideo> = {
   // "El Vehículo Comercial" — institutional product video (~5 min)
   product: {
-    youtubeId: null,
+    youtubeId: 'lSnOOuYgLnY',
     title: 'Productos Fuxion',
     placeholderLabel: 'Video institucional de productos',
   },
   // "El Vehículo Comercial" — corporate-backing video (~5 min)
   corporate: {
-    youtubeId: null,
+    youtubeId: 'AFv9Iro_NA0',
     title: 'Fuxion — Respaldo corporativo',
     placeholderLabel: 'Video institucional corporativo',
   },
