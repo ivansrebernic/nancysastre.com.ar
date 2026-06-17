@@ -49,9 +49,34 @@ const categoryColors = {
 };
 
 export const prerender = true;
+
+const siteUrl = 'https://nancysastre.com.ar';
+const postUrl = `${siteUrl}/blog/${post.slug}/`;
+const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.data.title,
+    description: post.data.description,
+    inLanguage: 'es-AR',
+    url: postUrl,
+    mainEntityOfPage: postUrl,
+    datePublished: post.data.pubDate.toISOString(),
+    dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+    author: { '@type': 'Person', name: post.data.author },
+    publisher: { '@type': 'Person', name: 'Nancy Sastre' },
+    ...(post.data.heroImage ? { image: `${siteUrl}${post.data.heroImage}` } : {}),
+    keywords: post.data.tags.join(', '),
+    articleSection: post.data.category,
+};
 ---
 
-<BaseLayout title={`${post.data.title} - Blog`}>
+<BaseLayout
+    title={`${post.data.title} - Blog`}
+    description={post.data.description}
+    image={post.data.heroImage}
+    type="article"
+    jsonLd={articleJsonLd}
+>
     <Header />
     <main class="min-h-screen bg-white pt-16">
         <!-- Hero Section -->

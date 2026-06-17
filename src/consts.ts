@@ -1,2 +1,2 @@
-export const SITE_TITLE = 'Oportunidad de negocios si estas buscando ingresos, salud y libertad';
-export const SITE_DESCRIPTION = 'Buscás independencia económica y calidad de vida? Descubrí esta oportunidad real de negocio, aumenta y diversifica tus  ingresos, mejora tu salud y emprende con una guía clara, productos de bienestar en tendencia ';
+export const SITE_TITLE = 'Emprendé en bienestar con Fuxion | Nancy Sastre';
+export const SITE_DESCRIPTION = '¿Buscás independencia económica y calidad de vida? Sumate a la microfranquicia digital de Fuxion: ingresos diversificados, productos de bienestar en tendencia y una guía clara para empezar.';

@@ -1,12 +1,31 @@
 ---
 import '../styles/global.css';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 export interface Props {
   title?: string;
   description?: string;
+  /** OG/Twitter share image (root-relative path or absolute URL). */
+  image?: string;
+  /** OG type: 'website' for pages, 'article' for blog posts. */
+  type?: 'website' | 'article';
+  /** Structured data (JSON-LD) object(s) injected into <head>. */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title = 'Hidratación Saludable - Bebidas Naturales y Oportunidad de Negocio', description = 'Transforma tu salud con nuestras bebidas 100% naturales y únete a la red de distribuidores más exitosa de Argentina.' } = Astro.props;
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  image = '/image/nancy-sastre-profile.png',
+  type = 'website',
+  jsonLd,
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL('https://nancysastre.com.ar');
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const ogImage = new URL(image, siteUrl);
+const siteName = 'Nancy Sastre';
+const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 ---
 
 <!DOCTYPE html>
@@ -18,7 +37,28 @@ const { title = 'Hidratación Saludable - Bebidas Naturales y Oportunidad de Neg
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="generator" content={Astro.generator} />
-  
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content={type} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:locale" content="es_AR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  {jsonLdBlocks.map((block) => (
+    <script type="application/ld+json" set:html={JSON.stringify(block)} />
+  ))}
+
   <!-- Favicons -->
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/favicon.png">

@@ -16,9 +16,30 @@ import Footer from "../components/Footer.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
 import JoinTeamModal from "../components/JoinTeamModal.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const siteUrl = 'https://nancysastre.com.ar';
+const homeJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Nancy Sastre',
+    url: siteUrl,
+    inLanguage: 'es-AR',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Nancy Sastre',
+    url: siteUrl,
+    image: `${siteUrl}/image/nancy-sastre-profile.png`,
+    jobTitle: 'Mentora de negocios y empresaria independiente Fuxion',
+    description: SITE_DESCRIPTION,
+    sameAs: ['https://www.instagram.com/nancyemprendedora'],
+  },
+];
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION} jsonLd={homeJsonLd}>
     <Header />
 
     <!-- 1. Full-screen cinematic hero -->

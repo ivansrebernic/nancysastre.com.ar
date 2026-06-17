@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /bienvenido/
+
+Sitemap: https://nancysastre.com.ar/sitemap-index.xml

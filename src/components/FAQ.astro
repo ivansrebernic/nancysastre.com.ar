@@ -25,7 +25,22 @@ const faqs = [
     answer: 'Sí. Como en toda microfranquicia o negocio independiente serio, se requiere una inversión inicial en producto para activar tu licencia internacional y tu plataforma digital. Sin embargo, la inversión es inteligente y se adapta por completo a tu modelo de desarrollo. Si tu enfoque es 100% Digital (influencers, profesionales independientes o creadores de contenido): tu inversión inicial es mínima, orientada únicamente a que conozcas las bebidas, verifiques su calidad y tengas muestras para mostrar en tus canales digitales. No necesitás stock físico. Si tu enfoque es Presencial (estéticas, gimnasios, gastronomía o comercios con atención al público): tu inversión se diseña a la medida de tu establecimiento, adquiriendo un stock inicial físico para ofrecer degustación o venta inmediata a tu público presencial, potenciando la rentabilidad de tu espacio desde el primer día. En ambos formatos, el acceso a la tecnología, tu tienda global online y el sistema de distribución internacional en 37 países está cubierto desde el momento de tu activación.'
   }
 ];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
 
 <section id="faq" class="py-12 md:py-10 md:py-12">
   <div class="container-narrow">

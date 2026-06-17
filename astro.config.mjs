@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 import { loadEnv } from 'vite';
 
@@ -8,7 +9,11 @@ const env = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), '');
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
+  site: 'https://nancysastre.com.ar',
+  integrations: [
+    tailwind(),
+    sitemap({ filter: (page) => !page.includes('/bienvenido/') }),
+  ],
   output: 'server', // Enable API routes
   adapter: vercel(), // Add Vercel adapter for server-side rendering
   markdown: {

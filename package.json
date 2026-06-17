@@ -15,11 +15,12 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.7.3",
     "@astrojs/vercel": "^8.2.0",
-    "astro": "^5.10.1",
-    "puppeteer": "^24.11.1",
     "@notionhq/client": "^2.2.2",
-    "notion-to-md": "^2.3.0"
+    "astro": "^5.10.1",
+    "notion-to-md": "^2.3.0",
+    "puppeteer": "^24.11.1"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.2",

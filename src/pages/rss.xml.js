@@ -8,7 +8,7 @@ export async function GET(context) {
   return rss({
     title: SITE_TITLE || 'Hidratación Saludable Blog',
     description: SITE_DESCRIPTION || 'Blog sobre nutrición, bienestar y oportunidades de negocio con productos naturales',
-    site: context.site || 'https://hidratacionsaludable.com.ar',
+    site: context.site || 'https://nancysastre.com.ar',
     items: posts
       .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
       .map((post) => ({
@@ -20,7 +20,7 @@ export async function GET(context) {
         categories: [post.data.category, ...post.data.tags],
         customData: [
           post.data.heroImage 
-            ? `<enclosure url="${context.site || 'https://hidratacionsaludable.com.ar'}${post.data.heroImage}" type="image/jpeg" />`
+            ? `<enclosure url="${context.site || 'https://nancysastre.com.ar'}${post.data.heroImage}" type="image/jpeg" />`
             : '',
           post.data.instagramCaption 
             ? `<instagramCaption><![CDATA[${post.data.instagramCaption}]]></instagramCaption>`
