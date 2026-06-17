@@ -21,7 +21,7 @@ const {
   jsonLd,
 } = Astro.props;
 
-const siteUrl = Astro.site ?? new URL('https://nancysastre.com.ar');
+const siteUrl = Astro.site ?? new URL('https://www.nancysastre.com.ar');
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const ogImage = new URL(image, siteUrl);
 const siteName = 'Nancy Sastre';

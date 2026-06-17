@@ -9,7 +9,7 @@ const env = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), '');
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nancysastre.com.ar',
+  site: 'https://www.nancysastre.com.ar',
   integrations: [
     tailwind(),
     sitemap({ filter: (page) => !page.includes('/bienvenido/') }),

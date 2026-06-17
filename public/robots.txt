@@ -4,4 +4,4 @@ Allow: /
 Disallow: /api/
 Disallow: /bienvenido/
 
-Sitemap: https://nancysastre.com.ar/sitemap-index.xml
+Sitemap: https://www.nancysastre.com.ar/sitemap-index.xml
