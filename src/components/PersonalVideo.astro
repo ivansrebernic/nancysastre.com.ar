@@ -1,6 +1,4 @@
 ---
-import VideoEmbed from './VideoEmbed.astro';
-import { videos } from '../data/videos';
 ---
 
 <section id="mensaje-nancy" class="py-16 md:py-20 border-t border-primary-dark/10 bg-primary-light">
@@ -15,7 +13,15 @@ import { videos } from '../data/videos';
           dentro de tu profesión, tus tiempos y tu estilo de vida actual, tal como yo lo hice.
         </p>
       </div>
-      <VideoEmbed video={videos.personal} />
+      <video
+        class="w-full rounded-xl overflow-hidden shadow-medium bg-gray-900"
+        controls
+        playsinline
+        preload="metadata"
+      >
+        <source src="/video-personal.mp4" type="video/mp4" />
+        Tu navegador no soporta la reproducción de video.
+      </video>
     </div>
   </div>
 </section>
