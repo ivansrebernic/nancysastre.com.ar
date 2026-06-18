@@ -31,10 +31,10 @@ export const videos: Record<string, FunnelVideo> = {
     title: 'Un mensaje de Nancy',
     placeholderLabel: 'Mensaje personal de Nancy',
   },
-  // Business presentation (~4 min) — "Presentacion de negocio Fuxion 2020 HD"
+  // Business presentation — la lógica del negocio y el sistema de comisiones
   presentation: {
-    youtubeId: null,
-    title: 'Presentación de negocio Fuxion',
-    placeholderLabel: 'Presentación de negocio (4 min)',
+    youtubeId: '3Cpf45BUz90',
+    title: 'La lógica del negocio Fuxion',
+    placeholderLabel: 'La lógica del negocio',
   },
 };
