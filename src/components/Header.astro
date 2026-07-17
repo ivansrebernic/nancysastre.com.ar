@@ -245,8 +245,8 @@ const socialLinks = [
     // Check if it's an internal anchor link
     if (targetHref && targetHref.includes('#') && !targetHref.startsWith('/')) {
       e.preventDefault();
-      const targetId = targetHref.startsWith('#') ? targetHref : targetHref.split('#')[1];
-      const targetElement = document.querySelector('#' + targetId);
+      const targetId = targetHref.split('#')[1];
+      const targetElement = document.getElementById(targetId);
       if (targetElement) {
         const offset = 80; // Header height
         const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - offset;
