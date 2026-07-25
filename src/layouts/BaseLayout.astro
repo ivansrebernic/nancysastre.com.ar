@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import { SITE_TITLE, SITE_DESCRIPTION, GA_MEASUREMENT_ID, CLARITY_PROJECT_ID } from '../consts';
 
 export interface Props {
@@ -177,13 +178,51 @@ const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
       }
     });
 
-    // Native video plays, once per element.
+    // Native video engagement: play once, then 25/50/75/100% milestones.
     document.querySelectorAll('video').forEach((video) => {
+      const src = () => (video.currentSrc || '').split('/').pop() || 'video';
+
       video.addEventListener('play', () => {
-        const src = (video.currentSrc || '').split('/').pop() || 'video';
-        track('video_play', { video_src: src });
+        track('video_play', { video_src: src() });
+      }, { once: true });
+
+      const milestones = [25, 50, 75];
+      const fired = new Set<number>();
+      video.addEventListener('timeupdate', () => {
+        if (!video.duration) return;
+        const pct = (video.currentTime / video.duration) * 100;
+        for (const m of milestones) {
+          if (pct >= m && !fired.has(m)) {
+            fired.add(m);
+            track('video_progress', { video_src: src(), percent: m });
+          }
+        }
+      });
+      video.addEventListener('ended', () => {
+        track('video_progress', { video_src: src(), percent: 100 });
       }, { once: true });
     });
+
+    // Section reach: fire once when a key section scrolls into view.
+    // Answers "how far down the page does each visitor actually get?".
+    const SECTIONS = [
+      'hero-section', 'vehiculo-comercial', 'about-me', 'lifestyle-gallery',
+      'mensaje-nancy', 'presentacion-negocio', 'contact-wrap',
+    ];
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        track('section_view', { section_id: entry.target.id });
+        sectionObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -25% 0px' });
+
+    SECTIONS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) sectionObserver.observe(el);
+    });
   </script>
+
+  <SpeedInsights />
 </body>
 </html>

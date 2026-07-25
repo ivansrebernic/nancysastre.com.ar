@@ -224,10 +224,30 @@
     messageIcon.classList.remove('text-green-600', 'text-red-600');
   }
 
-  // First interaction with any field = the visitor started the form.
-  form?.addEventListener('focusin', () => {
-    track('form_start', { form_id: 'contact-form' });
-  }, { once: true });
+  // Track engagement so we can tell *where* people give up on the form.
+  let formStarted = false;
+  let formSubmitted = false;
+  let lastField = '';
+
+  form?.addEventListener('focusin', (e) => {
+    const field = e.target as HTMLElement;
+    if (field.matches('input, select, textarea')) {
+      lastField = field.getAttribute('name') || field.id || '';
+    }
+    if (!formStarted) {
+      formStarted = true;
+      track('form_start', { form_id: 'contact-form' });
+    }
+  });
+
+  // Started but never submitted, and now leaving the page = abandonment.
+  // pagehide (not tab-switch) keeps this to genuine exits; gtag uses a
+  // beacon so the event survives unload.
+  window.addEventListener('pagehide', () => {
+    if (!formStarted || formSubmitted) return;
+    formSubmitted = true;
+    track('form_abandon', { form_id: 'contact-form', last_field: lastField || 'none' });
+  });
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -249,6 +269,7 @@
       });
 
       if (response.ok) {
+        formSubmitted = true;
         track('generate_lead', { form_id: 'contact-form' });
         showMessage('¡Gracias! Recibí tu solicitud y me pondré en contacto para coordinar la entrevista.', 'success');
         form.reset();

@@ -333,6 +333,8 @@
 </style>
 
 <script>
+  import { track } from '../lib/analytics';
+
   let hasShown = false;
   const overlay = document.getElementById('exit-intent-overlay');
   const closeButton = document.querySelector('.close-button');
@@ -367,7 +369,8 @@
     if (overlay && !hasShown) {
       overlay.classList.add('show');
       hasShown = true;
-      
+      track('popup_shown', { popup: 'exit_intent' });
+
       // Save to session storage to not show again this session
       sessionStorage.setItem('exitIntentShown', 'true');
     }
@@ -380,11 +383,15 @@
   }
 
   // Close button handler
-  closeButton?.addEventListener('click', hidePopup);
+  closeButton?.addEventListener('click', () => {
+    track('popup_dismissed', { popup: 'exit_intent', method: 'close_button' });
+    hidePopup();
+  });
 
   // Close on overlay click
   overlay?.addEventListener('click', (e) => {
     if (e.target === overlay) {
+      track('popup_dismissed', { popup: 'exit_intent', method: 'overlay' });
       hidePopup();
     }
   });
@@ -393,6 +400,7 @@
   submitButton?.addEventListener('click', () => {
     const email = emailInput?.value;
     if (email && email.includes('@')) {
+      track('popup_submit', { popup: 'exit_intent' });
       // Here you would normally send the email to your backend
       alert('¡Gracias! Tu código de descuento ha sido enviado a ' + email);
       hidePopup();
