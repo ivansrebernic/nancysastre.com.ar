@@ -4,7 +4,7 @@
 <section id="contact-wrap" class="py-12 md:py-20 bg-primary-light">
   <div class="container-narrow">
     <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-8">
+    <div id="contact-intro" class="text-center max-w-2xl mx-auto mb-8">
       <p class="section-title">ÚLTIMO PASO</p>
       <h3 class="section-heading mb-4">Coordiná tu entrevista personalizada</h3>
       <p class="text-primary-dark/70">
@@ -150,6 +150,57 @@
           </p>
         </div>
       </form>
+
+      <!-- Estado post-conversión: reemplaza al formulario una vez enviado.
+           Es el momento de máxima intención — damos el próximo paso concreto
+           en vez de un flash message que desaparece. -->
+      <div id="form-success" class="hidden text-center">
+        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+          <span class="material-icons text-primary text-4xl">check</span>
+        </div>
+
+        <h3 class="section-heading mb-3">
+          ¡Listo<span id="success-name"></span>! Recibí tu solicitud
+        </h3>
+        <p class="text-primary-dark/70 max-w-md mx-auto mb-8">
+          Voy a revisar tus respuestas para preparar la entrevista a la medida de tu perfil.
+        </p>
+
+        <ol class="text-left max-w-md mx-auto space-y-4 mb-8">
+          <li class="flex gap-4">
+            <span class="font-fraunces font-semibold text-primary/40 text-xl leading-none pt-0.5">1</span>
+            <p class="text-primary-dark/75 text-sm leading-relaxed">
+              Reviso tu perfil y tus objetivos personalmente.
+            </p>
+          </li>
+          <li class="flex gap-4">
+            <span class="font-fraunces font-semibold text-primary/40 text-xl leading-none pt-0.5">2</span>
+            <p class="text-primary-dark/75 text-sm leading-relaxed">
+              Te escribo por WhatsApp en menos de 48 hs con día y horario propuestos.
+            </p>
+          </li>
+          <li class="flex gap-4">
+            <span class="font-fraunces font-semibold text-primary/40 text-xl leading-none pt-0.5">3</span>
+            <p class="text-primary-dark/75 text-sm leading-relaxed">
+              Tenemos la entrevista: 30 minutos, sin compromiso, para ver si el modelo encaja con vos.
+            </p>
+          </li>
+        </ol>
+
+        <div class="border-t border-primary-dark/10 pt-8">
+          <p class="text-sm text-primary-dark/70 mb-4">¿No querés esperar? Escribime ahora.</p>
+          <a
+            id="success-whatsapp"
+            href="https://wa.me/5492994651620"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3"
+          >
+            <i class="fab fa-whatsapp"></i>
+            HABLEMOS POR WHATSAPP
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -195,6 +246,33 @@
   const messageText = flashMessage?.querySelector('.message-text');
   const messageIcon = flashMessage?.querySelector('.material-icons');
   const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const contactIntro = document.getElementById('contact-intro');
+  const successPanel = document.getElementById('form-success');
+  const successName = document.getElementById('success-name');
+  const successWhatsapp = document.getElementById('success-whatsapp') as HTMLAnchorElement;
+
+  const WHATSAPP_NUMBER = '5492994651620';
+
+  /** Swaps the form for the next-step panel: the post-submit moment is peak intent. */
+  function showSuccessPanel(name: string) {
+    const firstName = name.trim().split(/\s+/)[0] || '';
+
+    if (successName && firstName) successName.textContent = `, ${firstName}`;
+
+    if (successWhatsapp) {
+      const message = `Hola Nancy! Soy ${name.trim() || 'una persona interesada'}, acabo de completar el formulario para la entrevista.`;
+      successWhatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    }
+
+    form?.classList.add('hidden');
+    contactIntro?.classList.add('hidden');
+    successPanel?.classList.remove('hidden');
+    successPanel?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  successWhatsapp?.addEventListener('click', () => {
+    track('whatsapp_click', { location: 'post_submit' });
+  });
 
   function showMessage(message: string, type: 'success' | 'error' | 'loading') {
     if (!flashMessage || !messageText || !messageIcon) return;
@@ -271,7 +349,8 @@
       if (response.ok) {
         formSubmitted = true;
         track('generate_lead', { form_id: 'contact-form' });
-        showMessage('¡Gracias! Recibí tu solicitud y me pondré en contacto para coordinar la entrevista.', 'success');
+        hideMessage();
+        showSuccessPanel(String(formData.get('Nombre') ?? ''));
         form.reset();
       } else {
         track('form_error', { form_id: 'contact-form', reason: 'bad_response' });

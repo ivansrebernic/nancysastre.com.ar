@@ -7,13 +7,22 @@ export interface Props {
 
 const { video } = Astro.props;
 const { youtubeId, title, placeholderLabel } = video;
+
+// rel=0 mantiene las sugerencias del final dentro del mismo canal en vez de
+// mandar al espectador a videos de terceros — es la salida más común del funnel.
+const embedParams = new URLSearchParams({
+  rel: '0',
+  modestbranding: '1',
+  playsinline: '1',
+});
+const embedSrc = `https://www.youtube-nocookie.com/embed/${youtubeId}?${embedParams}`;
 ---
 
 <div class="video-embed relative w-full rounded-xl overflow-hidden shadow-medium bg-gray-900" style="aspect-ratio: 16 / 9;">
   {youtubeId ? (
     <iframe
       class="absolute inset-0 w-full h-full"
-      src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
+      src={embedSrc}
       title={title}
       loading="lazy"
       frameborder="0"
