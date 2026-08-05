@@ -1,10 +1,12 @@
 ---
+import Icon from './Icon.astro';
+
 const currentYear = new Date().getFullYear();
 
 const socialLinks = [
-  { icon: 'fab fa-instagram', href: 'https://www.instagram.com/nancyemprendedora', label: 'Instagram' },
-  { icon: 'fab fa-whatsapp', href: 'https://wa.me/5492994651620', label: 'WhatsApp' },
-  { icon: 'fas fa-envelope', href: 'mailto:nancysastre@gmail.com', label: 'Email' },
+  { icon: 'instagram', href: 'https://www.instagram.com/nancyemprendedora', label: 'Instagram' },
+  { icon: 'whatsapp', href: 'https://wa.me/5492994651620', label: 'WhatsApp' },
+  { icon: 'envelope', href: 'mailto:nancysastre@gmail.com', label: 'Email' },
 ];
 
 const contactInfo = [
@@ -69,7 +71,7 @@ const quickLinks = [
                 class="w-12 h-12 bg-white hover:bg-white/90 flex items-center justify-center rounded-full transition-all duration-300 group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 aria-label={social.label}
               >
-                <i class={`${social.icon} text-primary text-lg`}></i>
+                <Icon name={social.icon} class="text-primary text-lg" />
               </a>
             </li>
           ))}
@@ -77,7 +79,7 @@ const quickLinks = [
         
         <!-- Instagram handle -->
         <div class="mt-6 flex items-center gap-2">
-          <i class="fab fa-instagram text-white text-2xl"></i>
+          <Icon name="instagram" class="text-white text-2xl" />
           <a href="https://www.instagram.com/nancyemprendedora" class="text-white hover:text-white/80 transition-colors font-scandia-medium">
             @nancyemprendedora
           </a>

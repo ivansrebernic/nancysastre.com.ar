@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 const faqs = [
   {
     question: '¿Qué es una Microfranquicia Digital y en qué se diferencia de una franquicia tradicional?',
@@ -81,27 +83,27 @@ const faqJsonLd = {
       </div>
     </div>
 
-    <!-- CTA Section -->
-    <div class="text-center mt-8 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl p-5 animate-on-scroll">
-      <h3 class="text-2xl font-scandia-medium mb-4">¿Aún tienes preguntas?</h3>
-      <p class="text-gray-600 mb-6">
-        Nuestro equipo está disponible 24/7 para ayudarte
+    <!-- Cierre: quien abre varias preguntas acá es el visitante con más intención
+         del sitio. Antes terminaba en un callejón — el único CTA salía a WhatsApp
+         y el botón de email no tenía handler. Ahora la salida natural es el form. -->
+    <div class="text-center mt-8 bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl p-6 animate-on-scroll">
+      <h3 class="text-2xl font-scandia-medium mb-3">¿Resolviste tus dudas?</h3>
+      <p class="text-gray-600 mb-6 max-w-md mx-auto">
+        El siguiente paso es una entrevista personalizada. Te respondo en menos de 48 hs.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a 
-          href="https://wa.me/5492994651620?text=Hola!%20Tengo%20algunas%20preguntas" 
-          target="_blank"
-          class="btn-primary hover:shadow-large transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2"
-        >
-          <i class="fab fa-whatsapp"></i>
-          Chat en WhatsApp
+        <a href="#contact-wrap" class="btn-primary scroll-link inline-flex items-center justify-center gap-2">
+          Coordiná tu entrevista
         </a>
-        <button class="btn-secondary hover:shadow-medium transform hover:scale-105 transition-all duration-300">
-          <span class="flex items-center justify-center gap-2">
-            <span class="material-icons">email</span>
-            Enviar Email
-          </span>
-        </button>
+        <a
+          href="https://wa.me/5492994651620?text=Hola%20Nancy!%20Tengo%20algunas%20preguntas%20sobre%20la%20microfranquicia."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary inline-flex items-center justify-center gap-2"
+        >
+          <Icon name="whatsapp" />
+          Preguntar por WhatsApp
+        </a>
       </div>
     </div>
 

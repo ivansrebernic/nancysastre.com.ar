@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import WhatsAppButton from "../../components/WhatsAppButton.astro";
+import Icon from "../../components/Icon.astro";
 import JoinTeamModal from "../../components/JoinTeamModal.astro";
 
 export async function getStaticPaths() {
@@ -180,9 +181,7 @@ const articleJsonLd = {
                                 target="_blank"
                                 class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full font-scandia-medium text-sm uppercase tracking-wider transition-all group"
                             >
-                                <i
-                                    class="fab fa-whatsapp text-lg group-hover:scale-110 transition-transform"
-                                ></i>
+                                <Icon name="whatsapp" class="text-lg group-hover:scale-110 transition-transform" />
                                 Contactar
                             </a>
                         </div>
@@ -252,7 +251,7 @@ const articleJsonLd = {
                                 target="_blank"
                                 class="btn-secondary w-full flex items-center justify-center gap-3 hover:shadow-medium transform hover:scale-105 transition-all duration-300"
                             >
-                                <i class="fab fa-whatsapp text-2xl"></i>
+                                <Icon name="whatsapp" class="text-2xl" />
                                 <span class="font-scandia-medium"
                                     >CONSULTAR POR WHATSAPP</span
                                 >

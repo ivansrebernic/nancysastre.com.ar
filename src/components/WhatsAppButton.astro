@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 const whatsappNumber = '+54 9 299 465 1620';
 const defaultMessage = 'Hola Nancy! Vi tu sitio y me interesa la microfranquicia digital. ¿Podemos hablar?';
 const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(defaultMessage)}`;
@@ -13,7 +15,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text
     class="whatsapp-button"
     aria-label="Chat por WhatsApp"
   >
-    <i class="fab fa-whatsapp"></i>
+    <Icon name="whatsapp" />
   </a>
   
   <!-- Pulse Effect -->
@@ -50,7 +52,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text
     box-shadow: 0 8px 30px rgba(46, 94, 65, 0.7);
   }
   
-  .whatsapp-button i {
+  .whatsapp-button svg {
     font-size: 28px;
   }
   
@@ -91,11 +93,21 @@ const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text
     }
   }
   
+  /* Se corre hacia arriba cuando la barra sticky de mobile está en pantalla,
+     para no quedar tapado por ella. La clase la pone StickyMobileCTA. */
+  :global(body.sticky-cta-on) .whatsapp-container {
+    bottom: 96px;
+  }
+
   /* Mobile responsiveness */
   @media (max-width: 768px) {
     .whatsapp-container {
       bottom: 20px;
       right: 20px;
+    }
+
+    :global(body.sticky-cta-on) .whatsapp-container {
+      bottom: 88px;
     }
     
     .whatsapp-button {
@@ -103,7 +115,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text
       height: 50px;
     }
     
-    .whatsapp-button i {
+    .whatsapp-button svg {
       font-size: 24px;
     }
   }

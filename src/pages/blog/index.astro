@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import Icon from '../../components/Icon.astro';
 import { getCollection } from 'astro:content';
 
 // Get all blog posts sorted by date
@@ -228,7 +229,7 @@ export const prerender = true;
             target="_blank"
             class="inline-flex items-center gap-2 bg-white text-primary hover:bg-gray-50 px-8 py-4 rounded-full font-scandia-medium uppercase tracking-wider transition-all transform hover:scale-105 shadow-lg group"
           >
-            <i class="fab fa-whatsapp text-2xl group-hover:scale-110 transition-transform"></i>
+            <Icon name="whatsapp" class="text-2xl group-hover:scale-110 transition-transform" />
             <span>Unirme al grupo</span>
           </a>
         </div>

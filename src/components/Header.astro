@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 const navItems = [
   { href: '/', text: 'Inicio' },
   { href: '/#about-me', text: 'Mi historia' },
@@ -8,13 +10,13 @@ const navItems = [
 
 const socialLinks = [
   { 
-    icon: 'fab fa-instagram', 
+    icon: 'instagram', 
     href: 'https://www.instagram.com/nancyemprendedora', 
     label: 'Instagram',
     color: 'hover:text-pink-500'
   },
   {
-    icon: 'fab fa-whatsapp',
+    icon: 'whatsapp',
     href: 'https://wa.me/5492994651620',
     label: 'WhatsApp',
     color: 'hover:text-green-500'
@@ -68,7 +70,7 @@ const socialLinks = [
               aria-label={social.label}
               title={social.label}
             >
-              <i class={`${social.icon} text-lg`}></i>
+              <Icon name={social.icon} class="text-lg" />
             </a>
           ))}
         </div>
@@ -142,7 +144,7 @@ const socialLinks = [
           class={`text-gray-700 ${social.color} text-2xl`}
           aria-label={social.label}
         >
-          <i class={social.icon}></i>
+          <Icon name={social.icon} />
         </a>
       ))}
     </div>
@@ -181,7 +183,7 @@ const socialLinks = [
     100% { transform: scale(1); }
   }
   
-  nav a:hover i {
+  nav a:hover svg {
     animation: iconPulse 0.3s ease-in-out;
   }
 

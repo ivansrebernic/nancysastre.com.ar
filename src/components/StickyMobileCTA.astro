@@ -1,0 +1,78 @@
+---
+// Barra fija de conversión para mobile (99.3% del tráfico). El CTA del header
+// vive en `hidden lg:flex`, así que en teléfono no había ningún llamado a la
+// acción persistente: el único elemento siempre visible era el botón de WhatsApp.
+//
+// Aparece recién al salir del hero (dentro del hero ya hay un CTA propio y taparlo
+// sería redundante) y se esconde cuando el formulario está en pantalla, para no
+// cubrir justo el campo que la persona está completando.
+---
+
+<div
+  id="sticky-cta"
+  class="lg:hidden fixed inset-x-0 bottom-0 z-[998] translate-y-full transition-transform duration-300 ease-out bg-sage/95 backdrop-blur-sm border-t border-primary-dark/15"
+>
+  <div class="px-4 py-3 flex items-center gap-3">
+    <p class="flex-1 text-xs leading-tight text-primary-dark/70">
+      Cupo medido de<br />incorporaciones mensuales
+    </p>
+    <a
+      href="#contact-wrap"
+      class="scroll-link btn-primary whitespace-nowrap px-5 py-3 text-sm"
+    >
+      Agendá tu entrevista
+    </a>
+  </div>
+</div>
+
+<style>
+  #sticky-cta {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  #sticky-cta.is-visible {
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #sticky-cta {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const bar = document.getElementById('sticky-cta');
+  const hero = document.getElementById('hero-section');
+  const form = document.getElementById('contact-wrap');
+
+  if (bar && hero) {
+    let pastHero = false;
+    let formVisible = false;
+
+    /** La barra sirve entre el final del hero y la llegada al formulario. */
+    function sync() {
+      const show = pastHero && !formVisible;
+      bar.classList.toggle('is-visible', show);
+      document.body.classList.toggle('sticky-cta-on', show);
+    }
+
+    new IntersectionObserver(
+      ([entry]) => {
+        pastHero = !entry.isIntersecting;
+        sync();
+      },
+      { threshold: 0 }
+    ).observe(hero);
+
+    if (form) {
+      new IntersectionObserver(
+        ([entry]) => {
+          formVisible = entry.isIntersecting;
+          sync();
+        },
+        { threshold: 0 }
+      ).observe(form);
+    }
+  }
+</script>
