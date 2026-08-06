@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import SpeedInsights from '@vercel/speed-insights/astro';
-import { SITE_TITLE, SITE_DESCRIPTION, GA_MEASUREMENT_ID, CLARITY_PROJECT_ID } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, GA_MEASUREMENT_ID, CLARITY_PROJECT_ID, META_PIXEL_ID } from '../consts';
 
 export interface Props {
   title?: string;
@@ -84,6 +84,22 @@ const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     gtag('config', gaId);
   </script>
 
+  {META_PIXEL_ID && (
+    <!-- Meta Pixel: sin esto Meta no puede optimizar por conversiones -->
+    <script is:inline define:vars={{ pixelId: META_PIXEL_ID }}>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', pixelId);
+      fbq('track', 'PageView');
+    </script>
+  )}
+
   {CLARITY_PROJECT_ID && (
     <!-- Microsoft Clarity (heatmaps + session recordings) -->
     <script is:inline define:vars={{ clarityId: CLARITY_PROJECT_ID }}>
@@ -155,7 +171,7 @@ const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
   </script>
 
   <script>
-    import { track } from '../lib/analytics';
+    import { track, trackMeta } from '../lib/analytics';
 
     // CTA clicks: any link pointing at the contact form, wherever it renders.
     document.addEventListener('click', (e) => {
@@ -210,6 +226,13 @@ const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         track('section_view', { section_id: entry.target.id });
+
+        // Llegar al formulario es la señal de intención con volumen que Meta
+        // necesita: los Lead son pocos por día para salir del aprendizaje.
+        if (entry.target.id === 'contact-wrap') {
+          trackMeta('ViewContent', { content_name: 'formulario_entrevista' });
+        }
+
         sectionObserver.unobserve(entry.target);
       });
     }, { threshold: 0, rootMargin: '0px 0px -25% 0px' });

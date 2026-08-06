@@ -240,7 +240,7 @@ import Icon from './Icon.astro';
 </style>
 
 <script>
-  import { track } from '../lib/analytics';
+  import { track, trackMeta } from '../lib/analytics';
 
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const flashMessage = document.getElementById('flash-message');
@@ -350,6 +350,7 @@ import Icon from './Icon.astro';
       if (response.ok) {
         formSubmitted = true;
         track('generate_lead', { form_id: 'contact-form' });
+        trackMeta('Lead', { content_name: 'entrevista_personalizada' });
         hideMessage();
         showSuccessPanel(String(formData.get('Nombre') ?? ''));
         form.reset();
