@@ -240,7 +240,7 @@ import Icon from './Icon.astro';
 </style>
 
 <script>
-  import { track, trackMeta } from '../lib/analytics';
+  import { track, trackMeta, tagClarity } from '../lib/analytics';
 
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const flashMessage = document.getElementById('flash-message');
@@ -316,6 +316,7 @@ import Icon from './Icon.astro';
     if (!formStarted) {
       formStarted = true;
       track('form_start', { form_id: 'contact-form' });
+      tagClarity('etapa', 'empezo_el_form');
     }
   });
 
@@ -351,6 +352,7 @@ import Icon from './Icon.astro';
         formSubmitted = true;
         track('generate_lead', { form_id: 'contact-form' });
         trackMeta('Lead', { content_name: 'entrevista_personalizada' });
+        tagClarity('etapa', 'envio_el_form');
         hideMessage();
         showSuccessPanel(String(formData.get('Nombre') ?? ''));
         form.reset();

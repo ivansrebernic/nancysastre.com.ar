@@ -171,7 +171,7 @@ const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
   </script>
 
   <script>
-    import { track, trackMeta } from '../lib/analytics';
+    import { track, trackMeta, tagClarity, keepClaritySession } from '../lib/analytics';
 
     // CTA clicks: any link pointing at the contact form, wherever it renders.
     document.addEventListener('click', (e) => {
@@ -231,6 +231,10 @@ const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
         // necesita: los Lead son pocos por día para salir del aprendizaje.
         if (entry.target.id === 'contact-wrap') {
           trackMeta('ViewContent', { content_name: 'formulario_entrevista' });
+          tagClarity('etapa', 'llego_al_form');
+          // ~7 sesiones diarias llegan hasta acá: son pocas y son las únicas
+          // que valen la pena mirar, así que ninguna puede caer en el sampleo.
+          keepClaritySession('llego_al_form');
         }
 
         sectionObserver.unobserve(entry.target);
