@@ -73,20 +73,32 @@ const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Outlined" rel="stylesheet">
 
 
+  <!-- Ningún tag se activa fuera del sitio real: las sesiones de desarrollo
+       ensucian las grabaciones de Clarity y, peor, le mandan conversiones
+       falsas al Pixel justo cuando Meta está aprendiendo. Se chequea en
+       runtime y no en build porque los previews de Vercel comparten el build
+       de producción. -->
+  <script is:inline>
+    window.__trackingOk = !/^(localhost$|127\.|0\.0\.0\.0$|192\.168\.|10\.)|\.local$|\.vercel\.app$/.test(location.hostname);
+  </script>
+
   <!-- Google tag (gtag.js) -->
   <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
   <script is:inline define:vars={{ gaId: GA_MEASUREMENT_ID }}>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    window.gtag = gtag;
-    gtag('js', new Date());
+    if (window.__trackingOk) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
 
-    gtag('config', gaId);
+      gtag('config', gaId);
+    }
   </script>
 
   {META_PIXEL_ID && (
     <!-- Meta Pixel: sin esto Meta no puede optimizar por conversiones -->
     <script is:inline define:vars={{ pixelId: META_PIXEL_ID }}>
+      if (window.__trackingOk) {
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -97,17 +109,20 @@ const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
       'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', pixelId);
       fbq('track', 'PageView');
+      }
     </script>
   )}
 
   {CLARITY_PROJECT_ID && (
     <!-- Microsoft Clarity (heatmaps + session recordings) -->
     <script is:inline define:vars={{ clarityId: CLARITY_PROJECT_ID }}>
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", clarityId);
+      if (window.__trackingOk) {
+        (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", clarityId);
+      }
     </script>
   )}
 </head>
